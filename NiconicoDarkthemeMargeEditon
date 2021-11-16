@@ -1,7 +1,7 @@
 /* ==UserStyle==
-@name           ニコニコダークテーマ統合版v1.5.2
+@name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.5.5
+@version        1.5.6
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	uso
@@ -2406,10 +2406,7 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 	li a:hover {
 		background-color: #464646 !important;
 		border-radius: 12px; }
-	/* タグにも適用されてる…… */
-	.___program-card___HpqGQ.___program-card___x3vdg:hover,
-	.___table-cell___3E0rV.___cell___3bYIQ:hover {
-		background-color: #393939 !important; }
+
 
 	/*スクロールバー*/
 	.___body___1zOW_,
@@ -2689,6 +2686,8 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 		color: #ddd }
 	li a[class^="___program-title"]:hover {
 		border-radius: 0px; }
+	ul[class*="___program-card-list___"] > li[class^="___item"] > div[class^="___program-card"]:hover{
+		background-color: #393939 !important; }
 
 
 	/*生放送タイトル*/
