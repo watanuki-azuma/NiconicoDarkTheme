@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.5.6
+@version        1.5.7
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	uso
@@ -22,7 +22,7 @@ top: 15px !important;
 .LikeItemAfter-thanksMessage::before{border-right-color:transparent !important;}
 .NicorepoPage-content{background-color:BaseColor !important;}
 .SubMenuButton{width:90% !important;}
-.SideContainer {margin-right: auto imp; width: 185px !important;}
+.SideContainer {margin-right: auto !important; width: 185px !important;}
 .ExpandBoxButton{height: auto !important;}
 .UserPageHeader{margin-top: -20px !important;margin-bottom: -10px !important;}
 .SubMenuLink{width: 95% !important;}
@@ -31,7 +31,17 @@ top: 15px !important;
 .LikeItemAfter > header{
 height:auto;
 margin-right: 10px !important;
-} EOT;
+}
+.UserPage-main{
+padding-right:290px;
+}
+.TagrepoContainer-timelineLayout{
+margin-left:0px;
+}
+.TagrepoContainer-timelineItem{
+height:280px;
+}
+EOT;
 }
 
 @advanced color ChangeRedColor "[マイページ]赤文字部分の色が変えられます" #53D253
@@ -3895,3 +3905,12 @@ url-prefix("https://news.nicovideo.jp/") {
 		; }
 	div[style="width:320px;height:50px;margin:0"] {
 		display: none; } }
+
+@-moz-document url-prefix("https://www.nicovideo.jp/"){
+	
+	/* 実験的部分 */
+	
+}
+
+
+
