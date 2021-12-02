@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.5.8
+@version        1.5.9
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	uso
@@ -2351,9 +2351,9 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 		color: #3f97d6 !important }
 	[class^="___program-information-header-area___"] {
 		z-index: 90; }
-
+	
 	/* フォローボタン */
-	[class*="___toggle-button___"][aria-pressed=true],
+	[class*="___toggle-button___"][aria-pressed="true"],
 	[class*="___toggle-button___"][aria-pressed="false"] {
 		background-color: #a9a9a9;
 		color: #616161 !important;
@@ -2361,6 +2361,11 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 	button[class^="___toggle-button___"][value="フォロー解除"]:hover {
 		color: #ff982a !important;
 		background-color: whitesmoke; }
+    
+    [class^="___social-group-menu-area___"] > form[data-follow-status="follow"] > span[class^="___follow-status"]{
+        color: #ddd;
+        background-color: #7a7a7a;
+    }
 
 	/* タグっぽいとこ */
 	[class^="___tag___"] {
