@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.5.9
+@version        1.5.10
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	uso
@@ -1015,6 +1015,8 @@ url-prefix("https://www.nicovideo.jp/series/") {
 
 @-moz-document url-prefix("https://www.nicovideo.jp/watch/") {
 
+	/* 動画視聴ページ */
+	
 	:root{
 		--Watchpagelinkcolor : #dd882d;
 	}
@@ -1570,7 +1572,7 @@ url-prefix("https://www.nicovideo.jp/series/") {
 	.ClickInterceptor.LoginRequirer {
 		background-color: transparent; }
 
-	.ActionButton.VideoStartButton.VideoStartButtonContainer {
+	.ActionButton.VideoStartButton.VideoStartButtonContainer,.PlaybackRateButton {
 		border: none !important; }
 	.FeedbackLink {
 		background-color: #515151 }
@@ -1918,6 +1920,16 @@ url-prefix("https://live.nicovideo.jp/") {
 	[aria-selected=true][class^="___edit-tab___"],
 	[aria-selected=true][class^="___register-tab___"] {
 		border-bottom-color: #ddd !important; }
+	
+	[class^="___konomi-tag-match-counter___"] > span > span{
+		color: orange !important;
+	}
+	[data-highlight="true"] [class^="___name-anchor___"]{
+		color: #4d3200;
+	}
+	ul[class^="___konomi-tag-list____"] > li > [class^="___tag___"][data-highlight="true"]{
+	background-color: #fff0dd;
+}
 
 	/* 背景とか */
 	[class^="___ranking-contents-area___"] {
