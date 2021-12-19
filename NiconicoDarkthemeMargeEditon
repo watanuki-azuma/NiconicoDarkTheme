@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.5.10
+@version        1.5.11
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	uso
@@ -320,6 +320,15 @@ DisableMarqueeArea "いらない" <<<EOT /* マーキーエリアを削除 *\/
 @advanced color NicoruRank4 "ニコるランク4の色(8以上？）" #9B0EB0
 @advanced color CtrlButtonHoverColor "[動画ページ]動画コントロールボタンホバー時の色" #007CFF
 @advanced color VolumeSeekBarColor "[動画ページ]動画ボリュームバーとシークバーの色" #007CFF
+
+@advanced dropdown OldVolumevar "[生放送]ボリュームバーを元に戻す" {
+	Original "しない*" <<<EOT /* なにもしない *\/ EOT;
+Oldvolumevar "する" <<<EOT /* 旧形式のボリュームバー *\/
+    [class^="___volume-size-control___"]{
+        transform: scaleX(1);
+    } EOT;
+
+}
 
 ==/UserStyle== */
 /*古い設定
@@ -2374,10 +2383,25 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 		color: #ff982a !important;
 		background-color: whitesmoke; }
     
-    [class^="___social-group-menu-area___"] > form[data-follow-status="follow"] > span[class^="___follow-status"]{
+    [class^="___social-group-menu-area___"] > form[data-follow-status=follow] > span[class^="___follow-status"]{
         color: #ddd;
         background-color: #7a7a7a;
     }
+    [class^="___social-group-menu-area___"] > form[data-follow-status=follow] > span[class^="___follow-status"]::before{
+        mix-blend-mode: color-dodge;  
+    }
+    
+    /* もうなにもわからない */
+    [class*="follow-toggle-form___"][data-follow-status=follow] [class^="___follow-status___"]{
+        color: #ddd;
+    }
+    [class*="follow-toggle-form___"][data-follow-status=follow] [class^="___follow-status___"]::before{
+        filter: invert(1);
+    }
+    
+    /* おまけ */
+
+    /*[[OldVolumevar]]*/
 
 	/* タグっぽいとこ */
 	[class^="___tag___"] {
