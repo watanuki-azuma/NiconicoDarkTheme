@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.5.11
+@version        1.5.12
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	uso
@@ -3408,6 +3408,15 @@ url-prefix("https://www.nicovideo.jp/mylist_search/") {
 
 	.tagCaption .itemDescription p .more {
 		color: #ffc570; }
+	
+	.videoList01 .itemContent .itemComment{
+        border-color: #818181;
+        background-color: #404040;
+    }
+    
+    .videoList01 .itemContent .itemTitle a:link{
+        color: #d5be50;
+    }
 
 
 	div#CommonHeader.CommonHeader .nico-CommonHeaderRoot > div > div > div > div > div > div > div > a[href*="header_service"],
