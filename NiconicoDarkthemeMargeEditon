@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.5.12
+@version        1.5.13
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	uso
@@ -2284,6 +2284,10 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 	/* コミュユーザーフォロー改 */
 	div[class^="___user-summary"] > form[class^="___follow-toggle-form"] > span[class^="___follow-status"] {
 		background-color: #545454; }
+
+	/* コミュ限枠　*/
+	div[class^="___limited-program-label___"]{border-color: #ddd; color: #ddd;}
+
 
 	/* 好みタグフォロー */
 	div[class^="___toolbar"] > form[class^="___follow-toggle-form"] > button[class^="___toggle-button"] {
