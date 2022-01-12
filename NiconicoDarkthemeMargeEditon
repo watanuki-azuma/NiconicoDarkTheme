@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.5.13
+@version        1.5.14
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	uso
@@ -1871,6 +1871,45 @@ url-prefix("https://live.nicovideo.jp/") {
 		background-color: #666 }
 	#common-header > div > div > div > div > div > div > div > div > div > div:nth-child(n) > a > div {
 		color: #ddd }
+    
+    /* 公式枠 */
+    [class^="___program-provider-type-label___"][data-provider-type=official]{
+        color: #ffde1f;
+        border-color: #ffde1f;
+    }
+    
+    /* タイムシフトカウント */
+    [class^="___timeshift-reserved-count___"] > span > span{
+        color: #ddd;
+    }
+    
+    /* カード背景色 */
+    [class^="___program-card___"][data-layout-type="card-view"]{
+        background-color: transparent;
+    }
+    
+    /* infoarea */
+    [class^="___event-information-anchor-list-section___"] > div > a[role="listitem"]:hover,[class^="___system-information-anchor-list-section___"] > div > a[role="listitem"]:hover{
+        background-color: #555;
+    }
+    
+    /* 番組ページ送りボタン */
+    button[class^="___page-selector___"]:not(:disabled):hover{
+        background-color: rgb(84 84 84);
+        height: 40px;
+        border-radius: 9999px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    button[class^="___page-selector___"][data-name=next],button[class^="___page-selector___"][data-name=prev]{
+        height: 40px;
+        border-radius: 9999px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 
 
 
@@ -2287,6 +2326,9 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 
 	/* コミュ限枠　*/
 	div[class^="___limited-program-label___"]{border-color: #ddd; color: #ddd;}
+    
+    /* ギフト放送ネタ使用不可表示 */
+    div[class^="___disabled-message___"]{color: #ddd}
 
 
 	/* 好みタグフォロー */
@@ -2638,6 +2680,11 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 		background-color: #303030 }
 	[class^="___table-row"]:hover {
 		background-color: #555 }
+    
+    [class^="___description-area___"] > div[class^="___name-area"] > span{color: #ddd;}
+    [class^="___description-area___"] > div[class^="___name-area"] > a[class^="___name-label"]:hover{
+        color: #ffcd34 !important;
+    }
 
 	/*ヘッダーまわり class名変更に耐えられる記述がよくわからないのできちんと書けるまで対応停止
 .common-header-15gxh1a, .common-header-1cuw74j, .common-header-5onxr7, .common-header-zz80x3, .common-header-1gq7o6w{background-color: #666 !important} 
