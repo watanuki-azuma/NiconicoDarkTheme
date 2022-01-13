@@ -1,380 +1,92 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.5.14
+@version        1.6.0
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
-@preprocessor	uso
+@preprocessor	stylus
 
-@advanced dropdown CombinedTsumerudake "[マイページ]詰めるだけと併用" {
-	NoCombinedTsumeru "しない*" <<<EOT /* 詰めるやつと併用しない *\/
-.LikeItemAfter-thanksMessage::after{
-	border-bottom-color: #777 !important;
-	top: -8px !important;
-} EOT;
-CombineTsumeru "する" <<<EOT /* 詰めるだけと併用する *\/
-.LikeItemAfter-thanksMessage::after{
-border-bottom-color: transparent !important;
-left: -14px !important;
-border-right-color: #777 !important;
-top: 15px !important;
-}
-.LikeItemAfter-thanksMessage::before{border-right-color:transparent !important;}
-.NicorepoPage-content{background-color:BaseColor !important;}
-.SubMenuButton{width:90% !important;}
-.SideContainer {margin-right: auto !important; width: 185px !important;}
-.ExpandBoxButton{height: auto !important;}
-.UserPageHeader{margin-top: -20px !important;margin-bottom: -10px !important;}
-.SubMenuLink{width: 95% !important;}
-.ExpandBoxButton_expanded{margin-top: -5px;}
-.HistoryPage{align-items : normal;}
-.LikeItemAfter > header{
-height:auto;
-margin-right: 10px !important;
-}
-.UserPage-main{
-padding-right:290px;
-}
-.TagrepoContainer-timelineLayout{
-margin-left:0px;
-}
-.TagrepoContainer-timelineItem{
-height:280px;
-}
-EOT;
-}
-
-@advanced color ChangeRedColor "[マイページ]赤文字部分の色が変えられます" #53D253
-@advanced dropdown Ad "[マイページ]広告" {
-	EnableAd "いる*" <<<EOT /* 広告いる *\/ EOT;
-DisableAd "いらない" <<<EOT /* 広告を消す *\/
-.HeaderContainer_Re-ad,.RightSideContainer-adWrap,.FormationFrame.RightSideContainer-formationFrame,.Ads.UserPageFooterContainer-ad,.PremiumBanner,.RightSideContainer,.Ads,.VideoAdContainer-player{
-    display: none !important
-} EOT;
-
-}
-@advanced dropdown MoreDarkTheme "[マイページ]より暗いテーマを利用" {
-	MoreDarkOff "しない*" <<<EOT /* More Dark Off *\/ EOT;
-MoreDarkOn "する" <<<EOT /* More Dark On*\/
-.UserPageHeader,.UserPage-header, .UserPageHeader, .UserDetailsHeader, .OtherMypageLinks, .ThreePointMenu, .ShareModal-modal, .MainMenuContainer-menu{background-color:#171717 !important;}
-body,.NicorepoPage-content{background-color: #1e1e1e !important;}
-.NicorepoItem-item,.UserItem-content,.MylistMediaObject-linkArea{background-color:#282828 !important; border: 1px solid #333 !important;}
-.UserDetailsHeader-levelLabel, .UserDetailsHeader-account, .UserDetailsStatusItem-linkLabel, .Dropdown-button, .NiconicoPoint, .OtherMypageLinks-link, .ThreePointMenu > *, .ShareModal-modal, .UserDetailsHeader-nickname, .MainMenuItem, .SubMenuLink-label, .ModalActionButton, .NicorepoItem-senderName, .NicorepoItem-item, .NicorepoItem-contentDetailTitle, .NicorepoItem-activityCreatedAt, .NicorepoItem-senderName:visited, .FeedbackLink, .NicorepoMuteItem-detail, .NicorepoMuteSettingContainer-infoHelp, .LiveLink, .FolloweeContainer-header, .SubMenuHeader-title, .UserItem-description, .UserItem-nickname, .WatchLaterHeader-name, .WatchLaterHeader-metaValue, .WatchLaterHeader-advice, .Checkbox-label, .MylistItemAddition-addedAt, .VideoMediaObject-bodyTitle, .VideoMediaObject-bodyDescription, .VideoMetaData-videoRegisteredAt, .VideoMetaData-count > *, .MylistPageSubMenuHeader-counterValue, .SortMylistsListItem-name, .ModalContent-footerSubmitButton, .MylistMediaObject-bodyFollowerCount, .MylistMediaObject-bodyDescription, .MylistMediaObject-bodyTitle, .VideoWatchHistoryContainer-headerTotalCountValue, .VideoWatchHistoryContainer-headerAnnounce, .LikeItemAfter-thanksMessage > h1, .BlankState-title, .a-list__title, .StampCard-title, .StampContainer-stampRanking a, .ExpandBoxButton, h1, .MylistHeader-name, .MylistHeader-metaItemValue, .CommunityItem-name, .CommunityItem-description, .FollowingTagContainer-tagNameLink, .FollowingTagContainer-nicodicSummary, a, .ChannelItem-description, .ChannelItem-name, .TagrepoItem-contentTagsItem, .TagrepoContainer-headerTagName, .LikeItemAfter-ownerName, .BlankState-recommendTitle, .BlankState-body, .BlankState-linkInner, .MylistDescription .ExpandBox_is-expanded, .NicoruHistoryPassiveItem-date{color: #c3c3c3;}
-.ThreePointMenu>:hover{color: #ccc; background-color: #383838;} EOT;
-
-}
-@advanced dropdown EnabelOrangeTheme "オレンジテーマ化（推奨）" {
-	EnableOrange "する*" <<<EOT /* Enable Orange like theme *\/
-
-/* 文字 *\/
-.UserDetailsHeader-levelLabelValue, .UserDetailsStatusItem-link, .CopyForm-copy, .SubMenuLink-link:hover .SubMenuLink-label, .SubMenuLink-link_active .SubMenuLink-label, .UserItem:hover .UserItem-nickname, .VideoMediaObject-linkArea:hover .VideoMediaObject-bodyTitle, .ModalContent-footerCancelButton, .MylistMediaObject:hover .MylistMediaObject-bodyTitle, .BadgeContainer-infoLink:hover, .ExpandBoxButton-overlay:hover + .ExpandBoxButton, .ExpandBoxButton:hover, .UserDescription .ExpandBox_is-expanded a{color: #dd9b00;}
-
-a:hover, .CommunityItem:hover .CommunityItem-name, .FollowingTagContainer-tagNameLink:hover, .ChannelItem:hover .ChannelItem-name{color: #f49112;}
-
-.MainMenuItem-active{color: #d9b04f;}
-
-.NicorepoItem-activityDescription[style="color: rgb(208, 2, 27);"]{color: #FBBC00 !important;}
-
-.MainMenuContainer-activeBorder{background-color: #d09200;}
-.RadioItem > input:checked + label::after{background: #f0b80e;}
-.MainMenuContainer-garageLink{background: linear-gradient(90deg,#9f6900,#b9a500);}
-.SubMenuLink-link_internal:hover{background-color: #3e342b;}
-.FollowButton:hover{background-color: #886700;}
-.FollowButton_following{background-color: #b08500;}
-.FollowButton{color: #ffe8bb;border: 1px solid #c88404;} EOT;
-DisableOrange "しない" <<<EOT /* Disable Orange theme *\/ EOT;
-}
-
-@advanced dropdown AdDouga "[動画ページ]広告" {
-	EnableAdDouga "いる*" <<<EOT /* 広告いる *\/ EOT;
-DisableAdDouga "いらない" <<<EOT /* 広告いらない *\/
-.CommentPanelBannerAd, .WatchAppContainer-switchToFlash,.PreVideoStartPremiumLinkOnEconomyTimeContainer,.BottomContainer-adContainer,.SideFollowAdContainer,.RectangleAdContainer{
-    display: none !important;
-} EOT;
-AllDisable "ボトムコンテナーごと消す（非推奨）" <<<EOT /* ボトムコンテナーごと消す *\/
-.BottomContainer,.CommentPanelBannerAd, .WatchAppContainer-switchToFlash, .UadButtonBalloon,.PreVideoStartPremiumLinkOnEconomyTimeContainer,.BottomContainer-adContainer,.SideFollowAdContainer,.RectangleAdContainer{display: none !important;} 
-EOT;
-}
-
-@advanced dropdown EasyCommentArea "[動画ページ]かんたんコメントエリア" {
-	EnabeleEasyComment "非表示*" <<<EOT /* かんたんコメントエリア非表示 *\/
-.EasyCommentContainer{
-    display: none !important;
-}
- EOT;
-DisableEasyComment "表示" <<<EOT /* かんたんコメントエリア表示 *\/
-.ActionButton.EasyCommentButton{
-    background-color: #484848 !important;
-}
-.EasyCommentContainer{
-    background-color: #0000!important;
-}
- EOT;
-
-}
+@var select Ad "[マイページ]広告除去"[
+    "Enable",
+    "Disable"
+]
 
 
-@advanced text setplayerpanel "コメントエリアの横幅を設定（単位px 307px未満に設定しないでください）" "384"
 
-@advanced dropdown ExtendedMoviePlayer "自動設定の拡大サイズをより大きく(1920x1080)" {
-	Extended "する" <<<EOT /* より自動設定によるサイズを大きく *\/ 
-	@media screen and (min-width: 2200px) and (min-height:1200px) {
-		body.is-autoResize .WatchAppContainer-main {
-			width: calc(2320px - (400px - var(--commentpanelwidth)));
-		}
-		body.is-autoResize:not(.is-fullscreen) .VideoContainer {
-			width: 1920px;
-			height: 1080px;
-		}
-		.CommentRenderer,
-		.CommentRenderer > canvas {
-			width: 1920px;
-			width: 1080px;
-}
-		.VideoStartButtonContainer::after {
-			top: calc((1080px / -2) + 44px);
-			bottom: 0;
-			left: calc((1920px / -2) + 42px);
-			content: "";
-			position: fixed;
-			z-index: 15500;
-			pointer-events: auto;
-			width: 1920px;
-			height: 1080px;
-		}
-}
-EOT;
-DisableExtended "しない*" <<<EOT /* *\/ EOT;
-}
+@var select CombinedTsumerudake "[マイページ]詰めるだけCSSを統合(製作者Gonbuto様)"[
+    "Deny",
+    "Allow"
+]
 
-@advanced dropdown FlatControllButton "[動画ページ]動画コントロールボタンのフラット化" {
-	EnableFlatButton "する*" <<<EOT /* 動画コントロールボタンのフラット化 *\/
-.ControllerButton {
-	border: none !important;
-	background-color: #000;
-} EOT;
-DisableFlatButton "しない" <<<EOT /* 動画コントロールボタンのフラット化をしない *\/ EOT;
-}
+@var text Setplayerpanel "[動画]コメントエリアの横幅を設定（単位px 307px未満に設定しないでください）" "384"
 
-@advanced dropdown HiddenSeekbar "[動画ページ]シークバーを自動的に隠す（ホバーで表示）" {
-	Enable "する" <<<EOT /* 自動的にシークバーを隠す *\/
-	.SeekBarContainer{
-		position: absolute;
-		width: 100%;
-		top: -10px;
-		z-index:60000000;
-	}
-	.SeekBar{
-		opacity: 0;
-		transition: 1s ease;
-	}
-	.SeekBar:hover{
-		opacity: 1;
-	}
-	.SeekBar .ProgressBar{
-		height: 6px;
-	}
-	.SeekBarHandle-handle{
-		top: -7px;
-	} EOT;
-Advance "動画コントロールボタンも隠す" <<<EOT /* 動画コントロールボタンも *\/
-	.SeekBarContainer{
-		top: -42px;
-		z-index:60000000;
-		position: absolute;
-	}
-	.SeekBar{
-		opacity: 0;
-		transition: 1s ease;
-	}
-	.SeekBar:hover{
-		opacity: 1;
-	}
-	
-	.ControllerContainer{
-		position: absolute;
-		top: -32px;
-		z-index: 100;
-		opacity: 0;
-		transition: 1s ease;
-	}
-	.ControllerContainer:hover{
-		opacity: 1;
-		background-color: #0000004f;
-	}
-	
-	.ControllerContainer-area > button{
-		background-color: transparent;
-	}
-	
-	.PlayerPlayTime > *{
-		color: #fff !important;
-	} EOT;
-Disable "しない*" <<<EOT /* シークバーを隠さない *\/ EOT;
-}
+@var text SetSelectedSize "[動画]動画再生ボタンの判定を拡大 動画プレイヤーのサイズを入力" "1440"
 
-@advanced dropdown MoveVideoContainer "[動画ページ]要素の再配置" {
-	Relocation "動画を上に移動*" <<<EOT 	
-	.WatchAppContainer-main {
-		display: flex!important;
-		flex-direction: column
-	}
-	.HeaderContainer {
-		background: transparent;
-	}
+@var text SetFitPlayerButton "[動画][実験的]動画再生停止ボタンをプレイヤーを覆うようにする（プレイヤーサイズを入力）" "0" 
 
-	.HeaderContainer {
-		order: 2!important;
-		padding-top: 0!important
-	}
+@var select AdDouga "[動画]広告"[
+	"Enable",
+	"Disable"
+]
 
-	.MainContainer {
-		order: 1!important;
-		margin-top: 19px!important
-	}
-
-	.HeaderContainer {
-		display: flex!important;
-		flex-direction: column
-	}
-
-	.TagContainer {
-		order: -1!important
-	}
-
-	.VideoDescriptionContainer {
-		order: 5!important
-	}EOT;
-NoMove "従来配置" <<<EOT /* 再配置を行わない *\/ EOT;
-}
-
-@advanced dropdown Nicoru "[動画ページ]ニコる" {
-	EnableNikoru "いる*" <<<EOT /* ニコるはそのまま *\/ EOT;
-DisableNikoru "いらない" <<<EOT /*ニコるを非表示*\/
-.CommentPanelContainer [data-row-nicoru-rank="1"],.CommentPanelContainer [data-row-nicoru-rank="2"],.CommentPanelContainer [data-row-nicoru-rank="3"],.CommentPanelContainer [data-row-nicoru-rank="4"],.CommentPanelContainer [data-row-nicoru-rank="0"]{
-background:#333 !important;
-}
-.CommentPanelDataGrid-HeaderCell[data-name*=nicoru]{
-    display:none !important;
-}
-.DataGrid-TableCell.CommentPanelDataGrid-TableCell[data-name*=nicoru]{
-    display:none !important;
-} EOT;
-
-}
-@advanced dropdown Series "[動画ページ]シリーズ" {
-	EnableSeries "いる*" <<<EOT /* シリーズ欄を表示しておく *\/ EOT;
-DisableSeries "いらない" <<<EOT /*シリーズ非表示*\/
-.VideoDescription-series{
-display:none;
-} EOT;
-}
-
-@advanced text SelectedSize "動画再生ボタンの判定を拡大 動画プレイヤーのサイズを入力" "1440"
-
-@advanced text FitPlayerButton "[動画][実験的]動画再生停止ボタンをプレイヤーを覆うようにする（プレイヤーサイズを入力）" "0" 
+@var select DisableButtomContainer "[動画][広告除去補助]ボトムコンテナーを消す（非推奨）"[
+	"Disable",
+	"Enable"
+]
 
 
-@advanced dropdown MoveSeries "[実験的 動画ページ]シリーズを動画説明欄と並べる" {
-	AdvancedEnable "する（上の方）" <<<EOT /* シリーズを動画説明欄と並べる *\/
-	.ReactCollapse--content{
-		display:flex;
-	}
-	.VideoDescriptionContainer{
-		width: 100%
-	}
-	.VideoDescription.is-expanded{
-		display: flex;
-	}
-	.VideoDescription-series{
-		height: 100%;
-		margin-left: 1vw;
-		margin-top: -0.2vw;
-	}
-	.VideoDescriptionExpander .VideoDescriptionExpander-switch{
-		right: 22vw;
-	} EOT;
-	Disable "しない*" <<<EOT /* シリーズを動画説明欄と並べない *\/ EOT;
-}
+@var select ExtendedMoviePlayer "[動画]自動設定の拡大サイズをより大きく(1920x1080)"[
+	"Enable",
+	"Disable"
+]
 
-@advanced dropdown SmoothComment "[動画ページ]コメント送りをスムーズスクロール化" {
-	Original "しない*" <<<EOT /* なにもしない *\/ EOT;
-SmoothCommentScroll "する" <<<EOT /* コメント送りのスムーズスクロール化 *\/
-.CommentPanelDataGrid .CommentPanelDataGrid-Body{
-    scroll-behavior:smooth;
-} EOT;
+@var select MoveVideoContainer "[動画]要素の再配置（動画プレイヤーを上に移動）"[
+	"Enable",
+	"Disable"
+]
 
-}
+@var select HiddenSeekbar "[動画]シークバーを自動的に隠す（ホバーで表示）"[
+	"Disable",
+	"Enable",
+	"Advance-Video_control_buttons_together"
+]
 
-@advanced dropdown MarqueeArea "[動画ページ]マーキーエリア（動画上ニュース等が流れる部分）" {
-	EnableMarqueeArea "いる*" <<<EOT /* マーキーエリアを削除しない *\/ EOT;
-DisableMarqueeArea "いらない" <<<EOT /* マーキーエリアを削除 *\/
-.MainContainer-marquee{
-    display: none;
-} EOT;
+@var select Nicoru "[動画]ニコる"[
+	"Enable",
+	"Disable"
+]
 
-}
-@advanced color NicoruRank1 "ニコるランク1の色（1~2)" #7F68CA
-@advanced color NicoruRank2 "ニコるランク2の色(3~5）" #6B2CA0
-@advanced color NicoruRank3 "ニコるランク3の色(6~7？)" #561B92
-@advanced color NicoruRank4 "ニコるランク4の色(8以上？）" #9B0EB0
-@advanced color CtrlButtonHoverColor "[動画ページ]動画コントロールボタンホバー時の色" #007CFF
-@advanced color VolumeSeekBarColor "[動画ページ]動画ボリュームバーとシークバーの色" #007CFF
+@var select MoveSeries "[実験的 動画]シリーズを動画説明欄と並べる"[
+	"Disable",
+	"Enable"
+]
 
-@advanced dropdown OldVolumevar "[生放送]ボリュームバーを元に戻す" {
-	Original "しない*" <<<EOT /* なにもしない *\/ EOT;
-Oldvolumevar "する" <<<EOT /* 旧形式のボリュームバー *\/
-    [class^="___volume-size-control___"]{
-        transform: scaleX(1);
-    } EOT;
 
-}
+@var select SmoothComment "[動画]コメントのスムーズスクロール化"[
+	"Disable",
+	"Enable"
+]
+
+@var select MarqueeArea "[動画]マーキーエリアの表示"[
+	"Enable",
+	"Disable"
+]
+
+@var color NicoruRank1 "ニコるランク1の色（1～2）" #7f68ca
+@var color NicoruRank2 "ニコるランク2の色（3～5）" #6b2ca0
+@var color NicoruRank3 "ニコるランク3の色（6～8）" #561b92
+@var color NicoruRank4 "ニコるランク4の色（9以上）" #9b0eb0
+
+@var color CtrlButtonHoverColor "[動画]動画コントロールボタンホバー時の色" #007CFF
+@var color VolumeSeekBarColor "[動画]動画ボリュームバーとシークバーの色" #007CFF
+
+@var select OldVolumebar "[生放送]ボリュームバーを常時表示にする"[
+    "Disable",
+    "Enable"    
+]
 
 ==/UserStyle== */
-/*古い設定
 
-@advanced dropdown largerscreen "[実験的 動画ページ]画面サイズ 固定大を大きく改変（WQHD向け）" {
-	Enable "する" <<<EOT     /* WQHD向けなんでしょうか…？ *\/
-	
-	body.is-large .WatchAppContainer-main{
-		width: 1840px;
-	}
-	.MainContainer-player{
-		width: 1440px;
-	}
-	.MainContainer-playerPanel{
-		width: 400px
-	}
-	body.is-large:not(.is-fullscreen) .VideoContainer{
-		width: 1440px;
-		height: 810px;
-	}
-	.CommentRenderer,.CommentRenderer > canvas{
-		width: 1440px !important;
-		height: 810px !important;
-	}
-EOT;
-	Disable "しない*" <<<EOT EOT;
-} 
-
-@advanced dropdown AdvancedStartButton "[動画ページ][実験的]動画再生ボタン判定の拡大" {
-	Enable "しない*" <<<EOT /* なにもしない *\/ EOT;
-Disable "する" <<<EOT /* ゴリ押しの極み *\/
-.VideoStartButtonContainer::after {
-	top: -361px;
-	bottom: 0;
-	left: -678px;
-	content: "";
-	position: fixed;
-	z-index: 15500;
-	pointer-events: auto;
-	width: 1440px;
-	height: 810px;
-} EOT;
-}
-
-@advanced text setplayersize "画面サイズ大の横幅を設定（単位px）" "854"
-*/
 @-moz-document domain("nicovideo.jp") {
 	/* ヘッダーメニュー */
 	div#CommonHeader.CommonHeader .nico-CommonHeaderRoot > div > div > div > div > div > div > div > a[href*="header_service"],
@@ -437,10 +149,23 @@ Disable "する" <<<EOT /* ゴリ押しの極み *\/
 url-prefix("https://www.nicovideo.jp/user"),
 url-prefix("https://site.nicovideo.jp/badge"),
 url-prefix("https://www.nicovideo.jp/series/") {
-	/* ここからマイページ */
-	/* メンテナンスお知らせバナー謎にz-index指定 */
-	.UrgentHeader_Re {
-		z-index: 100; }
+	
+	/* マイページ */
+	
+	:root{
+		--ChangeRedColor : mypageredcolor;
+		
+		if Ad == "Disable"{}
+		
+		else if Ad == "Enable"{
+			.HeaderContainer_Re-ad,.RightSideContainer-adWrap,.FormationFrame.RightSideContainer-formationFrame,.Ads.UserPageFooterContainer-ad,.PremiumBanner,.RightSideContainer,.Ads,.VideoAdContainer-player{
+    display: none !important
+		}
+		}
+	}
+	
+	
+
 
 	/* ユーザーページヘッダー */
 	.UserPage-header,
@@ -450,103 +175,110 @@ url-prefix("https://www.nicovideo.jp/series/") {
 	.ThreePointMenu,
 	.ShareModal-modal,
 	.MainMenuContainer-menu {
-		background-color: #555; }
+		background-color: #555;
+	}
 
 	.NiconicoPoint {
-		background-color: #757575; }
+		background-color: #757575;
+	}
 
 	.MainMenuContainer {
 		padding: 2px 0px 0px !important;
 		background-color: #757575;
-		transform: translateY(-2px) !important; }
+		transform: translateY(-2px) !important;
+	}
 
 	.MainMenuContainer-activeBorder {
-		background-color: #00b03b; }
+		background-color: #00b03b;
+	}
 
 	.MainMenuContainer-garageLink {
-		background: linear-gradient(90deg, #298a26, #046f6f); }
+		background: linear-gradient(90deg, #298a26, #046f6f);
+	}
 
 	.MainMenuContainer-garageLink:hover {
-		background: linear-gradient(90deg, #1e681c, #025151); }
+		background: linear-gradient(90deg, #1e681c, #025151);
+	}
 
 	/* 検索バー */
 	.CrossSearch_Re-rowSelector,
 	.CrossSearch_Re-form {
 		background-color: #515151;
-		border: 1px solid #646464; }
+		border: 1px solid #646464;
+	}
 
 	.CrossSearch_Re-rowService.active,
 	.CrossSearch_Re-rowService:hover {
 		background-color: #313131;
-		color: #ddd; }
+		color: #ddd;
+	}
 
 	.CrossSearch_Re-rowService {
-		color: #d7d7d7; }
+		color: #d7d7d7;
+	}
 
 	.CrossSearch_Re-form {
 		background: #515151;
-		box-shadow: inset 0 0 0 1px #646464; }
+		box-shadow: inset 0 0 0 1px #646464;
+	}
 
 	.CrossSearch_Re-inputt,
 	.CrossSearch_Re-input::placeholder {
-		color: #fff; }
+		color: #fff;
+	}
 
 	.CrossSearch_Re-button {
-		background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='1.4'%3E%3Cpath d='M60.3 74.5a40 40 0 1114.1-14.1l23.3 23.1a8 8 0 010 11.3l-2.9 2.9a8 8 0 01-11.3 0L60.3 74.5zM40 14a26 26 0 110 52 26 26 0 010-52z' fill='%23eee'/%3E%3C/svg%3E") no-repeat; }
-
-	.suggestBoxInner {
-		background-color: hsla(0, 0%, 18.4%, 0.98) }
-	.suggestBoxInner li a {
-		color: #ddd;
-		border: 1px solid transparent; }
-	.suggestBoxInner li a:hover {
-		background-color: transparent!important;
-		color: orange !important; }
-	.suggestBoxInner li:hover {
-		background-color: #404040 !important; }
-
-	.nicolib-SuggestSearch-suggestion-favtag-items {
-		scrollbar-width: thin;
-		scrollbar-color: transparent transparent; }
+		background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='1.4'%3E%3Cpath d='M60.3 74.5a40 40 0 1114.1-14.1l23.3 23.1a8 8 0 010 11.3l-2.9 2.9a8 8 0 01-11.3 0L60.3 74.5zM40 14a26 26 0 110 52 26 26 0 010-52z' fill='%23eee'/%3E%3C/svg%3E") no-repeat;
+	}
 
 	/*サブメニュー共通*/
 	.SubMenuLink-link_internal:hover {
-		background-color: #2b3831; }
+		background-color: #2b3831;
+	}
 
 	.SubMenuLink-link_active {
-		background-color: #2f2f2f; }
-
+		background-color: #2f2f2f;
+	}
 
 	/* ニコレポ */
 	.BaseLayout {
 		background-color: #3e3e3e;
-		color: #eee; }
+		color: #eee;
+	}
 
 	.RadioItem > input:checked + label::after {
-		background: #5fb752; }
+		background: #5fb752;
+	}
 
 	.ModalActionButton,
 	.FeedbackLink {
-		background-color: #555; }
+		background-color: #555;
+	}
 
 	.NicorepoItem-item {
 		background-color: #757575;
-		border: 1px solid #666; }
+		border: 1px solid #666;
+	}
 
 	/* ミュート設定 */
 	.ModalContent {
-		background-color: #555; }
+		background-color: #555;
+	}
 	.SubMenuButton {
-		color: #e2e2e2 !important; }
+		color: #e2e2e2 !important;
+	}
 	.MuteOverlay-text {
-		color: #ddd }
+		color: #ddd
+	}
 	.MuteOverlay.Fade {
-		background-color: hsla(0, 0%, 25.1%, 0.95) }
+		background-color: hsla(0, 0%, 25.1%, 0.95)
+	}
 
 	/* フォロー */
 	.UserItem-content {
 		border: 1px solid #888;
-		background-color: #5e5e5e; }
+		background-color: #5e5e5e;
+	}
 
 	.Checkbox-input:checked + .Checkbox-check::before,
 	.ContinuousPlayButton,
@@ -555,128 +287,151 @@ url-prefix("https://www.nicovideo.jp/series/") {
 	.Selectbox {
 		background-color: #c4c4c4;
 		border: 2px solid #aaa;
-		color: #373737; }
+		color: #373737;
+	}
 
 	.Selectbox-label,
 	.MylistSelectbox-item {
-		color: #373737; }
+		color: #373737;
+	}
 
 	.CommunityItem-content {
 		background-color: #555;
-		border: 1px solid #aaa; }
+		border: 1px solid #aaa;
+	}
 
 	/*フォロー中タグ*/
 	.FollowingTagContainer-content {
 		background: #555;
-		border: 1px solid #aaa; }
+		border: 1px solid #aaa;
+	}
 
 	.FollowingTagContainer-tagNameLink:visited {
-		color: #b3b3b3; }
+		color: #b3b3b3;
+	}
 
 	/* フォロー中チャンネル */
 	.ChannelItem-content {
 		background: #555;
-		border: 1px solid #aaa; }
+		border: 1px solid #aaa;
+	}
 
 	/* タグレポ */
 	.TagrepoItem {
 		background-color: #555;
-		border: 1px solid #aaa; }
+		border: 1px solid #aaa;
+	}
 
 	.TagrepoContainer-headerActionBackIcon {
-		fill: #bdbdbd; }
+		fill: #bdbdbd;
+	}
 
 
 	/* マイリスト */
 	.Selectbox-button_disabled .Selectbox-label {
-		color: #777; }
+		color: #777;
+	}
 
 	.MylistThumbnails {
 		background: #595959;
-		border: 1px solid #464646; }
+		border: 1px solid #464646;
+	}
 
 	.MylistThumbnails-thumbnail:nth-of-type(3)::before {
-		background: linear-gradient(90deg, hsla(0, 0%, 20.8%, 0), #595959); }
+		background: linear-gradient(90deg, hsla(0, 0%, 20.8%, 0), #595959);
+	}
 
 	.MylistThumbnails-itemCount,
 	.NC-MediaObject .NC-MediaObjectTitle {
-		color: #ccc; }
+		color: #ccc;
+	}
 
 	.ModalContent_with-footer .ModalContent-body {
-		background-color: #555; }
+		background-color: #555;
+		background: none;
+	}
 
 	.ModalContent-footer {
-		background-color: #333; }
+		background-color: #333;
+	}
 
 	.ModalContent-footerSubmitButton {
-		background-color: green; }
+		background-color: green;
+	}
 
 	.MylistMediaObject-linkArea {
 		background-color: #757575;
-		border: 1px solid #666; }
+		border: 1px solid #666;
+	}
 
 	/* 履歴 */
 	.LikeItemAfter-thanksMessage {
 		background-color: #757575;
-		border: 1px solid #666; }
+		border: 1px solid #666;
+	}
 
 	.LikeItemAfter-thanksMessage::after {
-		border-bottom-color: #646464; }
-
-	/* ソートボックス */
-	[class^="Snap Selectbox SortSelectbox"] {
-		background-color: #333; }
-	[class^="Snap Selectbox SortSelectbox"] > .SortSelectbox-item {
-		color: #ddd; }
-	[class^="Snap Selectbox SortSelectbox"] > .SortSelectbox-item:hover {
-		color: #ddd;
-		background-color: #595959; }
+		border-bottom-color: #646464;
+	}
 
 	/* ニコられたコメント */
 	.NicoruHistoryPassiveItem {
-		background-color: #757575; }
+		background-color: #757575;
+	}
 
 	.NicoruHistoryPassiveItem-videoOwner,
 	.NicoruHistoryPassiveItem-video {
-		background: #333; }
+		background: #333;
+	}
 
 	/* バッジ */
 	.t-badge-wrapper--list {
-		background: #333; }
+		background: #333;
+	}
 
 	.m-badge-card {
 		background: #757575;
-		border: solid 1px #666; }
+		border: solid 1px #666;
+	}
 	/* スタンプ */
 	.StampCard {
-		background: #757575; }
+		background: #757575;
+	}
 
 	/* 他ユーザーページ */
 	.ExpandBoxButton-overlay {
-		background: none !important; }
+		background: none !important;
+	}
 	.ExpandBoxButton {
 		background-color: #333;
 		border-radius: 15px;
-		top: 60%; }
+		top: 60%;
+	}
 	.UserDescription {
-		margin-bottom: 15px; }
+		margin-bottom: 15px;
+	}
 
 	.UserItem-content {
-		border: 1px solid #666; }
+		border: 1px solid #666;
+	}
 
 	.FollowButton:hover {
-		background-color: green; }
+		background-color: green;
+	}
 
 	.FollowButton {
 		color: #a2e1a2;
-		border: 1px solid #558655; }
+		border: 1px solid #558655;
+	}
 
 	.FollowButton_following {
-		background-color: #00513a; }
-
-	.OtherMypageLinks-link:hover {
+		background-color: #00513a;
+	}
+	
+	.OtherMypageLinks-link:hover{
 		background-color: #404040;
-		color: #ddd; }
+		color: #ddd;
+	}
 
 	/* 文字 */
 	.UserDetailsHeader-levelLabel,
@@ -745,7 +500,8 @@ url-prefix("https://www.nicovideo.jp/series/") {
 	.BlankState-linkInner,
 	.MylistDescription .ExpandBox_is-expanded,
 	.NicoruHistoryPassiveItem-date {
-		color: #ddd; }
+		color: #ddd;
+	}
 
 	.UserDetailsHeader-levelLabelValue,
 	.UserDetailsStatusItem-link,
@@ -760,134 +516,156 @@ url-prefix("https://www.nicovideo.jp/series/") {
 	.ExpandBoxButton-overlay:hover + .ExpandBoxButton,
 	.ExpandBoxButton:hover,
 	.UserDescription .ExpandBox_is-expanded a {
-		color: #00b03d; }
+		color: #00b03d;
+	}
 
 	.VideoWatchHistoryItemAfter {
-		color: #acacac; }
+		color: #acacac;
+	}
 
 	span > * {
-		color: #eee; }
+		color: #eee;
+	}
 
 	.NicorepoItem-activityCreatedAt_new {
-		color: #f88da0; }
+		color: #f88da0;
+	}
 
 	.MylistHeader-metaItem,
 	.TagrepoItem-footerMeta,
 	.TagrepoContainer-headerActionBack {
-		color: #aaa; }
+		color: #aaa;
+	}
 
 	.MainMenuItem-active {
-		color: #99ccab; }
+		color: #99ccab;
+	}
 
 	/* ホバー */
 	.Dropdown-button:hover,
 	.ShareButton:hover,
 	.ThreePointMenu-button:hover {
-		background-color: #252525; }
+		background-color: #252525;
+	}
 
 	a:hover,
 	.CommunityItem:hover .CommunityItem-name,
 	.FollowingTagContainer-tagNameLink:hover,
 	.ChannelItem:hover .ChannelItem-name {
-		color: #46aa3d; }
+		color: #46aa3d;
+	}
 
 	/* SVG */
 	.Dropdown-button::after {
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ccc' fill-rule='evenodd' d='M7.2 10h9.6a.5.5 0 01.3.9l-4.7 4.7a.5.5 0 01-.8 0L7 11a.5.5 0 01.3-.9z'/%3E%3C/svg%3E"); }
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ccc' fill-rule='evenodd' d='M7.2 10h9.6a.5.5 0 01.3.9l-4.7 4.7a.5.5 0 01-.8 0L7 11a.5.5 0 01.3-.9z'/%3E%3C/svg%3E");
+	}
 
 	.ShareButton {
-		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 7.5A2.3 2.3 0 0116.3 5a2.2 2.2 0 11-1.4 4l-6 3.3a2.3 2.3 0 010 .3l5.8 2.6a2.2 2.2 0 013.8 1.6 2.2 2.2 0 11-4.5-.1l-5.7-2.5a2.2 2.2 0 01-3.8-1.6 2.2 2.2 0 013.6-1.8l6-3.3z' fill='%23ccc'/%3E%3C/svg%3E"); }
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 7.5A2.3 2.3 0 0116.3 5a2.2 2.2 0 11-1.4 4l-6 3.3a2.3 2.3 0 010 .3l5.8 2.6a2.2 2.2 0 013.8 1.6 2.2 2.2 0 11-4.5-.1l-5.7-2.5a2.2 2.2 0 01-3.8-1.6 2.2 2.2 0 013.6-1.8l6-3.3z' fill='%23ccc'/%3E%3C/svg%3E");
+	}
 
 	.ThreePointMenu-button {
-		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.7 16.4c1 0 1.8.8 1.8 1.8s-.8 1.8-1.8 1.8-1.7-.8-1.7-1.8.8-1.8 1.7-1.8zm0-6.2c1 0 1.8.8 1.8 1.8s-.8 1.8-1.8 1.8S10 13 10 12s.8-1.8 1.7-1.8zm0-6.2c1 0 1.8.8 1.8 1.8s-.8 1.8-1.8 1.8S10 6.8 10 5.8 10.8 4 11.7 4z' fill='%23ccc'/%3E%3C/svg%3E"); }
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.7 16.4c1 0 1.8.8 1.8 1.8s-.8 1.8-1.8 1.8-1.7-.8-1.7-1.8.8-1.8 1.7-1.8zm0-6.2c1 0 1.8.8 1.8 1.8s-.8 1.8-1.8 1.8S10 13 10 12s.8-1.8 1.7-1.8zm0-6.2c1 0 1.8.8 1.8 1.8s-.8 1.8-1.8 1.8S10 6.8 10 5.8 10.8 4 11.7 4z' fill='%23ccc'/%3E%3C/svg%3E");
+	}
 
 	.NiconicoLogo_re {
-		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 179 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M137.7 27a1.4 1.4 0 00.4-2 13.3 13.3 0 01.6-15.3 1.4 1.4 0 00-1.1-2.2c-.5 0-.9.2-1.1.5a16 16 0 00-.8 18.5 1.4 1.4 0 002 .4m38.7-.4a16 16 0 00-.7-18.5c-.3-.3-.7-.5-1.1-.5a1.4 1.4 0 00-1.4 1.2c0 .3 0 .7.3 1A13.2 13.2 0 01174 25a1.4 1.4 0 00.4 2l.8.2c.4 0 .9-.3 1.1-.7m-8.8-8c0 .3-.2.4-.4.4a79.4 79.4 0 01-4.7-.2c0-.6 1.1-1.8 2.7-1.8 2 0 2.4 1.2 2.4 1.6m2.5 6.4c.3-.3.4-.6.4-1 0-.7-.6-1.4-1.4-1.4-.3 0-.6.2-.9.5-.6.7-1.5 1.4-3 1.4-1.4 0-3-1-3-2.8 0-.3.1-.5.2-.5h5.7c1.6 0 2.4-1 2.4-2.2 0-1.8-1.9-4.3-5.3-4.3-3.2 0-5.8 2.5-5.8 6.2 0 3.6 2.5 6 5.8 6a6 6 0 005-2M153 13.4c0 1.2-1 2.5-2.7 2.6h-1.4c-1.5 0-1.9 0-1.9-.5V12c.1-.7.2-.8 1.9-.8h1.2c2 .2 2.9 1.2 2.9 2.2m5.3 12c0-.7-.4-1.4-1.4-1.5h-.2c-.3-.1-.6-.3-1-.9l-1.6-2.4a32 32 0 00-1.8-2.7l.4-.2c2-.4 3.2-2.4 3.2-4.3 0-2-1.4-4.4-5.5-4.7h-6.6c-1 0-1.4.7-1.4 1.4s.4 1.4 1.6 1.4a446.8 446.8 0 01.3 7c0 5.6 0 5.6-.4 5.6-1 0-1.6.7-1.6 1.4s.6 1.3 1.7 1.3h3.6c1 0 1.5-.7 1.5-1.4 0-.6-.4-1.2-1.5-1.3-.3 0-.6-.2-.6-.6v-4.6c0-.6.2-.6 1.6-.6.5 0 1.2.7 2.8 3.3.1 0 1.3 2 1.3 2.3 0 .2 0 .3-.2.4-.7.1-1 .7-1 1.3 0 .6.5 1.2 1.4 1.2h3.8c1 0 1.6-.8 1.6-1.5M127.6 22v-9.1c0-3-2.3-5.3-5.2-5.3h-11.2c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h10.1c1.2 0 2 .8 2 2v6.9c0 1.2-.7 2-2 2h-10.1c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h11.2c2.9 0 5.2-2.4 5.2-5.3M104 25c0-1.2-1-2.2-2.2-2.2H87.3c-1.2 0-2.2 1-2.2 2.3 0 1.2 1 2.2 2.2 2.2h14.5c1.2 0 2.2-1 2.2-2.2m-.2-15c0-1.3-1-2.3-2.2-2.3h-14c-1.3 0-2.3 1-2.3 2.3 0 1.2 1 2.2 2.2 2.2h14.1c1.2 0 2.2-1 2.2-2.2M79.7 21.9v-9.1c0-3-2.4-5.3-5.3-5.3H63.2c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h10.2a2 2 0 012 2v6.9c0 1.2-.8 2-2 2H63.2c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h11.2c3 0 5.3-2.4 5.3-5.3m-23.7 3c0-1.2-1-2.2-2.1-2.2H39.3c-1.2 0-2.1 1-2.1 2.3 0 1.2 1 2.2 2.1 2.2H54c1.2 0 2.1-1 2.1-2.2M56 10c0-1.3-1-2.3-2.2-2.3H39.6c-1.2 0-2.2 1-2.2 2.3 0 1.2 1 2.2 2.2 2.2h14c1.3 0 2.3-1 2.3-2.2M24.2 7.9h-7.7l3.2-3a1 1 0 000-1.5 1 1 0 00-1.5-.1l-4.9 4.6-4.9-4.6a1 1 0 00-1.5 0c-.4.5-.4 1.2 0 1.6l3.2 3H2.4C1 7.9 0 8.9 0 10.3v14.3C0 25.9 1 27 2.4 27h3l1.8 2c.3.4.8.4 1 0l1.9-2h6.4l1.8 2c.3.4.8.4 1.1 0l1.8-2h3c1.3 0 2.4-1.1 2.4-2.4V10.3c0-1.3-1-2.4-2.4-2.4' fill='%23eee' fill-rule='evenodd'/%3E%3C/svg%3E"); }
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 179 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M137.7 27a1.4 1.4 0 00.4-2 13.3 13.3 0 01.6-15.3 1.4 1.4 0 00-1.1-2.2c-.5 0-.9.2-1.1.5a16 16 0 00-.8 18.5 1.4 1.4 0 002 .4m38.7-.4a16 16 0 00-.7-18.5c-.3-.3-.7-.5-1.1-.5a1.4 1.4 0 00-1.4 1.2c0 .3 0 .7.3 1A13.2 13.2 0 01174 25a1.4 1.4 0 00.4 2l.8.2c.4 0 .9-.3 1.1-.7m-8.8-8c0 .3-.2.4-.4.4a79.4 79.4 0 01-4.7-.2c0-.6 1.1-1.8 2.7-1.8 2 0 2.4 1.2 2.4 1.6m2.5 6.4c.3-.3.4-.6.4-1 0-.7-.6-1.4-1.4-1.4-.3 0-.6.2-.9.5-.6.7-1.5 1.4-3 1.4-1.4 0-3-1-3-2.8 0-.3.1-.5.2-.5h5.7c1.6 0 2.4-1 2.4-2.2 0-1.8-1.9-4.3-5.3-4.3-3.2 0-5.8 2.5-5.8 6.2 0 3.6 2.5 6 5.8 6a6 6 0 005-2M153 13.4c0 1.2-1 2.5-2.7 2.6h-1.4c-1.5 0-1.9 0-1.9-.5V12c.1-.7.2-.8 1.9-.8h1.2c2 .2 2.9 1.2 2.9 2.2m5.3 12c0-.7-.4-1.4-1.4-1.5h-.2c-.3-.1-.6-.3-1-.9l-1.6-2.4a32 32 0 00-1.8-2.7l.4-.2c2-.4 3.2-2.4 3.2-4.3 0-2-1.4-4.4-5.5-4.7h-6.6c-1 0-1.4.7-1.4 1.4s.4 1.4 1.6 1.4a446.8 446.8 0 01.3 7c0 5.6 0 5.6-.4 5.6-1 0-1.6.7-1.6 1.4s.6 1.3 1.7 1.3h3.6c1 0 1.5-.7 1.5-1.4 0-.6-.4-1.2-1.5-1.3-.3 0-.6-.2-.6-.6v-4.6c0-.6.2-.6 1.6-.6.5 0 1.2.7 2.8 3.3.1 0 1.3 2 1.3 2.3 0 .2 0 .3-.2.4-.7.1-1 .7-1 1.3 0 .6.5 1.2 1.4 1.2h3.8c1 0 1.6-.8 1.6-1.5M127.6 22v-9.1c0-3-2.3-5.3-5.2-5.3h-11.2c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h10.1c1.2 0 2 .8 2 2v6.9c0 1.2-.7 2-2 2h-10.1c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h11.2c2.9 0 5.2-2.4 5.2-5.3M104 25c0-1.2-1-2.2-2.2-2.2H87.3c-1.2 0-2.2 1-2.2 2.3 0 1.2 1 2.2 2.2 2.2h14.5c1.2 0 2.2-1 2.2-2.2m-.2-15c0-1.3-1-2.3-2.2-2.3h-14c-1.3 0-2.3 1-2.3 2.3 0 1.2 1 2.2 2.2 2.2h14.1c1.2 0 2.2-1 2.2-2.2M79.7 21.9v-9.1c0-3-2.4-5.3-5.3-5.3H63.2c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h10.2a2 2 0 012 2v6.9c0 1.2-.8 2-2 2H63.2c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h11.2c3 0 5.3-2.4 5.3-5.3m-23.7 3c0-1.2-1-2.2-2.1-2.2H39.3c-1.2 0-2.1 1-2.1 2.3 0 1.2 1 2.2 2.1 2.2H54c1.2 0 2.1-1 2.1-2.2M56 10c0-1.3-1-2.3-2.2-2.3H39.6c-1.2 0-2.2 1-2.2 2.3 0 1.2 1 2.2 2.2 2.2h14c1.3 0 2.3-1 2.3-2.2M24.2 7.9h-7.7l3.2-3a1 1 0 000-1.5 1 1 0 00-1.5-.1l-4.9 4.6-4.9-4.6a1 1 0 00-1.5 0c-.4.5-.4 1.2 0 1.6l3.2 3H2.4C1 7.9 0 8.9 0 10.3v14.3C0 25.9 1 27 2.4 27h3l1.8 2c.3.4.8.4 1 0l1.9-2h6.4l1.8 2c.3.4.8.4 1.1 0l1.8-2h3c1.3 0 2.4-1.1 2.4-2.4V10.3c0-1.3-1-2.4-2.4-2.4' fill='%23eee' fill-rule='evenodd'/%3E%3C/svg%3E");
+	}
 
 	.PageTopButton-icon path {
-		fill: #ccc !important; }
+		fill: #ccc !important;
+	}
 
 	.PageTopButton {
-		background-color: #2d2d2d; }
+		background-color: #2d2d2d;
+	}
 
 	/* スクロールバー only Firefox */
 	.Snap.Dropdown.OtherMypageLinks,
 	.ModalContent-body,
 	.Selectbox {
-		scrollbar-width: thin; }
+		scrollbar-width: thin;
+	}
 
 	/*シリーズ*/
 	body {
 		background-color: #3e3e3e;
-		color: #b9b9b9; }
+		color: #b9b9b9;
+	}
 
 	.VideoMediaObject-title a {
-		color: #ccc; }
+		color: #ccc;
+	}
 
 	.SeriesAdditionalContainer-ownerName {
-		color: #b9b9b9; }
+		color: #b9b9b9;
+	}
 
 	.SeriesMenuContainer-seriesItemLink {
-		color: #aeaeae; }
+		color: #aeaeae;
+	}
 
 	.SearchBox-option {
 		background-color: #494949;
-		color: #cecece; }
+		color: #cecece;
+	}
 
 	.SeriesMenuContainer-seriesList {
-		background: #2b2b2b; }
+		background: #2b2b2b;
+	}
 
 	.SearchBox-query {
-		background: #353535c4; }
+		background: #353535c4;
+	}
 
 	input::placeholder {
-		color: #fff; }
+		color: #fff;
+	}
 
 	.SeriesMenuContainer-seriesList::-webkit-scrollbar-thumb {
 		background: #676767;
-		border: 5px solid #292929; }
+		border: 5px solid #292929;
+	}
 
 	.NicovideoLogo.LogoContainer-nicovideoLogo[data-color="black"] {
-		background-image: url("data:image/svg+xml,%3Csvg width='160' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M96 23.7H83.5a2.5 2.5 0 01-2.4-2.5c0-1.3 1-2.4 2.4-2.4h11.4c1.4 0 2.3-.8 2.3-2.3V8.8c0-1.4-1-2.3-2.3-2.3H83.4A2.5 2.5 0 0181 4c0-1.3 1-2.5 2.4-2.5h12.7a6 6 0 015.9 6v10.3a6 6 0 01-6 6m-23.1 0H56.5a2.5 2.5 0 01-2.4-2.6c0-1.3 1-2.4 2.4-2.4H73c1.3 0 2.4 1 2.4 2.4s-1 2.5-2.4 2.5m-.3-16.9h-16a2.5 2.5 0 01-2.4-2.5c0-1.3 1-2.5 2.4-2.5h16C74 1.8 75 3 75 4.3c0 1.4-1.1 2.5-2.5 2.5M42 23.8H29.4a2.5 2.5 0 01-2.5-2.6c0-1.3 1.1-2.4 2.5-2.4h11.4c1.4 0 2.2-.8 2.2-2.3V8.8c0-1.4-.9-2.3-2.2-2.3H29.4A2.5 2.5 0 0126.9 4c0-1.3 1.1-2.5 2.5-2.5H42a6 6 0 016 6v10.3a6 6 0 01-6 6m-23.2 0H2.5A2.5 2.5 0 010 21.1c0-1.3 1.1-2.4 2.5-2.4h16.3c1.4 0 2.5 1 2.5 2.4s-1.1 2.5-2.5 2.5m-.2-16.9h-16A2.5 2.5 0 01.3 4.3C.2 3 1.3 1.8 2.7 1.8h15.9C19.9 1.8 21 3 21 4.3c0 1.4-1 2.5-2.4 2.5m99.2 3.8v.5h-2v-1h1.5c.3 0 .5.2.5.5m-.6 3.3h-1.4v-1h2v.4c0 .4-.2.6-.6.6m-6.3-.6V13h2.1v1h-1.5c-.3 0-.6-.2-.6-.6m.6-3.2h1.5v1h-2v-.4c0-.3.1-.6.5-.6m15.1-6.3H125V1.5a1.5 1.5 0 10-3 0v2.3h-6V3h3.3a1.4 1.4 0 000-2.7h-9.4a1.4 1.4 0 000 2.7h3v1H110a1.5 1.5 0 100 3h2.9v1h-2.6c-1 0-2.1.6-2.1 2v4.3c0 1 1 2 2.1 2h2.6v.9h-3.1a1.2 1.2 0 000 2.4h3v1h-3a1.5 1.5 0 100 3h9.3a1.5 1.5 0 100-3h-3.2v-1h3.4a1.2 1.2 0 000-2.4h-3.4v-1h2.3c1.2 0 2.4-.7 2.4-2V9.9a2 2 0 00-2-2h-2.7v-1h6v10.6a1.5 1.5 0 003 0V6.9h1.7c.4 0 .4.3.4.6a2020 2020 0 010 12.5c0 .6-.8.7-1.1.7H123a1.5 1.5 0 000 3h2.9c2.4 0 4.1-1.5 4.1-3.7a2069.4 2069.4 0 010-12.5c0-2-1.4-3.7-3.4-3.7M160 6v13c0 2.6-2 4.6-4.6 4.6H140c-2.5 0-4.6-2-4.6-4.6V6a1.4 1.4 0 012.9 0v13c0 1 .7 1.8 1.7 1.8h15.4c1 0 1.7-.8 1.7-1.8V6a1.4 1.4 0 012.9 0m-7.4 2.8V11H149V8h2.8c.4 0 .7.3.7.7m-.7 7.7H149v-3h3.4V16c0 .3-.2.6-.6.6m-9-.7v-2.3h3.4v3h-2.8a.6.6 0 01-.7-.7m.7-7.7h2.8v3h-3.5V8.8c0-.4.3-.7.7-.7m-2.3-5h5v2.3h-3.3a2.8 2.8 0 00-2.8 2.8v8.3c0 1.5 1.2 2.8 2.8 2.8h9.6c1.6 0 2.8-1.3 2.8-2.8V8.2c0-1.6-1.2-2.8-2.8-2.8h-3.3V3.2h5a1.5 1.5 0 100-3h-13a1.5 1.5 0 000 3' fill='%23eee' fill-rule='evenodd'/%3E%3C/svg%3E"); }
+		background-image: url("data:image/svg+xml,%3Csvg width='160' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M96 23.7H83.5a2.5 2.5 0 01-2.4-2.5c0-1.3 1-2.4 2.4-2.4h11.4c1.4 0 2.3-.8 2.3-2.3V8.8c0-1.4-1-2.3-2.3-2.3H83.4A2.5 2.5 0 0181 4c0-1.3 1-2.5 2.4-2.5h12.7a6 6 0 015.9 6v10.3a6 6 0 01-6 6m-23.1 0H56.5a2.5 2.5 0 01-2.4-2.6c0-1.3 1-2.4 2.4-2.4H73c1.3 0 2.4 1 2.4 2.4s-1 2.5-2.4 2.5m-.3-16.9h-16a2.5 2.5 0 01-2.4-2.5c0-1.3 1-2.5 2.4-2.5h16C74 1.8 75 3 75 4.3c0 1.4-1.1 2.5-2.5 2.5M42 23.8H29.4a2.5 2.5 0 01-2.5-2.6c0-1.3 1.1-2.4 2.5-2.4h11.4c1.4 0 2.2-.8 2.2-2.3V8.8c0-1.4-.9-2.3-2.2-2.3H29.4A2.5 2.5 0 0126.9 4c0-1.3 1.1-2.5 2.5-2.5H42a6 6 0 016 6v10.3a6 6 0 01-6 6m-23.2 0H2.5A2.5 2.5 0 010 21.1c0-1.3 1.1-2.4 2.5-2.4h16.3c1.4 0 2.5 1 2.5 2.4s-1.1 2.5-2.5 2.5m-.2-16.9h-16A2.5 2.5 0 01.3 4.3C.2 3 1.3 1.8 2.7 1.8h15.9C19.9 1.8 21 3 21 4.3c0 1.4-1 2.5-2.4 2.5m99.2 3.8v.5h-2v-1h1.5c.3 0 .5.2.5.5m-.6 3.3h-1.4v-1h2v.4c0 .4-.2.6-.6.6m-6.3-.6V13h2.1v1h-1.5c-.3 0-.6-.2-.6-.6m.6-3.2h1.5v1h-2v-.4c0-.3.1-.6.5-.6m15.1-6.3H125V1.5a1.5 1.5 0 10-3 0v2.3h-6V3h3.3a1.4 1.4 0 000-2.7h-9.4a1.4 1.4 0 000 2.7h3v1H110a1.5 1.5 0 100 3h2.9v1h-2.6c-1 0-2.1.6-2.1 2v4.3c0 1 1 2 2.1 2h2.6v.9h-3.1a1.2 1.2 0 000 2.4h3v1h-3a1.5 1.5 0 100 3h9.3a1.5 1.5 0 100-3h-3.2v-1h3.4a1.2 1.2 0 000-2.4h-3.4v-1h2.3c1.2 0 2.4-.7 2.4-2V9.9a2 2 0 00-2-2h-2.7v-1h6v10.6a1.5 1.5 0 003 0V6.9h1.7c.4 0 .4.3.4.6a2020 2020 0 010 12.5c0 .6-.8.7-1.1.7H123a1.5 1.5 0 000 3h2.9c2.4 0 4.1-1.5 4.1-3.7a2069.4 2069.4 0 010-12.5c0-2-1.4-3.7-3.4-3.7M160 6v13c0 2.6-2 4.6-4.6 4.6H140c-2.5 0-4.6-2-4.6-4.6V6a1.4 1.4 0 012.9 0v13c0 1 .7 1.8 1.7 1.8h15.4c1 0 1.7-.8 1.7-1.8V6a1.4 1.4 0 012.9 0m-7.4 2.8V11H149V8h2.8c.4 0 .7.3.7.7m-.7 7.7H149v-3h3.4V16c0 .3-.2.6-.6.6m-9-.7v-2.3h3.4v3h-2.8a.6.6 0 01-.7-.7m.7-7.7h2.8v3h-3.5V8.8c0-.4.3-.7.7-.7m-2.3-5h5v2.3h-3.3a2.8 2.8 0 00-2.8 2.8v8.3c0 1.5 1.2 2.8 2.8 2.8h9.6c1.6 0 2.8-1.3 2.8-2.8V8.2c0-1.6-1.2-2.8-2.8-2.8h-3.3V3.2h5a1.5 1.5 0 100-3h-13a1.5 1.5 0 000 3' fill='%23CCCCCC' fill-rule='evenodd'/%3E%3C/svg%3E");
+	}
+	
+	
+			.UserPageHeader,.UserPage-header, .UserPageHeader, .UserDetailsHeader, .OtherMypageLinks, .ThreePointMenu, .ShareModal-modal, .MainMenuContainer-menu{background-color:#171717 !important;}
+body,.NicorepoPage-content{background-color: #1e1e1e !important;}
+.NicorepoItem-item,.UserItem-content,.MylistMediaObject-linkArea{background-color:#282828 !important; border: 1px solid #333 !important;}
+.UserDetailsHeader-levelLabel, .UserDetailsHeader-account, .UserDetailsStatusItem-linkLabel, .Dropdown-button, .NiconicoPoint, .OtherMypageLinks-link, .ThreePointMenu > *, .ShareModal-modal, .UserDetailsHeader-nickname, .MainMenuItem, .SubMenuLink-label, .ModalActionButton, .NicorepoItem-senderName, .NicorepoItem-item, .NicorepoItem-contentDetailTitle, .NicorepoItem-activityCreatedAt, .NicorepoItem-senderName:visited, .FeedbackLink, .NicorepoMuteItem-detail, .NicorepoMuteSettingContainer-infoHelp, .LiveLink, .FolloweeContainer-header, .SubMenuHeader-title, .UserItem-description, .UserItem-nickname, .WatchLaterHeader-name, .WatchLaterHeader-metaValue, .WatchLaterHeader-advice, .Checkbox-label, .MylistItemAddition-addedAt, .VideoMediaObject-bodyTitle, .VideoMediaObject-bodyDescription, .VideoMetaData-videoRegisteredAt, .VideoMetaData-count > *, .MylistPageSubMenuHeader-counterValue, .SortMylistsListItem-name, .ModalContent-footerSubmitButton, .MylistMediaObject-bodyFollowerCount, .MylistMediaObject-bodyDescription, .MylistMediaObject-bodyTitle, .VideoWatchHistoryContainer-headerTotalCountValue, .VideoWatchHistoryContainer-headerAnnounce, .LikeItemAfter-thanksMessage > h1, .BlankState-title, .a-list__title, .StampCard-title, .StampContainer-stampRanking a, .ExpandBoxButton, h1, .MylistHeader-name, .MylistHeader-metaItemValue, .CommunityItem-name, .CommunityItem-description, .FollowingTagContainer-tagNameLink, .FollowingTagContainer-nicodicSummary, a, .ChannelItem-description, .ChannelItem-name, .TagrepoItem-contentTagsItem, .TagrepoContainer-headerTagName, .LikeItemAfter-ownerName, .BlankState-recommendTitle, .BlankState-body, .BlankState-linkInner, .MylistDescription .ExpandBox_is-expanded, .NicoruHistoryPassiveItem-date{color: #c3c3c3;}
+.ThreePointMenu>:hover{color: #ccc; background-color: #383838;} 
+	
+			.NicorepoItem-activityDescription[style*="color"]{color: var(--ChangeRedColor) !important;}
+		
+		
+	        .UserDetailsHeader-levelLabelValue, .UserDetailsStatusItem-link, .CopyForm-copy, .SubMenuLink-link:hover .SubMenuLink-label, .SubMenuLink-link_active .SubMenuLink-label, .UserItem:hover .UserItem-nickname, .VideoMediaObject-linkArea:hover .VideoMediaObject-bodyTitle, .ModalContent-footerCancelButton, .MylistMediaObject:hover .MylistMediaObject-bodyTitle, .BadgeContainer-infoLink:hover, .ExpandBoxButton-overlay:hover + .ExpandBoxButton, .ExpandBoxButton:hover, .UserDescription .ExpandBox_is-expanded a{color: #dd9b00;}
+            a:hover, .CommunityItem:hover .CommunityItem-name, .FollowingTagContainer-tagNameLink:hover, .ChannelItem:hover .ChannelItem-name{color: #f49112;}
+            .MainMenuItem-active{color: #d9b04f;}
+            .NicorepoItem-activityDescription[style*="color"]{color: #FBBC00 !important;}
+            .MainMenuContainer-activeBorder{background-color: #d09200;}
+            .RadioItem > input:checked + label::after{background: #f0b80e;}
+            .MainMenuContainer-garageLink{background: linear-gradient(90deg,#9f6900,#b9a500);}
+            .SubMenuLink-link_internal:hover{background-color: #3e342b;}
+            .FollowButton:hover{background-color: #886700;}
+            .FollowButton_following{background-color: #b08500;}
+            .FollowButton{color: #ffe8bb;border: 1px solid #c88404;} 
 
-	/* カスタマイズ欄 */
-	/*[[CombinedTsumerudake]]*/
-	.NicorepoItem-activityDescription[style='color: rgb(208, 2, 27);'] {
-		color: /*[[ChangeRedColor]]*/
-		!important; }
+}
 
-	/*[[Ad]]*/
-	/*[[MoreDarkTheme]]*/
-	/*[[EnabelOrangeTheme]]*/ }
 @-moz-document url-prefix("https://www.nicovideo.jp/") {
 	/* ニコニコトップ */
-	/* イベント時総合トップ背景 */
-	.StageBackground-custom > div {
-		filter: invert(1); }
-	/* クリエイター応援 */
-	.CreatorSupportItem {
-		background-color: #3c3c3c; }
-	.CreatorSupportItem-ranking,
-	.CreatorSupportItem-footerLink {
-		color: #ddd; }
-
-	.CreatorSupportItem-footerLink_history::before {
-		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.7 2.5c.4 0 .7.3.8.7v13.5c0 .4-.3.7-.7.8H3.3a.8.8 0 01-.8-.7V3.3c0-.4.3-.7.7-.8h13.5zm-9.2 10H5.8v1.7h1.7v-1.7zm5.8 0H10c-.5 0-.8.4-.8.8 0 .5.3.9.8.9h3.3c.5 0 .9-.4.9-.9 0-.4-.4-.8-.9-.8zM7.5 9.2H5.8v1.6h1.7V9.2zm5.8 0H10c-.5 0-.8.3-.8.8s.3.8.8.8h3.3c.5 0 .9-.3.9-.8s-.4-.8-.9-.8zM7.5 5.8H5.8v1.7h1.7V5.8zm5.8 0H10c-.5 0-.8.4-.8.9 0 .4.3.8.8.8h3.3c.5 0 .9-.4.9-.8 0-.5-.4-.9-.9-.9z' fill='%23eee'/%3E%3C/svg%3E"); }
-	.CreatorSupportItem-footerLink_advertise::before {
-		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.3 2.5c.5-.5 1.6-.2 3 .5l-.2 1c-.7-.4-1.2-.5-1.5-.2-.6.6.6 2.8 2.7 4.9 2.2 2.1 4.4 3.3 5 2.7.2-.2.1-.8-.2-1.5l1-.2c.7 1.4 1 2.5.4 3a1 1 0 01-.4.3L6.6 15.8l-.6 2v.1c-.4.3-1.6-.2-2.6-1.3-1-1-1.6-2.2-1.3-2.5l.2-.1 2-.5L7 3c0-.2 0-.3.2-.5zM18 7.6c0 .3 0 .5-.3.6h-.1l-3.3 1a.5.5 0 01-.4-1l3.4-1c.3 0 .6.1.7.4zm-2-3.5a.5.5 0 010 .8l-3 2.8a.5.5 0 01-.8-.7l3.1-3c.2-.2.5-.2.7 0zm-3.6-2c.3 0 .4.2.4.5L11.9 6a.5.5 0 01-1-.3l.8-3.3c.1-.3.4-.4.7-.4z' fill='%23eee'/%3E%3C/svg%3E"); }
-
-	/* スポンサーリンクコンテナ */
-	.SponsorsContainer {
-		background: #252525;
-		border-color: #606060; }
-
 	/* 背景 */
 	.StageBackground {
-		filter: invert(0.95) }
+		filter: invert(0.95)
+	}
 	.BaseLayout,
 	.PersonalFrameContainer,
 	.TopPage-footer {
-		background-color: #252525 }
+		background-color: #252525
+	}
 	.NicoAdContainer-card[data-nicoad-grade="gold"],
 	.ContentsPickupCard,
 	.AuroraVisionCard,
@@ -895,71 +673,89 @@ url-prefix("https://www.nicovideo.jp/series/") {
 	.NicoNewsContainer-photoNews,
 	.Tabs-tab,
 	.NicoNewsContainer-commentCount {
-		background-color: #3c3c3c }
+		background-color: #3c3c3c
+	}
 	.NicoNewsContainer-photoNewsThumbnail > div {
-		mix-blend-mode: darken }
+		mix-blend-mode: darken
+	}
 	.Tabs-tab:hover {
-		background-color: #e18f00 !important }
+		background-color: #e18f00 !important
+	}
 
 	.NicoAdContainer-card[data-nicoad-grade="gold"] > .NicoAdContainer-cardHeader {
-		background: linear-gradient(-225deg, #d7a816, #b0840c) }
-	.TopPage-middleBillboardAdSection {
-		background-color: #252525;
-		border-color: #252525; }
+		background: linear-gradient(-225deg, #d7a816, #b0840c)
+	}
 
 	/* ボタン */
 	.SeeMoreLink-text {
 		background-color: #444;
-		border: 1px solid #6a6a6a }
+		border: 1px solid #6a6a6a
+	}
 
 	/* ボーダー */
 	.PersonalFrameContainer {
-		border: none }
+		border: none
+	}
 	.TopPage-stageArea,
 	.TopPage-footer {
-		border-top: 1px solid #646464 }
+		border-top: 1px solid #646464
+	}
 	.NicoNewsContainer-commentCount {
-		border: 1px solid #646464 }
+		border: 1px solid #646464
+	}
 
 	/* 検索バー */
 	.CrossSearch_Re-rowSelector,
 	.CrossSearch_Re-form {
 		background-color: #515151;
-		border: 1px solid #646464; }
+		border: 1px solid #646464;
+	}
 
 	.CrossSearch_Re-rowService.active,
 	.CrossSearch_Re-rowService:hover {
 		background-color: #313131;
-		color: #ddd; }
+		color: #ddd;
+	}
 
 	.CrossSearch_Re-rowService {
-		color: #d7d7d7; }
+		color: #d7d7d7;
+	}
 
 	.CrossSearch_Re-form {
 		background: #515151;
-		box-shadow: inset 0 0 0 1px #646464; }
+		box-shadow: inset 0 0 0 1px #646464;
+	}
 
 	.CrossSearch_Re-inputt,
 	.CrossSearch_Re-input::placeholder {
-		color: #fff; }
+		color: #fff;
+	}
 
 	.CrossSearch_Re-button {
-		background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='1.4'%3E%3Cpath d='M60.3 74.5a40 40 0 1114.1-14.1l23.3 23.1a8 8 0 010 11.3l-2.9 2.9a8 8 0 01-11.3 0L60.3 74.5zM40 14a26 26 0 110 52 26 26 0 010-52z' fill='%23eee'/%3E%3C/svg%3E") no-repeat; }
+		background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='1.4'%3E%3Cpath d='M60.3 74.5a40 40 0 1114.1-14.1l23.3 23.1a8 8 0 010 11.3l-2.9 2.9a8 8 0 01-11.3 0L60.3 74.5zM40 14a26 26 0 110 52 26 26 0 010-52z' fill='%23eee'/%3E%3C/svg%3E") no-repeat;
+	}
 
 	.suggestBoxInner {
-		background-color: hsla(0, 0%, 18.4%, 0.98) }
+		background-color: hsla(0, 0%, 18.4%, 0.98)
+	}
 	.suggestBoxInner li a {
 		color: #ddd;
-		border: 1px solid transparent; }
-	.suggestBoxInner li a:hover {
-		background-color: transparent!important;
-		color: orange !important; }
+		border: 1px solid transparent;
+	}
+	.suggestBox {
+		border-top: none
+	}
+	.suggestBoxInner li a:hover,
 	.suggestBoxInner li:hover {
-		background-color: #404040 !important; }
+		background-color: #545454 !important;
+		color: orange !important;
+		border: 1px solid #545454 !important
+	}
 
 	.nicolib-SuggestSearch-suggestion-favtag-items {
 		scrollbar-width: thin;
-		scrollbar-color: transparent; }
+		scrollbar-color: transparent transparent;
+	}
 
 	/* 文字 */
 	a,
@@ -971,17 +767,352 @@ url-prefix("https://www.nicovideo.jp/series/") {
 	.AuroraVisionCard-metaCatch,
 	.AuroraVisionCard-metaPickupComment,
 	.Tabs-tab {
-		color: #ddd }
+		color: #ddd
+	}
 	.personalFrameHighlight,
 	.NicoNewsContainer-commentCount {
-		color: orange !important }
+		color: orange !important
+	}
 
 	/* SVG */
 	.SeeMoreLink-text > svg,
 	.PersonalFrameContainer-close {
-		fill: #ddd }
+		fill: #ddd
+	}
 	.NiconicoLogo_re {
-		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 179 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M137.7 27a1.4 1.4 0 00.4-2 13.3 13.3 0 01.6-15.3 1.4 1.4 0 00-1.1-2.2c-.5 0-.9.2-1.1.5a16 16 0 00-.8 18.5 1.4 1.4 0 002 .4m38.7-.4a16 16 0 00-.7-18.5c-.3-.3-.7-.5-1.1-.5a1.4 1.4 0 00-1.4 1.2c0 .3 0 .7.3 1A13.2 13.2 0 01174 25a1.4 1.4 0 00.4 2l.8.2c.4 0 .9-.3 1.1-.7m-8.8-8c0 .3-.2.4-.4.4a79.4 79.4 0 01-4.7-.2c0-.6 1.1-1.8 2.7-1.8 2 0 2.4 1.2 2.4 1.6m2.5 6.4c.3-.3.4-.6.4-1 0-.7-.6-1.4-1.4-1.4-.3 0-.6.2-.9.5-.6.7-1.5 1.4-3 1.4-1.4 0-3-1-3-2.8 0-.3.1-.5.2-.5h5.7c1.6 0 2.4-1 2.4-2.2 0-1.8-1.9-4.3-5.3-4.3-3.2 0-5.8 2.5-5.8 6.2 0 3.6 2.5 6 5.8 6a6 6 0 005-2M153 13.4c0 1.2-1 2.5-2.7 2.6h-1.4c-1.5 0-1.9 0-1.9-.5V12c.1-.7.2-.8 1.9-.8h1.2c2 .2 2.9 1.2 2.9 2.2m5.3 12c0-.7-.4-1.4-1.4-1.5h-.2c-.3-.1-.6-.3-1-.9l-1.6-2.4a32 32 0 00-1.8-2.7l.4-.2c2-.4 3.2-2.4 3.2-4.3 0-2-1.4-4.4-5.5-4.7h-6.6c-1 0-1.4.7-1.4 1.4s.4 1.4 1.6 1.4a446.8 446.8 0 01.3 7c0 5.6 0 5.6-.4 5.6-1 0-1.6.7-1.6 1.4s.6 1.3 1.7 1.3h3.6c1 0 1.5-.7 1.5-1.4 0-.6-.4-1.2-1.5-1.3-.3 0-.6-.2-.6-.6v-4.6c0-.6.2-.6 1.6-.6.5 0 1.2.7 2.8 3.3.1 0 1.3 2 1.3 2.3 0 .2 0 .3-.2.4-.7.1-1 .7-1 1.3 0 .6.5 1.2 1.4 1.2h3.8c1 0 1.6-.8 1.6-1.5M127.6 22v-9.1c0-3-2.3-5.3-5.2-5.3h-11.2c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h10.1c1.2 0 2 .8 2 2v6.9c0 1.2-.7 2-2 2h-10.1c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h11.2c2.9 0 5.2-2.4 5.2-5.3M104 25c0-1.2-1-2.2-2.2-2.2H87.3c-1.2 0-2.2 1-2.2 2.3 0 1.2 1 2.2 2.2 2.2h14.5c1.2 0 2.2-1 2.2-2.2m-.2-15c0-1.3-1-2.3-2.2-2.3h-14c-1.3 0-2.3 1-2.3 2.3 0 1.2 1 2.2 2.2 2.2h14.1c1.2 0 2.2-1 2.2-2.2M79.7 21.9v-9.1c0-3-2.4-5.3-5.3-5.3H63.2c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h10.2a2 2 0 012 2v6.9c0 1.2-.8 2-2 2H63.2c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h11.2c3 0 5.3-2.4 5.3-5.3m-23.7 3c0-1.2-1-2.2-2.1-2.2H39.3c-1.2 0-2.1 1-2.1 2.3 0 1.2 1 2.2 2.1 2.2H54c1.2 0 2.1-1 2.1-2.2M56 10c0-1.3-1-2.3-2.2-2.3H39.6c-1.2 0-2.2 1-2.2 2.3 0 1.2 1 2.2 2.2 2.2h14c1.3 0 2.3-1 2.3-2.2M24.2 7.9h-7.7l3.2-3a1 1 0 000-1.5 1 1 0 00-1.5-.1l-4.9 4.6-4.9-4.6a1 1 0 00-1.5 0c-.4.5-.4 1.2 0 1.6l3.2 3H2.4C1 7.9 0 8.9 0 10.3v14.3C0 25.9 1 27 2.4 27h3l1.8 2c.3.4.8.4 1 0l1.9-2h6.4l1.8 2c.3.4.8.4 1.1 0l1.8-2h3c1.3 0 2.4-1.1 2.4-2.4V10.3c0-1.3-1-2.4-2.4-2.4' fill='%23eee' fill-rule='evenodd'/%3E%3C/svg%3E") } }
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 179 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M137.7 27a1.4 1.4 0 00.4-2 13.3 13.3 0 01.6-15.3 1.4 1.4 0 00-1.1-2.2c-.5 0-.9.2-1.1.5a16 16 0 00-.8 18.5 1.4 1.4 0 002 .4m38.7-.4a16 16 0 00-.7-18.5c-.3-.3-.7-.5-1.1-.5a1.4 1.4 0 00-1.4 1.2c0 .3 0 .7.3 1A13.2 13.2 0 01174 25a1.4 1.4 0 00.4 2l.8.2c.4 0 .9-.3 1.1-.7m-8.8-8c0 .3-.2.4-.4.4a79.4 79.4 0 01-4.7-.2c0-.6 1.1-1.8 2.7-1.8 2 0 2.4 1.2 2.4 1.6m2.5 6.4c.3-.3.4-.6.4-1 0-.7-.6-1.4-1.4-1.4-.3 0-.6.2-.9.5-.6.7-1.5 1.4-3 1.4-1.4 0-3-1-3-2.8 0-.3.1-.5.2-.5h5.7c1.6 0 2.4-1 2.4-2.2 0-1.8-1.9-4.3-5.3-4.3-3.2 0-5.8 2.5-5.8 6.2 0 3.6 2.5 6 5.8 6a6 6 0 005-2M153 13.4c0 1.2-1 2.5-2.7 2.6h-1.4c-1.5 0-1.9 0-1.9-.5V12c.1-.7.2-.8 1.9-.8h1.2c2 .2 2.9 1.2 2.9 2.2m5.3 12c0-.7-.4-1.4-1.4-1.5h-.2c-.3-.1-.6-.3-1-.9l-1.6-2.4a32 32 0 00-1.8-2.7l.4-.2c2-.4 3.2-2.4 3.2-4.3 0-2-1.4-4.4-5.5-4.7h-6.6c-1 0-1.4.7-1.4 1.4s.4 1.4 1.6 1.4a446.8 446.8 0 01.3 7c0 5.6 0 5.6-.4 5.6-1 0-1.6.7-1.6 1.4s.6 1.3 1.7 1.3h3.6c1 0 1.5-.7 1.5-1.4 0-.6-.4-1.2-1.5-1.3-.3 0-.6-.2-.6-.6v-4.6c0-.6.2-.6 1.6-.6.5 0 1.2.7 2.8 3.3.1 0 1.3 2 1.3 2.3 0 .2 0 .3-.2.4-.7.1-1 .7-1 1.3 0 .6.5 1.2 1.4 1.2h3.8c1 0 1.6-.8 1.6-1.5M127.6 22v-9.1c0-3-2.3-5.3-5.2-5.3h-11.2c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h10.1c1.2 0 2 .8 2 2v6.9c0 1.2-.7 2-2 2h-10.1c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h11.2c2.9 0 5.2-2.4 5.2-5.3M104 25c0-1.2-1-2.2-2.2-2.2H87.3c-1.2 0-2.2 1-2.2 2.3 0 1.2 1 2.2 2.2 2.2h14.5c1.2 0 2.2-1 2.2-2.2m-.2-15c0-1.3-1-2.3-2.2-2.3h-14c-1.3 0-2.3 1-2.3 2.3 0 1.2 1 2.2 2.2 2.2h14.1c1.2 0 2.2-1 2.2-2.2M79.7 21.9v-9.1c0-3-2.4-5.3-5.3-5.3H63.2c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h10.2a2 2 0 012 2v6.9c0 1.2-.8 2-2 2H63.2c-1.2 0-2.2 1-2.2 2.2 0 1.2 1 2.2 2.2 2.2h11.2c3 0 5.3-2.4 5.3-5.3m-23.7 3c0-1.2-1-2.2-2.1-2.2H39.3c-1.2 0-2.1 1-2.1 2.3 0 1.2 1 2.2 2.1 2.2H54c1.2 0 2.1-1 2.1-2.2M56 10c0-1.3-1-2.3-2.2-2.3H39.6c-1.2 0-2.2 1-2.2 2.3 0 1.2 1 2.2 2.2 2.2h14c1.3 0 2.3-1 2.3-2.2M24.2 7.9h-7.7l3.2-3a1 1 0 000-1.5 1 1 0 00-1.5-.1l-4.9 4.6-4.9-4.6a1 1 0 00-1.5 0c-.4.5-.4 1.2 0 1.6l3.2 3H2.4C1 7.9 0 8.9 0 10.3v14.3C0 25.9 1 27 2.4 27h3l1.8 2c.3.4.8.4 1 0l1.9-2h6.4l1.8 2c.3.4.8.4 1.1 0l1.8-2h3c1.3 0 2.4-1.1 2.4-2.4V10.3c0-1.3-1-2.4-2.4-2.4' fill='%23ccc' fill-rule='evenodd'/%3E%3C/svg%3E")
+	}
+}
+
+@-moz-document url-prefix("https://www.nicovideo.jp/my"), url-prefix("https://www.nicovideo.jp/user/"), url-prefix("https://www.nicovideo.jp/series/") {
+	
+	/* 詰めるだけ統合 */
+	
+:root{
+	
+if CombinedTsumerudake == "Deny"{
+	
+}
+
+else if CombinedTsumerudake == "Allow"{
+	
+  /********************************/
+ /* ページトップのニコニコヘッダ */
+/********************************/
+.HeaderContainer { height: 80px; }
+.HeaderContainer_Re-main { height: 48px; }
+
+  /********************************/
+ /* ページトップのユーザ名ヘッダ */
+/********************************/
+.UserDetailsHeader { padding-bottom: 0px; }
+
+/* へッダへのマージン縮小 (original: 32px) */
+.UserPage-main { margin-top: 20px; } 
+
+  /*******************************/
+ /* カードの横幅712px制限を解除 */
+/*******************************/
+.NicorepoPage-content { width: inherit; }
+.HistoryPage-content { width: inherit; }
+.FollowPage-content { width: inherit; }
+/*[[widen-mylist]]*/
+
+/* 干渉する右サイドメニューを背面へ回しつつ右横へ避ける */
+/* 素直に消したほうが早いとは思うが一応 */
+/*[[optimize-to-FS]]*/
+.RightSideContainer * { height: auto; max-width: 200px; max-height: none; }
+.RightSideContainer a { display: block; }
+
+
+  /**************************************************************/
+ /* 白地枠なしカード(ニコレポ、マイリス、フォロー)に枠をつける */
+/**************************************************************/
+.NicorepoItem-item, .UserItem-content, .MylistMediaObject-linkArea,
+.NicoruHistoryPassiveItem, .NicoruHistoryActiveItem,
+.FollowingTagContainer-content, .ChannelItem-content, .CommunityItem-content,
+.TagrepoItem {
+  padding: 4px;
+  border: 1px solid #000;
+}
+
+
+  /**************/
+ /* サイドバー */
+/**************/
+.SideContainer { width: 124px; margin-right: 16px; }
+
+
+
+
+
+  /************/
+ /* ニコレポ */
+/************/
+
+ /* 各ニコレポのタイトルヘッダ部 */
+/* 投稿者欄の縦幅縮小 (original: 40px) */
+.NicorepoItem-sender { height: 30px; }
+.NicorepoItem-senderIcon.Thumbnail { width: 30px; height: 30px; }
+
+
+ /* 各ニコレポのコンテンツ部 */
+/* コンテンツ部のインデント縮小 (original: 40px) */
+.NicorepoItem-body { margin-left: 20px; }
+
+
+ /* サムネ関連 */
+/* サムネ本体の縮小  (original: 112 x 63) */
+.NicorepoItem-contentThumbnailImage.Thumbnail { width: 78px; height: 46px; }
+
+
+ /* サムネ位置関連 */
+/* サムネを左端に、文章をその右にするための整形 */
+.NicorepoItem-activity {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    margin-left: 84px   /* サムネ本体 + 6px分右に避ける */;
+}
+.NicorepoItem-contentThumbnail { bottom: 1em; }  /* サムネ本体を1行分上に */
+.NicorepoItem-content { margin-bottom: -1em; }  /* もともとサムネのあった場所にまで次のコンテンツを詰める */
+
+
+
+ /* タイトル周り */
+/* コンテンツ名のサイズ */
+.NicorepoItem-contentDetailTitle { font-size: 16px; }
+
+/* コンテンツ種別アイコンとコンテンツ名をインライン表示 */
+.NicorepoItem-contentDetail, .NicorepoItem-contentDetailLabel, .NicorepoItem-contentDetailTitle { display: inline; }
+.NicorepoItem-contentDetailTitle { margin-left: 4px; }
+
+
+
+
+  /******************/
+ /* フォロー中タグ */
+/******************/
+.FollowingTagContainer-header { margin-bottom: 4px; }
+.FollowingTagContainer-tagName { margin-top: 4px; margin-bottom: 4px; }
+.FollowingTagContainer-item .FollowButton { top: 4px !important; }
+.FollowingTagContainer-nicodicSummary { font-size: 10px; display: inline; }
+/* 1stがニコ百で記事を見る、2ndがタグレポを見る */
+.FollowingTagContainer-contentBody a:nth-of-type(1) { display: inline; font-size: 10px; }
+.FollowingTagContainer-contentBody a:nth-of-type(2) { display: block; margin-left: -20px;  /* contentBodyのmargin-leftより4px少なく移動 */ }
+
+  /********************/
+ /* フォロー中リスト */
+/********************/
+.FollowingMylistContainer-item { max-width: 804px; } /* ここ無制限だとサイドバーを侵食してしまう */
+
+  /************/
+ /* タグレポ */
+/************/
+.TagrepoContainer-header { padding-bottom: 4px; margin: 12px; }
+/* 16px間隔3列 → 4px間隔6列に(XXX: なんかできてない) */
+/* Columnの横幅は273.5px → 幅1つは132px */
+.TagrepoContainer-timelineLayoutColumn { padding-left: 2px; }
+.TagrepoContainer-timelineItem {
+    width: 132px;
+    display: inline-grid;
+    vertical-align: top;
+    margin-right: 3px; 
+}
+.TagrepoItem-content { width: 128px; }
+
+/* ヘッダ詰め*/
+.TagrepoItem-header { padding: 4px; margin: 0px; }
+.TagrepoItem-headerSender { height: 24px; margin: 0; padding: 0;  }
+.TagrepoItem-headerSenderNickname { height: 24px; font-size: 9px; }
+/* Achievement */
+.TagrepoItem-contentAchievement { height: 14px; font-size: 12px; }
+/* サムネ(original: 240 x 135) */
+.TagrepoItem-contentThumbnail { width: 96px; height: 54px; }
+.TagrepoItem-contentTitle{ font-size: 12px; margin: 3px; }
+/* タグ */
+.TagrepoItem-contentTagsItem { padding: 0px; margin-bottom: 4px; }
+/* フッタ */
+.TagrepoItem-footer { padding: 4px; }
+.TagrepoItem-footerMetaCreatedAt { font-size: 8px; }
+
+
+
+  /*************************/
+ /* あとで見る/マイリスト */
+/*************************/
+/* ヘッダと各アイテム詰め詰め */
+.WatchLaterContainer-header { margin-bottom: 4px; }
+.WatchLaterList-item.WatchLaterListItem { padding-top: 4px; }
+
+/* サムネ(original: 192 x 108) */
+.VideoMediaObject-thumbnail { width: 96px; height: 54px; }
+/* サムネ縮小に伴うMetadata/Checkboxレイアウト崩壊の修正 */
+.VideoMediaObject-bodyDescription { margin-bottom: 2em; }
+.CheckboxVideoMediaObject-checkboxArea { margin-top: 16px; }  /* original: 42px */
+
+/* 投稿日と再生数カウンタのインライン化 */
+.VideoMetaData-video, .VideoMetaData-count {
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: top;
+}
+
+/* マイリス登録日を右寄せにして2行分上に詰める*/
+.MylistItemAddition, .WatchLaterListItem-addition {
+    position: relative;
+    margin-top: 6px;
+    bottom: 2em;
+    margin-bottom: -2em;
+}
+.MylistItemAddition-row { justify-content: flex-end; height: 24px; }
+
+
+
+
+  /********/
+ /* 履歴 */
+/********/
+/* ヘッダと各アイテム詰め詰め */
+.VideoWatchHistoryContainer-header { margin-bottom: 1em; }
+.VideoWatchHistoryContainer-editMenu { margin-bottom: 4px; }
+.VideoWatchHistoryContainer-item { padding: 4px; }
+
+/* 視聴日を右寄せにしていい感じに上に詰める */
+.VideoWatchHistoryItemAfter span { margin-left: 10px; font-size: 12px; }
+.VideoLabels { display: inline; }   /* [CH] のようなラベルがflexのままだと次行に落ちるのでインライン化 */
+
+.VideoWatchHistoryItemAfter {
+    position: relative;
+    margin-top: 0;
+    justify-content: flex-end;
+    bottom: 2em; /* XXX: bottomとmargin-bottomを揃えられないか？ */;
+}
+.VideoWatchHistoryContainer-item { margin-bottom: -1.3em; }
+
+
+  /**************/
+ /* いいね履歴 */
+/**************/
+.LikeHistoryContainer .VideoMediaObject { padding-top: 4px; }
+.LikeHistoryContainer .VideoMediaObject-bodyDescription { margin-bottom: 20px; }
+.LikeHistoryContainer .VideoMediaObject-bodyTitle { font-size: 14px; margin-bottom: 4px; max-height: 1em; line-height: 16px;}
+/* いいねコメントを右揃えに  */
+.LikeItemAfter { margin-top: 0; display: flex; justify-content: flex-end; }
+/* アイコンとユーザ名の順序入れかえ */
+.LikeItemAfter header { display: inline-grid;  margin-right: 0; }
+.LikeItemAfter-ownerIcon { order: 2; margin-right: 12px; }
+.LikeItemAfter-ownerName { order: 1; margin-right: 6px; }
+.LikeItemAfter-thanksMessage { display: inline-block; padding: 8px; margin-top: 0px;}
+/* フキダシ疑似要素操作 */
+.LikeItemAfter-thanksMessage:before, .LikeItemAfter-thanksMessage:after {
+    left: -12px;
+    width: 12px; height: 8px;
+    border-bottom: 6px solid transparent; border-top: 6px solid transparent;
+    border-right: 8px solid #e5e5e5; border-right-color: rgb(229, 229, 229);
+}
+.LikeItemAfter-thanksMessage::before { top: 8px; border-right-color: #e5e5e5; }  /* 影は2pxずらす */
+.LikeItemAfter-thanksMessage::after { top: 6px; border-right-color: #fff; }
+
+  /****************/
+ /* ニコられ履歴 */
+/****************/
+/* カード詰め詰め */
+.NicoruHistoryPassiveItem { margin-top: 0px !important; margin-bottom: 8px; }
+/*投稿者ニコられ枠をコメント枠の下に移動しつつ日時枠と重ねる */
+.NicoruHistoryPassiveItem-subjectArea { display: grid; padding-top: 0; padding-left: 0; }
+.NicoruHistoryPassiveItem-videoOwnerArea { order: 2; margin: 0px; margin-bottom: -32px; }
+.NicoruHistoryPassiveItem-videoOwner { margin-left: 6px; padding: 0px; }
+.NicoruHistoryPassiveItem-subject { order: 1; }
+.NicoruHistoryPassiveItem-subject > * { margin: 10px !important; }
+/* 詰めつつ右寄せや太字で見やすく */
+.NicoruHistoryPassiveItem-video { margin: 0; padding: 0px 6px 0px 0px; }
+.NicoruHistoryPassiveItem-subjectComment { font-weight: bolder; }
+.NicoruHistoryPassiveItem-date { order: 3; display: flex; justify-content: flex-end; margin: 4px; }
+.NicoruHistoryPassiveItem-date * { margin-left: 1em; }
+.NicoruHistoryPassiveItem-videoTitleArea { font-size: 12px; }
+
+  /**************/
+ /* ニコり履歴 */
+/**************/
+/* カード詰め詰め */
+.NicoruHistoryActiveItem { margin-top: 0px !important; margin-bottom: 8px; }
+/* カード内詰め詰め */
+.NicoruHistoryActiveItem-subject > * { margin: 10px !important; }
+.NicoruHistoryActiveItem-subjectArea { padding-top: 0; }
+.NicoruHistoryActiveItem-video { margin: 0; padding: 0px 6px 0px 0px; }
+.NicoruHistoryActiveItem-count { margin: 0px; }
+.NicoruHistoryActiveItem-videoTitleArea { font-size: 12px; }
+/* 詰めつつ太字で見やすく */
+.NicoruHistoryActiveItem-subjectComment { font-weight: bolder; }
+/* ニコるくんと回数を拡大強調 */
+.NicoruHistoryActiveItem-count::before { width: 28px; height: 28px; }
+.NicoruHistoryActiveItem-countInner { font-size: 18px; }
+
+
+  /************/
+ /* シリーズ */
+/************/
+/* シリーズ一覧ヘッダ */
+.SeriesAdditionalContainer { height: 32px; background-color: transparent; }
+/* 共有ボタンは個別シリーズヘッダに重ね、個別シリーズの共有なのを明確に */
+.SeriesAdditionalContainer-share :not(#fb-root) { height: 28px !important; width: 28px !important; }
+.BaseLayout-block.Series-2column { margin-top: 0px; }
+
+/* 左サイドバー */
+/* 一番下にスクロールしたときシリーズ一覧ヘッダと描画が被るの阻止 */
+.SeriesMenuContainer { z-index: 2 }
+
+
+/* 個別シリーズヘッダ */
+.SeriesDetailContainer-media { padding: 12px; margin: 0px; }
+.SeriesDetailContainer-description { padding: 4px; }
+/* 透明化したシリーズ一覧ヘッダの高さ分だけ上に移動 */
+.Series-columnMain { position: relative; top: -28px; }
+
+
+/* 各動画カード */
+.SeriesVideoListContainer-video { padding: 4px; }
+.MediaObject.VideoMediaObject .MediaObject-image { flex: none; }
+
+/*[[sidebar-follow]]*/
+
+
+
+.LikeItemAfter-thanksMessage::after{
+border-bottom-color: transparent !important;
+left: -14px !important;
+border-right-color: #777 !important;
+top: 15px !important;
+}
+.LikeItemAfter-thanksMessage::before{border-right-color:transparent !important;}
+.NicorepoPage-content{background-color:BaseColor !important;}
+.SubMenuButton{width:90% !important;}
+.SideContainer {margin-right: auto !important; width: 185px !important;}
+.ExpandBoxButton{height: auto !important;}
+.UserPageHeader{margin-top: -20px !important;margin-bottom: -10px !important;}
+.SubMenuLink{width: 95% !important;}
+.ExpandBoxButton_expanded{margin-top: -5px;}
+.HistoryPage{align-items : normal;}
+.LikeItemAfter > header{
+height:auto;
+margin-right: 10px !important;
+}
+.UserPage-main{
+padding-right:290px;
+}
+.TagrepoContainer-timelineLayout{
+margin-left:0px;
+}
+.TagrepoContainer-timelineItem{
+height:280px;
+}
+
+}
+}
+
+}
+
 
 @-moz-document url-prefix("https://www.nicovideo.jp/video_top") {
 
@@ -1021,16 +1152,247 @@ url-prefix("https://www.nicovideo.jp/series/") {
 		color: #aeaeae; }
 	.TagWithVideoItem-articleLink {
 		background: linear-gradient(90deg, hsla(0, 0%, 25.1%, 0), #464646 20px); } }
-
 @-moz-document url-prefix("https://www.nicovideo.jp/watch/") {
-
+	
 	/* 動画視聴ページ */
 	
 	:root{
+		--NicoruRank1 : NicoruRank1;
+		--NicoruRank2 : NicoruRank2;
+		--NicoruRank3 : NicoruRank3;
+		--NicoruRank4 : NicoruRank4;
+		
+		--CtrlButtonHoverColor : CtrlButtonHoverColor;
+		--VolumeSeekBarColor : VolumeSeekBarColor;
+		
+		--Setplayerpanel : Setplayerpanel;
+		--SetSelectedSize : SetSelectedSize;
+		--SelectedSize : calc(var(--SetSelectedSize) * 1px);
+		--SetFitPlayerButton : SetFitPlayerButton;
+		--FitPlayerButton : calc(var(--SetFitPlayerButton) * 1px);
+		
+		--setcommentpanel: calc(var(--Setplayerpanel) * 1px);
+		--commentpanelwidth: var(--setcommentpanel);
+		
 		--Watchpagelinkcolor : #dd882d;
+		
+		if MarqueeArea == "Enable"{ /* マーキーエリアいる */ }
+		
+		else if MarqueeArea == "Disable"{
+			.MainContainer-marquee{
+    display: none;
+}
+		}
+		
+		if AdDouga == "Enable"{ /* 広告いる */ }
+		
+		else if AdDouga == "Disable"{
+			.CommentPanelBannerAd, .WatchAppContainer-switchToFlash,.PreVideoStartPremiumLinkOnEconomyTimeContainer,.BottomContainer-adContainer,.SideFollowAdContainer,.RectangleAdContainer{
+    display: none !important;
+		}
+		
+		if DisableButtomContainer == "Enable"{/* ボトムコンテナーを消さない */}
+		
+		else if DisableButtomContainer == "Disable"{
+			.BottomContainer,.CommentPanelBannerAd, .WatchAppContainer-switchToFlash, .UadButtonBalloon,.PreVideoStartPremiumLinkOnEconomyTimeContainer,.BottomContainer-adContainer,.SideFollowAdContainer,.RectangleAdContainer{display: none !important;} 
+		}
+			
+		if ExtendedMoviePlayer == "Enable"{
+				@media screen and (min-width: 2200px) and (min-height:1200px) {
+		body.is-autoResize .WatchAppContainer-main {
+			width: calc(2320px - (400px - var(--commentpanelwidth)));
+		}
+		body.is-autoResize:not(.is-fullscreen) .VideoContainer {
+			width: 1920px;
+			height: 1080px;
+		}
+		.CommentRenderer,
+		.CommentRenderer > canvas {
+			width: 1920px;
+			width: 1080px;
+}
+		.VideoStartButtonContainer::after {
+			top: calc((1080px / -2) + 44px);
+			bottom: 0;
+			left: calc((1920px / -2) + 42px);
+			content: "";
+			position: fixed;
+			z-index: 15500;
+			pointer-events: auto;
+			width: 1920px;
+			height: 1080px;
+		}
+}
+		}
+		
+		else if ExtendedMoviePlayer == "Disable"{/* 動画プレイヤーの自動を拡大しない */}
+			
+		if MoveVideoContainer == "Enable"{
+				.WatchAppContainer-main {
+		display: flex!important;
+		flex-direction: column
+	}
+	.HeaderContainer {
+		background: transparent;
 	}
 
-	/* 動画視聴ページ */
+	.HeaderContainer {
+		order: 2!important;
+		padding-top: 0!important
+	}
+
+	.MainContainer {
+		order: 1!important;
+		margin-top: 19px!important
+	}
+
+	.HeaderContainer {
+		display: flex!important;
+		flex-direction: column
+	}
+
+	.TagContainer {
+		order: -1!important
+	}
+
+	.VideoDescriptionContainer {
+		order: 5!important
+	}
+		}
+		
+		else if MoveVideoContainer == "Disable"{
+			/* 移動しない */
+		}
+			
+		if Nicoru == "Enable"{ /* ニコるはそのまま */ }
+		
+		else if Nicoru == "Disable"{
+			/*ニコるを非表示*/
+.CommentPanelContainer [data-row-nicoru-rank="1"],.CommentPanelContainer [data-row-nicoru-rank="2"],.CommentPanelContainer [data-row-nicoru-rank="3"],.CommentPanelContainer [data-row-nicoru-rank="4"],.CommentPanelContainer [data-row-nicoru-rank="0"]{
+background:#333 !important;
+}
+.CommentPanelDataGrid-HeaderCell[data-name*=nicoru]{
+    display:none !important;
+}
+.DataGrid-TableCell.CommentPanelDataGrid-TableCell[data-name*=nicoru]{
+    display:none !important;
+}
+		}
+			
+		if MoveSeries == "Enable"{
+			/* シリーズを動画説明欄と並べる */
+	.ReactCollapse--content{
+		display:flex;
+	}
+	.VideoDescriptionContainer{
+		width: 100%
+	}
+	.VideoDescription.is-expanded{
+		display: flex;
+	}
+	.VideoDescription-series{
+		height: 100%;
+		margin-left: 1vw;
+		margin-top: -0.2vw;
+	}
+	.VideoDescriptionExpander .VideoDescriptionExpander-switch{
+		right: 22vw;
+	}
+		}
+		
+		else if MoveSeries == "Disable"{
+			/* なにもしない */
+		}
+			
+		if SmoothComment == "Enable"{
+			/* コメント送りのスムーズスクロール化 */
+.CommentPanelDataGrid .CommentPanelDataGrid-Body{
+    scroll-behavior:smooth;
+}
+		}
+		
+		else if SmoothComment == "Disable"{
+			/* なにもしない */
+		}
+			
+		}
+		
+    	if HiddenSeekbar == "Enable" {
+			/* 自動的にシークバーを隠す */
+	.SeekBarContainer{
+		position: absolute;
+		width: 100%;
+		top: -10px;
+		z-index:60000000;
+	}
+	.SeekBar{
+		opacity: 0;
+		transition: 1s ease;
+	}
+	.SeekBar:hover{
+		opacity: 1;
+	}
+	.SeekBar .ProgressBar{
+		height: 6px;
+	}
+	.SeekBarHandle-handle{
+		top: -7px;
+	}
+    	}
+    	else if HiddenSeekbar == "Disable" {
+			/* なにもしない */
+    	}
+    	else if HiddenSeekbar == "Advance-Video_control_buttons_together" {
+			/* 動画コントロールボタンも */
+	.SeekBarContainer{
+		top: -42px;
+		z-index:60000000;
+		position: absolute;
+	}
+	.SeekBar{
+		opacity: 0;
+		transition: 1s ease;
+	}
+	.SeekBar:hover{
+		opacity: 1;
+	}
+	
+	.ControllerContainer{
+		position: absolute;
+		top: -32px;
+		z-index: 100;
+		opacity: 0;
+		transition: 1s ease;
+	}
+	.ControllerContainer:hover{
+		opacity: 1;
+		background-color: #0000004f;
+	}
+	
+	.ControllerContainer-area > button{
+		background-color: transparent;
+	}
+	
+	.PlayerPlayTime > *{
+		color: #fff !important;
+	}
+    	}
+		
+		
+		
+	}
+	
+	/*カスタマイズ欄*/
+	/*[[Nicoru]]*/
+	/*[[Series]]*/
+	/*[[AdDouga]]*/
+	/*[[MarqueeArea]]*/
+	/*[[MoveSeries]]*/
+	/*[[SmoothComment]]*/
+	/*[[HiddenSeekbar]]*/
+	/*[[ExtendedMoviePlayer]]*/
+	
+/* 動画視聴ページ */
 	/* 文字設定 */
 	html,
 	body,
@@ -1623,36 +1985,26 @@ url-prefix("https://www.nicovideo.jp/series/") {
 	/* 試験的 コントローラーボタンの色変化の時間修正 */
 	.ControllerButton:hover svg {
 		transition: all .3s ease .1s !important; }
-
+		
 	/* 消去する要素 */
-	/*カスタマイズ欄*/
-	/*[[EasyCommentArea]]*/
-	/*[[FlatControllButton]]*/
-	/*[[Nicoru]]*/
-	/*[[Series]]*/
-	/*[[AdDouga]]*/
-	/*[[MarqueeArea]]*/
-	/*[[MoveSeries]]*/
-	/* 古い設定（一応残す） */
-	/*[[largerscreen]]*/
-	/*[[AdvancedStartButton]]*/
-	:root {
-		--setcommentpanel1: /*[[setplayerpanel]]*/;
-		--setcommentpanel: calc( var(--setcommentpanel1) * 1px);
-		--commentpanelwidth: var(--setcommentpanel); }
+
+
 	.MainContainer-playerPanel {
 		width: var(--commentpanelwidth);
-		min-width: 307px; }
+		min-width: 307px;
+	}
 	.MainContainer-player {
-		width: calc(100% - var(--commentpanelwidth)); }
+		width: calc(100% - var(--commentpanelwidth));
+	}
+	
+	.FloatingPanelContainer:not(.is-fullscreen){
+		width: var(--setcommentpanel);
+	}
 
-	.FloatingPanelContainer:not(.is-fullscreen) {
-		width: var(--setcommentpanel); }
-	/*[[SmoothComment]]*/
-	/*[[HiddenSeekbar]]*/
+
+	
 	.VideoStartButtonContainer::after {
-		--SetStartButtonWidth1: /*[[SelectedSize]]*/;
-		--SetStartButtonWidth: calc(var(--SetStartButtonWidth1) * 1px);
+		--SetStartButtonWidth: var(--SelectedSize);
 		--SetStartButtonHeight: calc((var(--SetStartButtonWidth) / 16) * 9);
 		top: calc((var(--SetStartButtonHeight) / -2) + 44px);
 		bottom: 0;
@@ -1662,38 +2014,39 @@ url-prefix("https://www.nicovideo.jp/series/") {
 		z-index: 15500;
 		pointer-events: auto;
 		width: var(--SetStartButtonWidth);
-		height: var(--SetStartButtonHeight); }
-
-	.ActionButton.ControllerButton.PlayerPauseButton::after,
-	.ActionButton.ControllerButton.PlayerPlayButton::after {
+		height: var(--SetStartButtonHeight);
+	}
+	
+	.ActionButton.ControllerButton.PlayerPauseButton::after,.ActionButton.ControllerButton.PlayerPlayButton::after{
 		position: absolute;
 		bottom: 100%;
 		color: transparent;
-		--FitPlayerButtonSize1: /*[[FitPlayerButton]]*/;
-		--FitPlayerButtonSize: calc(var(--FitPlayerButtonSize1 * 1px));
-		height: calc((var(--FitPlayerButtonSize) / 16) * 9);
-		width: var(--FitPlayerButtonSize);
-		left: calc(var(--FitPlayerButtonSize) / 2);
+		height: calc((var(--FitPlayerButton) / 16) * 9);
+		width: var(--FitPlayerButton);
+		left: calc(var(--FitPlayerButton) / 2);
 		background-color: transparent;
 		padding: 0;
 		border: none;
-		pointer-events: auto; }
+		pointer-events: auto;
+	}
 
 
 	@media screen and (min-width: 2000px) and (min-height:1000px) {
 		body.is-autoResize .WatchAppContainer-main {
-			width: calc(1840px - (400px - var(--commentpanelwidth))); }
+			width: calc(1840px - (400px - var(--commentpanelwidth)));
+		}
 		body.is-autoResize:not(.is-fullscreen) .VideoContainer {
 			width: 1440px;
-			height: 810px; }
+			height: 810px;
+		}
 		.CommentRenderer,
 		.CommentRenderer > canvas {
 			width: 1440px;
-			width: 810px; }
+			width: 810px;
+		}
 
 		.VideoStartButtonContainer::after {
-			--SetStartButtonWidth1: /*[[SelectedSize]]*/;
-			--SetStartButtonWidth: calc(var(--SetStartButtonWidth1) * 1px);
+			--SetStartButtonWidth: var(--SelectedSize);
 			--SetStartButtonHeight: calc((var(--SetStartButtonWidth) / 16) * 9);
 			top: calc((810px / -2) + 44px);
 			bottom: 0;
@@ -1703,61 +2056,83 @@ url-prefix("https://www.nicovideo.jp/series/") {
 			z-index: 15500;
 			pointer-events: auto;
 			width: var(--SetStartButtonWidth);
-			height: var(--SetStartButtonHeight); } }
+			height: var(--SetStartButtonHeight);
+		}
+	}
 
 	/* ニコるのカラー変更 */
 	.DataGrid-TableRow.CommentPanelDataGrid-TableRow[data-row-nicoru-rank="0"] {
-		background: #333 }
+		background: #333
+	}
 	.DataGrid-TableRow.CommentPanelDataGrid-TableRow[data-row-nicoru-rank="1"] {
-		background: /*[[NicoruRank1]]*/ }
+		background: var(--NicoruRank1)
+	}
 	.DataGrid-TableRow.CommentPanelDataGrid-TableRow[data-row-nicoru-rank="2"] {
-		background: /*[[NicoruRank2]]*/ }
+		background: var(--NicoruRank2)
+	}
 	.DataGrid-TableRow.CommentPanelDataGrid-TableRow[data-row-nicoru-rank="3"] {
-		background: /*[[NicoruRank3]]*/ }
+		background: var(--NicoruRank3)
+	}
 	.DataGrid-TableRow.CommentPanelDataGrid-TableRow[data-row-nicoru-rank="4"] {
-		background: /*[[NicoruRank4]]*/ }
+		background: var(--NicoruRank4)
+	}
 
 	/* 動画コントロールボタンカラー */
 	.ControllerButton:hover svg {
-		fill: /*[[CtrlButtonHoverColor]]*/ }
+		fill: var(--CtrlButtonHoverColor)
+	}
 	.SeekBar-played,
 	.VolumeBar-progress {
-		background-color: /*[[VolumeSeekBarColor]]*/ }
+		background-color: var(--VolumeSeekBarColor)
+	}
+	
+	/* かつての動画コントロールボタンフラット化 */
+	.ControllerButton {
+		border: none !important;
+		background-color: #000;
+	}
+	
+	/* かんたんコメントエリア対応 */
+	.ActionButton.EasyCommentButton{
+    	background-color: #484848 !important;
+	}
+	.EasyCommentContainer{
+    	background-color: #0000!important;
+	}
 
-	/*[[ExtendedMoviePlayer]]*/
-	/* ここまで動画 */ }
-@-moz-document url-prefix("https://gift.nicovideo.jp/video/"),
-url-prefix("https://www.nicovideo.jp/watch/") {
-	/* 動画ギフト */
-	.main,
-	.GiftPanelContainer {
-		background-color: #303030; }
-	.item-list {
-		background-color: #303030; }
-	h1,
-	span.point,
-	p.supporter-name,
-	dl.history-list dt.date,
-	.user-info-text,
-	p.description,
-	small.honorific {
-		color: #ddd !important; }
+	/* ここまで動画 */
+}
 
-	.main > svg,
-	svg[class="koken-logo"],
-	.blank-icon > path,
-	svg.title-text > path {
-		fill: #ddd; }
-	.wrapper {
-		background-color: #303030; }
-	.fixed-container > div > .wrapper {
-		background: transparent; }
-	.CloseButton {
-		fill: #ddd !important; }
-
-	[class^="button sub-button"] > .button-image {
+@-moz-document url-prefix("https://gift.nicovideo.jp/video/"), url-prefix("https://www.nicovideo.jp/watch/"){
+		/* 動画ギフト */
+	.main,.GiftPanelContainer{
+		background-color: #303030;
+	}
+	.item-list{
+		background-color: #303030;
+	}
+	h1,span.point,p.supporter-name,dl.history-list dt.date,.user-info-text,p.description,small.honorific{
+		color: #ddd !important;
+	}
+	
+	.main > svg,svg[class="koken-logo"],.blank-icon > path,svg.title-text > path{
+		fill: #ddd;
+	}
+	.wrapper{
+		background-color: #303030;
+	}
+	.fixed-container > div > .wrapper{
+		background: transparent;
+	}
+	.CloseButton{
+		fill: #ddd !important;
+	}
+	
+	[class^="button sub-button"] > .button-image{
 		background-color: #505050;
-		fill: #ddd !important; } }
+		fill: #ddd !important;
+	}
+}
 @-moz-document url-prefix("https://live.nicovideo.jp/search") {
 	/* ニコ生検索結果 */
 	.billboard-ad-section,
@@ -2274,12 +2649,21 @@ url-prefix("https://live.nicovideo.jp/") {
 url-prefix("https://launch.spi.nicovideo.jp/amazon/"),
 url-prefix("https://live2.nicovideo.jp/watch/") {
 	/* ニコ生視聴ページ */
-	/* header 
-.nico-CommonHeaderRoot .common-header-juy1p4:hover,.nico-CommonHeaderRoot .common-header-11j62e9:hover{background-color: rgb(58, 58, 58);}
-.nico-CommonHeaderRoot .common-header-juy1p4,.nico-CommonHeaderRoot .common-header-11j62e9{background-color: rgb(95, 95, 95);}
-.nico-CommonHeaderRoot .common-header-11j62e9{color: #ccc;}
-.nico-CommonHeaderRoot .common-header-juy1p4{border-bottom: 1px solid rgb(152, 152, 152);}
-.nico-CommonHeaderRoot .common-header-juy1p4:nth-child(2n){border-left: 1px solid rgb(152, 152, 152);} */
+
+    :root{
+        if OldVolumebar == "Disable"{
+            .none{
+                none;
+                }
+        }
+
+        else if OldVolumebar == "Enable"{
+                [class^="___volume-size-control___"]{
+        transform: scaleX(1);
+            }
+        }  
+    }
+
 	/*背景*/
 	#root > [class^="___watch-page___"],
 	[class^="___broadcast-participation-area___"] {
@@ -2444,10 +2828,6 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
     [class*="follow-toggle-form___"][data-follow-status=follow] [class^="___follow-status___"]::before{
         filter: invert(1);
     }
-    
-    /* おまけ */
-
-    /*[[OldVolumevar]]*/
 
 	/* タグっぽいとこ */
 	[class^="___tag___"] {
@@ -2827,7 +3207,6 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 		background: #353535; }
 	.container {
 		background: #303030; } }
-
 @-moz-document url-prefix("https://nicoad.nicovideo.jp/my"),
 url-prefix("https://nicoad.nicovideo.jp/nage") {
 	/*ニコニ広告部分*/
@@ -3808,8 +4187,7 @@ url-prefix("https://news.nicovideo.jp/") {
 	/* 謎の部分を削除 */
 	.columns .column.is-10,
 	.has-margin-v-40 {
-		display: none/* ublockのフィルターの問題か？ */
-		; }
+		display: none; } //ublockのフィルターのせい？
 	div[style="width:320px;height:50px;margin:0"] {
 		display: none; } }
 
