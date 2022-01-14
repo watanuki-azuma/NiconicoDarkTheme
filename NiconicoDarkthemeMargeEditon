@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.6.0
+@version        1.6.1
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -1150,8 +1150,47 @@ height:280px;
 	.RecommendTagsContainer-list,
 	.TrendTagsContainer-list {
 		color: #aeaeae; }
-	.TagWithVideoItem-articleLink {
-		background: linear-gradient(90deg, hsla(0, 0%, 25.1%, 0), #464646 20px); } }
+	.TagWithVideoItem-articleLink {background: linear-gradient(90deg, hsla(0, 0%, 25.1%, 0), #464646 20px); } 
+	
+}
+
+@-moz-document url-prefix("https://www.nicovideo.jp/watch/"){
+			if MoveVideoContainer == "Enable"{
+				.WatchAppContainer-main{
+					display: flex !important;
+					flex-direction: column
+				}
+				.HeaderContainer{
+					background: transparent;
+				}
+
+				.HeaderContainer{
+					order: 2 !important;
+					padding-top: 0 !important
+				}
+
+				.MainContainer{
+					order: 1 !important;
+					margin-top: 19px !important
+				}
+
+				.HeaderContainer{
+					display: flex !important;
+					flex-direction: column
+				}
+
+				.TagContainer{
+					order: -1 !important
+				}
+
+				.VideoDescriptionContainer{
+					order: 5 !important
+				}
+			}
+		
+			else if MoveVideoContainer == "Disable"{}
+}
+	
 @-moz-document url-prefix("https://www.nicovideo.jp/watch/") {
 	
 	/* 動画視聴ページ */
@@ -1227,42 +1266,7 @@ height:280px;
 		
 		else if ExtendedMoviePlayer == "Disable"{/* 動画プレイヤーの自動を拡大しない */}
 			
-		if MoveVideoContainer == "Enable"{
-				.WatchAppContainer-main {
-		display: flex!important;
-		flex-direction: column
-	}
-	.HeaderContainer {
-		background: transparent;
-	}
 
-	.HeaderContainer {
-		order: 2!important;
-		padding-top: 0!important
-	}
-
-	.MainContainer {
-		order: 1!important;
-		margin-top: 19px!important
-	}
-
-	.HeaderContainer {
-		display: flex!important;
-		flex-direction: column
-	}
-
-	.TagContainer {
-		order: -1!important
-	}
-
-	.VideoDescriptionContainer {
-		order: 5!important
-	}
-		}
-		
-		else if MoveVideoContainer == "Disable"{
-			/* 移動しない */
-		}
 			
 		if Nicoru == "Enable"{ /* ニコるはそのまま */ }
 		
@@ -1479,7 +1483,6 @@ background:#333 !important;
 	.VideoDescriptionContainer {
 		order: 5!important
 	} */
-	/*[[MoveVideoContainer]]*/
 	/* ヘッダー */
 	#siteHeader #siteHeaderInner ul li a span {
 		padding: 0px 6px;
