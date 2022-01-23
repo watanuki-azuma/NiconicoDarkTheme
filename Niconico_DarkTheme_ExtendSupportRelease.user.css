@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.5.14
+@version        1.5.15
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @updateURL	https://github.com/watanuki-azuma/NiconicoDarkTheme/raw/master/Niconico_DarkTheme_ExtendSupportRelease.user.css
@@ -1268,7 +1268,15 @@ url-prefix("https://www.nicovideo.jp/series/") {
 		order: 1;
 		max-width: 20%;
 		margin-left: 1vw; }
-
+	
+	/* 動画タイトルとシリーズを並べる */
+	.HeaderContainer-topAreaLeft{
+		display: flex;
+	}
+	.HeaderContainer-topAreaLeft .VideoTitle{
+		margin-left: 5px;
+	}
+	
 
 	/* ヘッダーコンテナー */
 	.HeaderContainer {
