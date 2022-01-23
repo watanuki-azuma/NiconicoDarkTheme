@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.6.1
+@version        1.6.2
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -24,9 +24,9 @@
 
 @var text SetFitPlayerButton "[動画][実験的]動画再生停止ボタンをプレイヤーを覆うようにする（プレイヤーサイズを入力）" "0" 
 
-@var select AdDouga "[動画]広告"[
-	"Enable",
-	"Disable"
+@var select AdDouga "[動画]広告表示"[
+	"Disable",
+	"Enable"
 ]
 
 @var select DisableButtomContainer "[動画][広告除去補助]ボトムコンテナーを消す（非推奨）"[
@@ -1155,6 +1155,8 @@ height:280px;
 }
 
 @-moz-document url-prefix("https://www.nicovideo.jp/watch/"){
+	
+	/* 動画ページコンテンツ並べ替え */
 			if MoveVideoContainer == "Enable"{
 				.WatchAppContainer-main{
 					display: flex !important;
@@ -1553,6 +1555,15 @@ background:#333 !important;
 
 
 	/* ここから更新箇所 */
+	
+	// タイトルとシリーズを並べる
+	.HeaderContainer-topAreaLeft{
+		display:flex;
+		.VideoTitle{
+			margin-left:5px;
+		}
+	}
+
 	/* だいあろぐ */
 	.Dialog {
 		background-color: #3c3c3c; }
