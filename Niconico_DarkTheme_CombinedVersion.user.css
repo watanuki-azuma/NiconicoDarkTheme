@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.6.2
+@version        1.6.4
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -2717,6 +2717,36 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 		border: none; }
 	button[class^="___toggle"][aria-label="設定"]:hover {
 		fill: lightblue }
+		
+	// 詳細設定パネル
+    
+    [class^="___player-setting-view"]{
+        background-color:#3a3a3a;
+        border-color:#3c3c3c;
+        
+        header{
+            background-color:#2b2b2b;
+        }
+        [class^="___content"]{
+            border-color:#3c3c3c;
+			
+            div[class^="___player-screen-size-menu-button-field"]{
+                &:not([aria-disabled=true]):hover{
+                    background-color:#686868;
+                }
+                button{
+                    svg{
+                        color:#e1e1e1;
+                    }
+                }
+                [class^="___before"]{
+                    color:#eee;
+                }
+            }
+        }
+    }
+    
+    [class*="-button-field___"]:not([aria-disabled=true]):hover{background-color:#686868;}
 
 	/* コミュユーザーフォロー改 */
 	div[class^="___user-summary"] > form[class^="___follow-toggle-form"] > span[class^="___follow-status"] {
@@ -3221,6 +3251,41 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 		background: #353535; }
 	.container {
 		background: #303030; } }
+        
+@-moz-document url-prefix("https://nicoad.nicovideo.jp/nage"){
+    /* ニコ生ギフト */
+	.header-bar[data-v-0d10b35d],
+	.nicoad-conductor-carousel[data-v-7044b6a3],
+	.nage-user-profile[data-v-0c946432] {
+		background-color: #3c3c3c !important }
+	.header-bar[data-v-0d10b35d] {
+		border-bottom: 1px solid rgb(62 62 62); }
+	.tab-bar[data-v-0b4aebf6] {
+		background-color: #555;
+		margin-top: -1px; }
+	.parent-container[data-v-4a7dbe18] {
+		background-color: #555 }
+	.rich-view-tab-bar > ul > li > button[aria-selected="true"][data-v-2da0b2a0] {
+		background-color: rgb(51, 51, 51);
+		color: #f1f1f1 !important; }
+	.rich-view-tab-bar > ul > li > button[data-v-2da0b2a0] {
+		color: rgb(208, 208, 208);
+		background-color: rgb(93, 93, 93); }
+	.rich-view-drawer-transition[data-v-153b7996] {
+		background-color: #464646; }
+	.rich-view-tab-bar[data-v-2da0b2a0] {
+		background-color: rgb(70, 70, 70); }
+	.visual-conductor[data-v-2c914fec] {
+		border: 4px solid rgb(109, 109, 109); }
+
+	.item-button{
+		background-color: #333;
+		border: 2px solid #585858; }
+	.container[data-v-2288cd18] {
+		background-color: rgb(45, 45, 45); }
+    
+}
+        
 @-moz-document url-prefix("https://nicoad.nicovideo.jp/my"),
 url-prefix("https://nicoad.nicovideo.jp/nage") {
 	/*ニコニ広告部分*/
@@ -3289,37 +3354,6 @@ url-prefix("https://nicoad.nicovideo.jp/nage") {
 		color: #ddd; }
 	html {
 		background: #555; }
-
-	/* たぶんギフトタブ */
-	.header-bar[data-v-0d10b35d],
-	.nicoad-conductor-carousel[data-v-7044b6a3],
-	.nage-user-profile[data-v-0c946432] {
-		background-color: #3c3c3c !important }
-	.header-bar[data-v-0d10b35d] {
-		border-bottom: 1px solid rgb(62 62 62); }
-	.tab-bar[data-v-0b4aebf6] {
-		background-color: #555;
-		margin-top: -1px; }
-	.parent-container[data-v-4a7dbe18] {
-		background-color: #555 }
-	.rich-view-tab-bar > ul > li > button[aria-selected="true"][data-v-2da0b2a0] {
-		background-color: rgb(51, 51, 51);
-		color: #f1f1f1 !important; }
-	.rich-view-tab-bar > ul > li > button[data-v-2da0b2a0] {
-		color: rgb(208, 208, 208);
-		background-color: rgb(93, 93, 93); }
-	.rich-view-drawer-transition[data-v-153b7996] {
-		background-color: #464646; }
-	.rich-view-tab-bar[data-v-2da0b2a0] {
-		background-color: rgb(70, 70, 70); }
-	.visual-conductor[data-v-2c914fec] {
-		border: 4px solid rgb(109, 109, 109); }
-
-	.item-button[data-v-1c138322] {
-		background-color: #bbb;
-		border: 2px solid #252525; }
-	.container[data-v-2288cd18] {
-		background-color: rgb(45, 45, 45); }
 
 
 	/* 画面上部 */
