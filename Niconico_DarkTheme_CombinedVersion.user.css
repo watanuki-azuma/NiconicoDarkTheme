@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.6.6
+@version        1.6.7
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -3359,36 +3359,195 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 }
         
 @-moz-document url-prefix("https://nicoad.nicovideo.jp/nage"){
-    /* ニコ生ギフト */
-	.header-bar[data-v-0d10b35d],
-	.nicoad-conductor-carousel[data-v-7044b6a3],
-	.nage-user-profile[data-v-0c946432] {
-		background-color: #3c3c3c !important }
-	.header-bar[data-v-0d10b35d] {
-		border-bottom: 1px solid rgb(62 62 62); }
-	.tab-bar[data-v-0b4aebf6] {
-		background-color: #555;
-		margin-top: -1px; }
-	.parent-container[data-v-4a7dbe18] {
-		background-color: #555 }
-	.rich-view-tab-bar > ul > li > button[aria-selected="true"][data-v-2da0b2a0] {
-		background-color: rgb(51, 51, 51);
-		color: #f1f1f1 !important; }
-	.rich-view-tab-bar > ul > li > button[data-v-2da0b2a0] {
-		color: rgb(208, 208, 208);
-		background-color: rgb(93, 93, 93); }
-	.rich-view-drawer-transition[data-v-153b7996] {
-		background-color: #464646; }
-	.rich-view-tab-bar[data-v-2da0b2a0] {
-		background-color: rgb(70, 70, 70); }
-	.visual-conductor[data-v-2c914fec] {
-		border: 4px solid rgb(109, 109, 109); }
+    /* たぶんギフトタブ */
+    GiftBG = #464646
+    GiftFC = #ddd
+    GiftBorder = GiftFC
 
-	.item-button{
-		background-color: #333 !important;
-		border: 2px solid #585858 !important; }
-	.container[data-v-2288cd18] {
-		background-color: rgb(45, 45, 45); }
+    html{
+        background GiftBG
+        
+        body{
+            .nage-page{
+                background GiftBG
+                div.rich-view-container{
+                    header.header-bar{
+                        background-color darken(GiftBG, 30%);
+                        border-color darken(GiftBG, 30%)
+                        
+                        div{
+                            color GiftFC
+                        }
+                    }
+                    
+                    div.top-fixed-injected-elements{
+                        section{
+                            background GiftBG
+                        }
+                    }
+                
+                    div.rich-view-drawer-transition{
+                        
+                        div.child-container{
+                            
+                            section.nage-item-detail{
+                                div.button-wrapper{
+                                    div.foot{
+                                        span.label{
+                                            span{
+                                                color GiftFC
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                div.item-info{
+                                    div.text{
+                                        color GiftFC
+                                    }
+                                }
+                            }
+                        }
+                        
+                        div.parent-container{
+                            div{
+                                section.nage-ranking{
+                                    ul{
+                                        li{
+                                            div{
+                                                color GiftFC
+                                            }
+                                        }
+                                    }
+                                }
+                                section.nage-history{
+                                    div.main{
+                                        div.history-list{
+                                            ul.flipping-effect-list{
+                                                li{
+                                                    div{
+                                                        div{
+                                                            span{
+                                                                color GiftFC
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        
+                                        ul.total-sold-count-list{
+                                            li{
+                                                color GiftFC
+                                            }
+                                        }
+                                        
+                                        div.total-point{
+                                            div.container{
+                                                div.point{
+                                                    color GiftFC
+                                                }
+                                                button.refresh-button{
+                                                    svg{
+                                                        fill GiftFC
+                                                    }
+                                                }
+                                                
+                                                background-color lighten(GiftBG, 30%);
+                                                &::after{
+                                                    border-top-color lighten(GiftBG, 30%);
+                                                }
+                                            }
+                                        }
+                                        
+                                        div.headline{
+                                            h2{
+                                                color GiftFC
+                                            }
+                                        }
+                                    }
+                                }
+                                div{                                   
+                                    div.item-groups{
+                                        section.item-group{
+                                            &:not(:first-child){
+                                                border-color lighten(GiftBG, 15%)
+                                            }
+                                            
+                                            ul{
+                                                li{
+                                                    button{
+                                                        background-color darken(GiftBG, 10%);
+                                                        border-color darken(GiftBorder, 30%)
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    
+                                    div.conductor{
+                                        a.visual-conductor{
+                                            border-color darken(GiftBorder, 30%)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        div.parent-top-fixed-container{
+                            nav.rich-view-tab-bar.tab-bar{
+                                background-color GiftBG;
+                                ul{
+                                    border-color GiftBorder;
+                                     li{
+                                         button[aria-selected="false"]{
+                                             background-color lighten(GiftBG, 80%)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+        
+        
+    section{
+        header{
+            h1[class="item-group-name"]{
+                color:GiftFC;
+            }
+            
+            p[class="item-group-text"]{
+                color:GiftFC !important;
+            }
+        }
+        
+        ul[class="items"]{
+            li.item{
+                button.item-button.button{
+                    span.point{
+                        color:GiftFC;
+                    }
+                }
+            }
+        }
+    }
+    
+    section.nage-user-profile{
+        p.name{
+            color:GiftFC;
+        }
+    }
+    
+    a[class="visual-conductor"]{
+        p[class="text"]{
+            color:GiftFC;
+        }
+    }
+    
     
 }
         
