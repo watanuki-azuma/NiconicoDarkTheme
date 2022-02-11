@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.6.4
+@version        1.6.5
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -85,7 +85,25 @@
     "Enable"    
 ]
 
+@var select OldVolumebar "[生放送]ボリュームバーを常時表示にする"[
+    "Disable",
+    "Enable"    
+]
+
+@var select ExtendedNicoLivePlayer "[実験的][生放送]プレイヤーを拡大"[
+    "None",
+    "FWXGA",
+    "WXGAPlusPlus",
+    "FHD",
+    "WQHD",
+    "Custom"
+]
+
+@var text CustomNicoLivePlayerWidth "[実験的][Custom用]数値を入力" 1440
+
 ==/UserStyle== */
+
+FontColor = #ddd
 
 @-moz-document domain("nicovideo.jp") {
 	/* ヘッダーメニュー */
@@ -2662,9 +2680,18 @@ url-prefix("https://live.nicovideo.jp/") {
 @-moz-document url-prefix("https://live.nicovideo.jp/watch/"),
 url-prefix("https://launch.spi.nicovideo.jp/amazon/"),
 url-prefix("https://live2.nicovideo.jp/watch/") {
-	/* ニコ生視聴ページ */
-
+	/* 生放送視聴ページ */
+	
     :root{
+        
+        // 実験エリア
+        --CustomNicoLivePlayerWidth : CustomNicoLivePlayerWidth;
+        --CustomNicoLivePlayerSize : calc(var(--CustomNicoLivePlayerWidth) * 1px); 
+        
+        // ここまで実験
+        
+
+        
         if OldVolumebar == "Disable"{
             .none{
                 none;
@@ -2675,8 +2702,55 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
                 [class^="___volume-size-control___"]{
         transform: scaleX(1);
             }
-        }  
+        }
+
     }
+    
+    // 実験的エリア
+    
+    NicoLivePlayerWidth = 1920px
+    CustomNicoLivePlayerWidth = 1800px
+                
+    if ExtendedNicoLivePlayer == "None"{
+            
+    }
+        
+    else if ExtendedNicoLivePlayer == "FWXGA"{
+        NicoLivePlayerWidth = 1366px
+    }
+        
+    else if ExtendedNicoLivePlayer == "WXGAPlusPlus"{
+        NicoLivePlayerWidth = 1600px
+    }
+        
+    else if ExtendedNicoLivePlayer == "FHD"{
+        NicoLivePlayerWidth = 1920px
+    }
+        
+    else if ExtendedNicoLivePlayer == "WQHD"{
+        NicoLivePlayerWidth = 2560px;
+    }
+    
+    else if ExtendedNicoLivePlayer == "Custom"{
+        NicoLivePlayerWidth = var(--CustomNicoLivePlayerSize);
+    }
+    
+    .___player-display___1C2-l{
+        width: NicoLivePlayerWidth
+    }
+    
+    .___watch-page___30tPh:not([data-browser-fullscreen])[data-layout-mode=liquid] .___player-section___1eVgP{
+        max-width:100%;
+        width: auto;
+        --NicoLivePlayerWidth : NicoLivePlayerWidth;
+        margin-left: calc(calc(100% - var(--NicoLivePlayerWidth) - 384px) / 2);
+    }
+    
+    .___leo-player___l2WNO:not([data-fullscreen-layout])[data-player-layout=multi] .___player-display-screen___3pTN6{
+        max-width: NicoLivePlayerWidth;
+    }
+    
+    // ここまで実験中
 
 	/*背景*/
 	#root > [class^="___watch-page___"],
@@ -3245,12 +3319,39 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 	[aria-label="フィードバック"] {
 		background-color: #101213; } }
 
-@-moz-document url-prefix("https://live.nicovideo.jp/history") {
+@-moz-document url-prefix("https://live.nicovideo.jp/history"), url-prefix("https://live.nicovideo.jp/embed/watch-histories") {
 	/* 生放送視聴履歴 */
+
+    FontBaseColor = #ddd
+    HoverBG = #333
+
+    [class^="___premium-appeal-message-anchor___"]{
+       background-color:#2f2f2f;
+       border-color:#424242;
+       span{
+           color:FontBaseColor
+       }
+    }
+    .viewed_number_per_max{
+        color:FontBaseColor !important
+    }
+    [data-item-name="deleteWatchHistoryButton"]{
+        color:FontBaseColor
+        &:hover{
+            background-color:HoverBG
+        }
+    }
+    [class^="___watch-histories-delete-all-button"]{
+        background-color:#444
+        color:FontBaseColor
+    }
+
 	body {
 		background: #353535; }
 	.container {
-		background: #303030; } }
+		background: #303030; } 
+	
+}
         
 @-moz-document url-prefix("https://nicoad.nicovideo.jp/nage"){
     /* ニコ生ギフト */
