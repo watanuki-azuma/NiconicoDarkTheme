@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.6.5
+@version        1.6.6
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -2712,7 +2712,12 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
     CustomNicoLivePlayerWidth = 1800px
                 
     if ExtendedNicoLivePlayer == "None"{
-            
+        NicoLivePlayerWidth = none
+        .___watch-page___30tPh:not([data-browser-fullscreen])[data-layout-mode=liquid] .___player-section___1eVgP{
+            max-width:1664px !important;
+            width: calc(177.77778vh - 220.44444px) !important;
+            margin-left: auto !important;
+        }
     }
         
     else if ExtendedNicoLivePlayer == "FWXGA"{
