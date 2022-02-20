@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.6.7-1
+@version        1.6.9
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -93,7 +93,7 @@
 @var select ExtendedNicoLivePlayer "[実験的][生放送]プレイヤーを拡大"[
     "None",
     "FWXGA",
-    "WXGAPlusPlus",
+    "HDPlus",
     "FHD",
     "WQHD",
     "Custom"
@@ -218,7 +218,7 @@ url-prefix("https://www.nicovideo.jp/series/") {
 		background: linear-gradient(90deg, #1e681c, #025151);
 	}
 
-	/* 検索バー */
+	/* 検索バー 
 	.CrossSearch_Re-rowSelector,
 	.CrossSearch_Re-form {
 		background-color: #515151;
@@ -247,6 +247,36 @@ url-prefix("https://www.nicovideo.jp/series/") {
 
 	.CrossSearch_Re-button {
 		background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='1.4'%3E%3Cpath d='M60.3 74.5a40 40 0 1114.1-14.1l23.3 23.1a8 8 0 010 11.3l-2.9 2.9a8 8 0 01-11.3 0L60.3 74.5zM40 14a26 26 0 110 52 26 26 0 010-52z' fill='%23eee'/%3E%3C/svg%3E") no-repeat;
+	} */
+	
+	.CrossSearch_Re-{
+		&form{
+			background-color #515151
+			border 1px solid #646464
+			box-shadow inset 0 0 0 1px #646464
+		}
+		
+		&rowSelector{
+			background-color #515151
+			border 1px solid #646464
+		}
+		
+		&rowService{
+			color #d7d7d7
+			
+			&.active,&:hover{
+				background-color #313131
+				color #ddd
+			}
+		}
+		
+		&inputt,&::placeholder{
+			color #fff
+		}
+		
+		&button{
+			buckground url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='1.4'%3E%3Cpath d='M60.3 74.5a40 40 0 1114.1-14.1l23.3 23.1a8 8 0 010 11.3l-2.9 2.9a8 8 0 01-11.3 0L60.3 74.5zM40 14a26 26 0 110 52 26 26 0 010-52z' fill='%23eee'/%3E%3C/svg%3E") no-repeat
+		}
 	}
 
 	/*サブメニュー共通*/
@@ -1214,6 +1244,8 @@ height:280px;
 @-moz-document url-prefix("https://www.nicovideo.jp/watch/") {
 	
 	/* 動画視聴ページ */
+
+	VideoBG = #1b1b1b
 	
 	:root{
 		--NicoruRank1 : NicoruRank1;
@@ -1527,6 +1559,10 @@ background:#333 !important;
 	.VideoMenuContainer-button {
 		fill: var(--Watchpagelinkcolor) !important; }
 
+		
+	.PlayerContainer{
+		background-color VideoBG;
+	}
 
 	.title,
 	.VideoTitle {
@@ -2317,6 +2353,12 @@ url-prefix("https://live.nicovideo.jp/") {
         top: 50%;
         transform: translateY(-50%);
     }
+    
+    /* ページヘッダーボックスシャドウ */
+
+    [class^="___page-header-area___"]{
+        box-shadow 0 1px 3px 0 #ababab4d !important
+    }
 
 
 
@@ -2526,6 +2568,58 @@ url-prefix("https://live.nicovideo.jp/") {
 		background-color: #383838; }
 	[class^="___search-button___"]:hover > svg > path {
 		fill: #c5c5c5; }
+        
+    div[class^="___combo-box"][role="combobox"]{
+        &:focus-within{
+            background-color transparent
+        }
+        input{
+            caret-color #fff
+            color #ddd
+        }
+        ul{
+            background-color #555;
+            li{
+                background-color #555
+                color #ddd
+                &:hover{
+                    background-color #333;
+                }
+            }
+        }
+    }
+    
+    [class^="___main-contents-search-area___"]{
+        background-color #252525 !important;
+    }
+        
+    [class^="___konomi-tag-search-box___"]{
+        &:focus-within
+        &[aria-expanded="true"]{
+            background-color transparent
+        }
+        input[placeholder="好みタグを検索する"]{
+            background-image url(https://nicolive.cdn.nimg.jp/relive/party1-static/nicolive/item/glass_icon_mono5.6ed6a.svg),url(https://nicolive.cdn.nimg.jp/relive/party1-static/nicolive/item/glass_icon_mono5.6ed6a.svg)
+            border none
+            caret-color: #ddd
+            color FontColor
+        }
+        div[class^="___panel"]{
+            ul{
+                li{
+                    background-color #555
+                    color FontColor
+                    &:hover{
+                        background-color #333
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    https://nicolive.cdn.nimg.jp/relive/party1-static/nicolive/item/glass_icon_mono3.b8040.svg
+    
 	
 	/* フォローしてるユーザー */
 	div[class^="___followed-programs-page___"]{
@@ -2680,8 +2774,8 @@ url-prefix("https://live.nicovideo.jp/") {
 @-moz-document url-prefix("https://live.nicovideo.jp/watch/"),
 url-prefix("https://launch.spi.nicovideo.jp/amazon/"),
 url-prefix("https://live2.nicovideo.jp/watch/") {
-	/* 生放送視聴ページ */
-	
+	/* ニコ生視聴ページ */
+        
     :root{
         
         // 実験エリア
@@ -2796,8 +2890,9 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 		border: none; }
 	button[class^="___toggle"][aria-label="設定"]:hover {
 		fill: lightblue }
-		
-	// 詳細設定パネル
+        
+        
+    // 詳細設定パネル
     
     [class^="___player-setting-view"]{
         background-color:#3a3a3a;
@@ -2808,7 +2903,6 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
         }
         [class^="___content"]{
             border-color:#3c3c3c;
-			
             div[class^="___player-screen-size-menu-button-field"]{
                 &:not([aria-disabled=true]):hover{
                     background-color:#686868;
@@ -2818,11 +2912,16 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
                         color:#e1e1e1;
                     }
                 }
+                
                 [class^="___before"]{
                     color:#eee;
                 }
             }
         }
+    }
+    
+    [data-kind="timeshiftExpired"]{
+        color:FontColor;
     }
     
     [class*="-button-field___"]:not([aria-disabled=true]):hover{background-color:#686868;}
@@ -3354,10 +3453,8 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 	body {
 		background: #353535; }
 	.container {
-		background: #303030; } 
-	
-}
-        
+		background: #303030; } }
+
 @-moz-document url-prefix("https://nicoad.nicovideo.jp/nage"){
     /* たぶんギフトタブ */
     GiftBG = #464646
@@ -4509,6 +4606,3 @@ url-prefix("https://news.nicovideo.jp/") {
 	/* 実験的部分 */
 	
 }
-
-
-
