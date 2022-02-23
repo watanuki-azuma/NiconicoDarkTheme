@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.7.0
+@version        1.7.1
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -113,9 +113,22 @@
 	"True"
 ]
 
+@var select Force_DarkTheme "[実験的]アカウント管理ページ等一部ページのダークテーマ化"[
+	"False",
+	"True"
+]
+
 ==/UserStyle== */
 
-FontColor = #ddd
+	FontColor = #ddd
+
+	if MypageColorTheme == "Original"{
+		Mycolorset = #fbbc00
+	}
+	
+	else if MypageColorTheme == "Custom"{
+		Mycolorset = MyCustomcolorset
+	}
 
 @-moz-document domain("nicovideo.jp") {
 	/* ヘッダーメニュー */
@@ -185,13 +198,7 @@ url-prefix("https://www.nicovideo.jp/user"){
 		--Mypagecustomcolor : 
 	}
 	
-	if MypageColorTheme == "Original"{
-		Mycolorset = #fbbc00
-	}
-	
-	else if MypageColorTheme == "Custom"{
-		Mycolorset = MyCustomcolorset
-	}
+
 	
 	MyBasecolor = Mycolorset
 	FontBase = #ddd
@@ -865,6 +872,113 @@ body,.NicorepoPage-content{background-color: #1e1e1e !important;}
 	}
 }
 
+
+@-moz-document url-prefix("https://inform.nicovideo.jp"){
+	
+	/* お知らせ */
+
+	Basecolor = #252525
+	
+	:root{
+		--Noticeiconcolor : Mycolorset
+	}
+	
+	body{
+		background-color Basecolor
+	}
+	
+	li.item{
+		a{
+			&.settings
+			&.important
+			&.all{
+				color FontBase
+			}
+			
+			&.settings{
+				&:hover{
+					color FontBase
+					&::before{
+						filter invert(1)
+					}
+				}
+			}
+		}
+		
+	}
+	
+
+	
+	
+	
+	section.notice{
+		
+		section > p.text{
+			color FontBase
+		}
+		
+		ul{
+			border-top-color Basecolor
+			
+			li{
+				a.inner{
+					background-color lighten(Basecolor, 15%)
+					border-color transparent transparent lighten(Basecolor, 30%)
+					
+					p.text{
+						color FontBase
+					}
+					
+					span{
+						background lighten(Basecolor, 10%)
+						border 1px solid lighten(Basecolor, 30%)
+						border-radius 10px
+					}
+				}
+			}
+		}
+	}
+	
+	footer{
+		background lighten(Basecolor, 10%) !important
+		border-top-color transparent !important
+		
+		p.copyright{
+			color FontBase
+		}
+	}
+	
+	
+	// お知らせ設定
+	
+	a.totop,p.text{
+		color FontBase !important
+		&::before{
+			border-color transparent transparent transparent FontBase !important
+		}
+	}
+	
+	li.setting-item{
+		background lighten(Basecolor, 10%) !important
+		border-color lighten(Basecolor, 30%) !important
+		
+		div.icon > svg > g > g{
+			g{
+				fill Mycolorset 
+			}
+			circle{
+				stroke Mycolorset
+			}
+		}
+		
+		div.text{
+			p{
+				color FontBase !important
+			}
+		}
+	}
+	
+}
 @-moz-document url-prefix("https://www.nicovideo.jp/my"), url-prefix("https://www.nicovideo.jp/user/"), url-prefix("https://www.nicovideo.jp/series/") {
 	
 	/* 詰めるだけ統合 */
@@ -4311,6 +4425,13 @@ url-prefix("https://www.nicovideo.jp/mylist_search/") {
 		mix-blend-mode: color-burn; }
 	.switchingBtn {
 		border: 1px solid #575757; }
+		
+	.columnChangeList{
+		li[data-set-col=""]{
+			filter invert(90%)
+			mix-blend-mode color-dodge
+		}
+	}
 
 
 	.itemDescription,
@@ -4634,6 +4755,147 @@ url-prefix("https://news.nicovideo.jp/") {
 	div[style="width:320px;height:50px;margin:0"] {
 		display: none; } }
 
+		
+@-moz-document url-prefix("https://account.nicovideo.jp/"){
+	
+	
+	/* 一部ページ向けダークテーマ */
+
+	Basecolor = #252525
+	Bordercolorbase = lighten(Basecolor, 40%)
+
+	if Force_DarkTheme == "True"{
+		
+		html{
+			background-color Basecolor
+		}
+		
+		.page-header a
+		.app-title,
+		.page-header__title
+		p.text
+		.page-description a
+		.page-description .description
+		.access-status-connection
+		.access-status-date
+		.registered-name
+		.registered-date
+		.session-log-date
+		.session-log-address
+		.session-log-country
+		.session-log-connection{
+			color FontBase !important
+			&::before{
+				border-left-color FontBase
+			}
+		}
+		
+		.page-header{
+			background lighten(Basecolor, 10%)
+		}
+		
+		.message{
+			&-wrap{
+				background #ffc844
+			}
+		}
+		
+		#update-password{
+			p{
+				color FontBase
+			}
+			button{
+				background-color Mycolorset
+			}
+		}
+		
+		.row-description{
+			p.text-default{
+				color FontBase
+			}
+		}
+		
+		.row-header{
+			h2{
+				color FontBase !important
+			}
+		}
+		
+		.access-status{
+			background-color lighten(Mycolorset, 50%)
+			div p{
+				color darken(Mycolorset, 20%)
+			}
+		}
+		
+		#input-nicorepo-activity-public{
+			background-color lighten(Basecolor, 18%)
+		}
+		
+		#layered-nicorepo-publish-public{
+			background-color transparent
+		}
+		
+		.button-primary{
+			background-color Mycolorset
+		}
+		
+		
+		body{
+			background Basecolor
+			color FontBase
+			
+			div.main{
+				div.column{
+					section{
+						background-color lighten(Basecolor, 10%)
+						header,.docs-body{
+							border-color Bordercolorbase
+						}
+						div.docs-body{
+							p.text{
+								color FontBase
+							}
+							div.outer{
+								.profile-account{
+									#nickname-value{
+										color FontBase
+									}
+								}
+								p.item.profile-{
+									&gender,&birthdate,&country,&timezone{
+										span{
+											color FontBase
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		#sensitive_contents input:checked + .toggle-switch
+		#webpush input:checked + .toggle-switch{
+			background-color Mycolorset
+		}
+		
+
+		.icon--googleplus + .label
+		.icon--googleplus + .title{
+			color FontBase
+		}
+		
+		footer{
+			border-top-color Bordercolorbase !important
+			background Basecolor !important
+		}
+	}
+	
+	else if Force_DarkTheme == "False"{}
+	
+}
 @-moz-document domain("nicovideo.jp"){
 	
 	/* 競合回避 */
