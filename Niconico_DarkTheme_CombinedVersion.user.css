@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.7.1
+@version        1.7.3
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -2929,7 +2929,7 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
         --CustomNicoLivePlayerWidth : CustomNicoLivePlayerWidth;
         --CustomNicoLivePlayerSize : calc(var(--CustomNicoLivePlayerWidth) * 1px); 
         
-        // ここまで実験
+        // ここまで
         
 
         
@@ -2947,53 +2947,84 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 
     }
     
-    // 実験的エリア
-    
-    NicoLivePlayerWidth = 1920px
     CustomNicoLivePlayerWidth = 1800px
                 
     if ExtendedNicoLivePlayer == "None"{
-        NicoLivePlayerWidth = none
-        .___watch-page___30tPh:not([data-browser-fullscreen])[data-layout-mode=liquid] .___player-section___1eVgP{
-            max-width:1664px !important;
-            width: calc(177.77778vh - 220.44444px) !important;
-            margin-left: auto !important;
-        }
     }
         
     else if ExtendedNicoLivePlayer == "FWXGA"{
         NicoLivePlayerWidth = 1366px
+        .___watch-page___30tPh:not([data-browser-fullscreen])[data-layout-mode=liquid] .___player-section___1eVgP{
+            max-width:100%;
+            width: auto;
+            --NicoLivePlayerWidth : NicoLivePlayerWidth;
+            margin-left: calc(calc(100% - var(--NicoLivePlayerWidth) - 384px) / 2);
+        }
+    
+        .___leo-player___l2WNO:not([data-fullscreen-layout])[data-player-layout=multi] .___player-display-screen___3pTN6{
+            max-width: NicoLivePlayerWidth;
+        }
     }
         
     else if ExtendedNicoLivePlayer == "WXGAPlusPlus"{
         NicoLivePlayerWidth = 1600px
+        .___watch-page___30tPh:not([data-browser-fullscreen])[data-layout-mode=liquid] .___player-section___1eVgP{
+            max-width:100%;
+            width: auto;
+            --NicoLivePlayerWidth : NicoLivePlayerWidth;
+            margin-left: calc(calc(100% - var(--NicoLivePlayerWidth) - 384px) / 2);
+        }
+    
+        .___leo-player___l2WNO:not([data-fullscreen-layout])[data-player-layout=multi] .___player-display-screen___3pTN6{
+            max-width: NicoLivePlayerWidth;
+        }
     }
         
     else if ExtendedNicoLivePlayer == "FHD"{
         NicoLivePlayerWidth = 1920px
+        .___watch-page___30tPh:not([data-browser-fullscreen])[data-layout-mode=liquid] .___player-section___1eVgP{
+            max-width:100%;
+            width: auto;
+            --NicoLivePlayerWidth : NicoLivePlayerWidth;
+            margin-left: calc(calc(100% - var(--NicoLivePlayerWidth) - 384px) / 2);
+        }
+    
+        .___leo-player___l2WNO:not([data-fullscreen-layout])[data-player-layout=multi] .___player-display-screen___3pTN6{
+            max-width: NicoLivePlayerWidth;
+        }
     }
         
     else if ExtendedNicoLivePlayer == "WQHD"{
         NicoLivePlayerWidth = 2560px;
+        .___watch-page___30tPh:not([data-browser-fullscreen])[data-layout-mode=liquid] .___player-section___1eVgP{
+            max-width:100%;
+            width: auto;
+            --NicoLivePlayerWidth : NicoLivePlayerWidth;
+            margin-left: calc(calc(100% - var(--NicoLivePlayerWidth) - 384px) / 2);
+        }
+    
+        .___leo-player___l2WNO:not([data-fullscreen-layout])[data-player-layout=multi] .___player-display-screen___3pTN6{
+            max-width: NicoLivePlayerWidth;
+        }
     }
     
     else if ExtendedNicoLivePlayer == "Custom"{
         NicoLivePlayerWidth = var(--CustomNicoLivePlayerSize);
+        
+        .___watch-page___30tPh:not([data-browser-fullscreen])[data-layout-mode=liquid] .___player-section___1eVgP{
+            max-width:100%;
+            width: auto;
+            --NicoLivePlayerWidth : NicoLivePlayerWidth;
+            margin-left: calc(calc(100% - var(--NicoLivePlayerWidth) - 384px) / 2);
+        }
+    
+        .___leo-player___l2WNO:not([data-fullscreen-layout])[data-player-layout=multi] .___player-display-screen___3pTN6{
+            max-width: NicoLivePlayerWidth;
+        }
     }
     
     .___player-display___1C2-l{
         width: NicoLivePlayerWidth
-    }
-    
-    .___watch-page___30tPh:not([data-browser-fullscreen])[data-layout-mode=liquid] .___player-section___1eVgP{
-        max-width:100%;
-        width: auto;
-        --NicoLivePlayerWidth : NicoLivePlayerWidth;
-        margin-left: calc(calc(100% - var(--NicoLivePlayerWidth) - 384px) / 2);
-    }
-    
-    .___leo-player___l2WNO:not([data-fullscreen-layout])[data-player-layout=multi] .___player-display-screen___3pTN6{
-        max-width: NicoLivePlayerWidth;
     }
     
     // ここまで実験中
@@ -3173,21 +3204,69 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 		z-index: 90; }
 	
 	/* フォローボタン */
-	[class*="___toggle-button___"][aria-pressed="true"],
-	[class*="___toggle-button___"][aria-pressed="false"] {
-		background-color: #a9a9a9;
-		color: #616161 !important;
-		border: 2px solid #5f5f5f; }
-	button[class^="___toggle-button___"][value="フォロー解除"]:hover {
-		color: #ff982a !important;
-		background-color: whitesmoke; }
-    
-    [class^="___social-group-menu-area___"] > form[data-follow-status=follow] > span[class^="___follow-status"]{
-        color: #ddd;
-        background-color: #7a7a7a;
+	
+	//unfollow
+	[class^="___follow-toggle-form"][data-follow-status="unfollow"]{
+		button{
+			background-color #505050
+			border 2px solid #5f5f5f !important
+			&:hover{
+				background-color #303030
+			}
+			span{
+				color Mycolorset
+			}
+		}
+	}
+	
+
+	// following
+	[class^="___follow-toggle-form"][data-follow-status="follow"]{
+        button{
+            background-color #505050
+            border 2px solid #5f5f5f !important
+            
+            &::after{
+                color FontBase !important
+            }
+            &:hover::after{
+                color FontBase !important
+                content "フォロー解除" !important
+            }
+            &:hover{
+                background-color #303030
+            }
+            
+            svg > polygon{
+                fill FontBase !important
+            }
+        }
     }
-    [class^="___social-group-menu-area___"] > form[data-follow-status=follow] > span[class^="___follow-status"]::before{
-        mix-blend-mode: color-dodge;  
+    
+    /* 放送リクエストボタン */
+
+    [class^="___broadcast-request-send-button"]{
+        background-color #505050
+        border 2px solid #5f5f5f
+        border-radius 4px
+        color FontBase
+        width 95px
+        svg > path{
+            fill FontBase
+        }
+    }
+
+    [class^="___tips-balloon"]{
+        background-color #505050
+        h2 > svg{
+            fill FontBase
+        }
+        p{
+            color FontBase
+        }
+        &::after{
+            border-top-color #505050
+        }
     }
     
     /* もうなにもわからない */
