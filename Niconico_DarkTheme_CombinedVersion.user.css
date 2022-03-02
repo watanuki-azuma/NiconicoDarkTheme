@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.7.3
+@version        1.7.4
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -3254,8 +3254,22 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
         svg > path{
             fill FontBase
         }
+		span::after{
+			// background-color #505050
+		}
     }
+	// クリック時のピカーって感じの色を設定している
+	[class^="___broadcast-request-send-button"][data-request-total][data-animation-playing=true]:not([data-action-trigger]):after{
+		background-color alpha(Mycolorset, 0.5) !important
+	}
+	
+	// クリック後ポップアップの背景と文字色を規定
+	[class^="___broadcast-request-send-button"][data-request-total][data-animation-playing=true]:not([data-action-trigger]) [class^="___content___"] > .request-total{
+		background-color #505050 !important
+		color FontBase !important
+	}
 
+	// tipsの色
     [class^="___tips-balloon"]{
         background-color #505050
         h2 > svg{
