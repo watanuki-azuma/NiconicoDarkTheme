@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.7.5
+@version        1.7.6
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -231,8 +231,9 @@ url-prefix("https://www.nicovideo.jp/user"){
 	
 	.FollowButton,.NC-FollowButton{
 		&_following{
-			background-color darken(MyBasecolor, 20%)
-			color lighten(FontBase, 50%)
+			background-color darken(MyBasecolor, 10%)
+			color #fff
+			font-weight bold
 			&:hover{
 				background-color darken(MyBasecolor, 40%) !important
 			}
@@ -405,6 +406,24 @@ url-prefix("https://www.nicovideo.jp/series/") {
 	.CommunityItem-content {
 		background-color: #555;
 		border: 1px solid #aaa;
+	}
+	
+	.FollowButton_following .FollowButton-icon{
+		fill #fff
+	}
+	
+	.LiveRequestButton{
+		LiveReqcolor = #9cf
+		border 2px solid LiveReqcolor
+		color LiveReqcolor
+		font-weight bold
+		svg{
+			fill LiveReqcolor
+		}
+		
+		&:hover{
+			background-color darken(LiveReqcolor, 60%)
+		}
 	}
 
 	/*フォロー中タグ*/
@@ -3086,6 +3105,50 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
     }
     
     [class*="-button-field___"]:not([aria-disabled=true]):hover{background-color:#686868;}
+		
+		
+	/* 番組終了後表示 */
+
+	[class^="___program-end-guide"]{
+		[class^="___next"]{
+			div[class^="___menu"]{
+				background-color #505050
+				
+				[class^="___broadcast-request-enlightenment-section"]{
+					background-color #303030
+					
+					[class^="___messaging-area"]{
+						p{
+							color FontBase
+						}
+					}
+					
+					[class^="___action-control-area"]{
+						span{
+							color FontBase
+						}
+						button{
+							width 134px
+							display flex
+							align-content space-around
+							justify-content space-around
+							align-items center
+							flex-direction column
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	form[class^="___comment-post-form"]{
+		div[data-overlay-role="cover"]{
+			background-color alpha(#505050, 0.8)
+		}
+	}
+	[class^="___emotion-button___"]:disabled:before{
+		background-color alpha(#505050, 0.8)
+	}
 
 	/* コミュユーザーフォロー改 */
 	div[class^="___user-summary"] > form[class^="___follow-toggle-form"] > span[class^="___follow-status"] {
