@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.7.6
+@version        1.7.7
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -2366,13 +2366,13 @@ background:#333 !important;
 		background-color: #2b2b2b;
 		color: #ddd; }
 	.searchPage-SearchHeader_ButtonInput:checked + .searchPage-SearchHeader_ButtonContent {
-		color: #eb9f2d;
-		box-shadow: 0 -2px 0 0 #eb9f2d inset }
+		color: Mycolorset;
+		box-shadow: 0 -2px 0 0 Mycolorset inset }
 	.searchPage-ProgramList_UserNameLink:hover,
 	.searchPage-SearchHeader_Button:hover .searchPage-SearchHeader_ButtonContent,
 	.searchPage-ProgramList_TitleLink:hover,
 	.searchPage-ProgramList_UserOtherLink {
-		color: #eb9f2d; }
+		color: Mycolorset; }
 	.searchPage-ProgramList_TitleIcon-pay,
 	.searchPage-ProgramList_TitleIcon-private {
 		border-color: #cbcbcb;
@@ -2383,7 +2383,57 @@ background:#333 !important;
 		color: #555; }
 	.page_top a::after,
 	.page_top a::before {
-		filter: invert(1); } }
+		filter: invert(1); } 
+	
+	
+	.searchPage-SearchFilter_ToggleButton:hover .searchPage-SearchFilter_ToggleButtonContent
+	.searchPage-SearchFilter_ToggleButton[data-selected=true] .searchPage-SearchFilter_ToggleButtonContent{
+				background-color darken(Mycolorset, 10%) 
+				font-weight bold
+		}
+	.searchPage-SearchFilter_ToggleButtonContent{
+		border-color Mycolorset
+		color Mycolorset
+	}
+		
+	
+	.searchPage-SearchFilter_ToggleButtonContent::before{
+		background-image url(https://nicolive.cdn.nimg.jp/relive/party1-static/nicolive/item/adjuster_icon_white.8c879.svg)
+	}
+	
+	.searchPage-SearchOption{
+		background-color #404040
+		box-shadow none
+		border 1px solid darken(FontBase, 30%)
+		
+		&_Help{
+			color FontBase
+		}
+		
+		&_List{
+			li{
+				label{
+					div{
+						color FontBase
+					}
+				}
+			}
+		}
+	}
+	
+	.searchPage-Switch_Input:checked+.searchPage-Switch_Trunk{
+		background-color darken(Mycolorset, 30%)
+	}
+	.searchPage-Switch_Input:checked~.searchPage-Switch_Handle{
+		background-color Mycolorset
+	}
+	
+	.searchPage-SearchOption_ConfirmButton{
+		background-color darken(Mycolorset, 20%)
+		font-weight bold
+	}
+	
+	}
 
 
 @-moz-document url-prefix("https://live2.nicovideo.jp/"),
@@ -2465,6 +2515,24 @@ url-prefix("https://live.nicovideo.jp/") {
     [class^="___event-information-anchor-list-section___"] > div > a[role="listitem"]:hover,[class^="___system-information-anchor-list-section___"] > div > a[role="listitem"]:hover{
         background-color: #555;
     }
+	
+	// トッププログラムリストもっと見るボタン 
+
+	
+	div[class^="___top-program-list-section-expander"]{
+		button{
+			background-color #303030
+			//width 78px
+			border-radius 10px
+			//padding-right px
+			&::before{
+				left 4px
+			}
+			&::after{
+				left 10px
+			}
+		}
+	}
     
     /* 番組ページ送りボタン */
     button[class^="___page-selector___"]:not(:disabled):hover{
@@ -2490,6 +2558,27 @@ url-prefix("https://live.nicovideo.jp/") {
         box-shadow 0 1px 3px 0 #ababab4d !important
     }
 
+	/* onair following user */
+
+	div[class^="___program-list-section"]{
+		ul > li{
+			div[class^="___program-card"]{
+				&:hover{
+					background-color #303030
+				}
+				
+				div[class^="___program-summary-area"]{
+					span[class^="___program-provider"]
+					a[class^="___program-title"]{
+						color FontBase
+						&:hover{
+							background-color transparent !important
+						}
+					}
+				}
+			}
+		}
+	}
 
 
 	/* 好みタグ */
@@ -2556,9 +2645,68 @@ url-prefix("https://live.nicovideo.jp/") {
 	}
 	ul[class^="___konomi-tag-list____"] > li > [class^="___tag___"][data-highlight="true"]{
 	background-color: #fff0dd;
-}
+	}
+	
+	section[class^="___konomi-tag-recent-onair-broadcast-status-program-list-section"]{
+		button{
+			background-color #505050
+			color FontBase
+			&:after{
+				filter invert(0.95)
+			}
+			&:hover{
+				background-color #252525
+			}
+		}
+	}
+	
+	section[class^="___konomi-tag-follow-tool___"]{
+		div[class^="___tab-panel"]{
+			background-color #404040
+			div[class^="___tab-list"]{
+				button[data-name="register"]
+				button[data-name="edit"]{
+					background-color #303030
+				}
+				button[data-name="edit"]{
+					span[data-limit-status="under"]{
+						
+						color #fff
+						span[data-role="value"]{
+							color Mycolorset
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	[class^="___follow-toggle-form___"][data-follow-status=unfollow] [class^="___toggle-button___"]>svg>path{
+		fill Mycolorset
+	}
 
 	/* 背景とか */
+	[class^="___focus-page___"]{
+		background-color #404040
+	}
+	
+	section[class^="___pickup-contents-list-section"]{
+		ul{
+			a[class*="___contents-card"]{
+				background-color #303030
+				border-color #404040
+				div{
+					p[class^="___contents-title"]{
+						color FontBase
+						&:hover{
+							color Mycolorset
+						}
+					}
+				}
+			}
+		}
+	}
+
 	[class^="___ranking-contents-area___"] {
 		background-color: #2f2f2f; }
 	ul > li > [class*="___program-broadcaster-card___"] {
@@ -2581,39 +2729,11 @@ url-prefix("https://live.nicovideo.jp/") {
 	div[class*="___online-viewing-banner___"],
 	div[class^="___contents-area"] {
 		background-color: #2f2f2f !important; }
-	.___feature-program-section___2ZYME,
-	.___pickup-contents-list-section___19tVl,
-	.___page___T8fzh,
-	.___feature-program-section___2-hHM {
+	[class^="___feature-program-section___"],
+	[class^="___pickup-contents-list-section___"],
+	[class^="___feature-program-section___"] {
 		background-color: #404040 !important; }
-	.___program-card___153V- {
-		background-color: #464646 !important; }
-	a[class^="___page-top-anchor___"] {
-		background-color: #252525;
-		color: #ddd; }
-	.___contents-card___1V5Yc {
-		background-color: #737373; }
-	.___page-selector___1tIWc {
-		background-color: #333; }
-	.___page-selector___1tIWc[data-name="next"]::before {
-		border-color: transparent transparent transparent #cacaca; }
-	.___page-selector___1tIWc[data-name="prev"]::before {
-		border-color: transparent #cacaca transparent transparent; }
-	.___item___2UlkV,
-	span[class*="___subject___"] {
-		background-color: #424242; }
-	.___tag___3UslK,
-	.___counter___g2o1l:not([aria-selected="true"]),
-	.___expand-button___2TWkz {
-		background-color: #2b2b2b; }
-	.___counter___g2o1l:not([aria-selected="true"]):hover,
-	.___expand-button___2TWkz:hover {
-		background-color: #4f4f4f; }
-	[class*="___information-bar___"] > [class*="___message___"],
-	a[class*="___visit-anchor___"] {
-		background-color: #424242; }
-	.___big-banner___3lg7I {
-		background-color: transparent; }
+
 
 	[class^="___information-area___"] > section > [class*="___item-list___"] {
 		background-color: #313131; }
@@ -2661,8 +2781,9 @@ url-prefix("https://live.nicovideo.jp/") {
 	[data-item-name="timeshiftReservationButton"] {
 		background-color: #464646 }
 	[data-item-name="timeshiftReservationButton"]:hover {
-		background-color: #c3c3c3;
-		color: #252525 !important }
+		background-color #303030
+		color FontBase 
+	}
 
 
 	button[class^="___load-button___"][value="もっと見る"]:hover {
@@ -2748,7 +2869,26 @@ url-prefix("https://live.nicovideo.jp/") {
     }
     
     
-    https://nicolive.cdn.nimg.jp/relive/party1-static/nicolive/item/glass_icon_mono3.b8040.svg
+ 	// footer
+	
+	div[class^="___footer-area___"]{
+		nav{
+			a{
+				&[class^="___page-top-anchor"]{
+					background-color transparent
+					color FontBase
+					&::before
+					&::after{
+						border-color FontBase
+					}
+				}
+				&[class^="___feedback-anchor___"]{
+					background-color #404040
+					outline 1px solid darken(FontBase, 50%)
+				}
+			}
+		}
+	}
     
 	
 	/* フォローしてるユーザー */
@@ -3192,6 +3332,34 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 	[class*="___search-button___"]:hover > svg > path {
 		fill: #c5c5c5 !important; }
 
+		
+	/* このユーザーが放送中のバー */
+
+	[class^="___player-head-area"]{
+		div[class^="___program-announcement-bar"]{
+			background-color #4a4a4a
+			p{
+				color FontBase
+			}
+			
+			// 統合版専用
+			a{
+				svg{
+					path{
+						fill Mycolorset !important
+					}
+				}
+				
+				span{
+					color Mycolorset
+				}
+				
+				&:hover{
+					text-decoration: none
+				}
+			}
+		}
+	}
 
 	/* 障害バナー */
 	.___message-anchor___1ShGI {
@@ -3208,15 +3376,6 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 		background-color: #757575;
 		border: 2px solid #717171; }
 
-	/* onair following user */
-	[class^="___program-card-list"] > li[role="listitem"] > [class^="___program-card"]:hover {
-		background-color: #656565; }
-	[class^="___program-card"] > div > [class^="___program-provider-name"] {
-		color: #c8c8c8 !important }
-	[class^="___program-card"] > div > [class^="___program-title"] {
-		color: #e6aa6c !important }
-	[class^="___program-card"] > div > [class^="___duration___"] {
-		color: #a4c870 }
 
 	/* おいだし */
 	[class^="___alert-dialog___"] {
