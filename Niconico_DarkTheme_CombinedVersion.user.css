@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.7.7
+@version        1.7.12
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -118,9 +118,16 @@
 	"True"
 ]
 
+@var checkbox doodle "doodle" 0
+
+@var checkbox NoticebannerClosed "プレミアムDAYなどの一部バナー表示を消す" 0
+
 ==/UserStyle== */
 
 	FontColor = #ddd
+	
+	NicoBase = #252525
+	Nicobase = NicoBase
 
 	if MypageColorTheme == "Original"{
 		Mycolorset = #fbbc00
@@ -179,15 +186,6 @@
 		color: #eee; }
 	#CommonHeader > div > div > div > div > div > div > div > div > a:nth-child(1n) > div {
 		background-color: transparent !important; } }
-@-moz-document url-prefix("https://account.nicovideo.jp/login") {
-	/* ログイン */
-	html,
-	body {
-		background-color: #252525; }
-	.main .sns-group .text-description {
-		color: #ddd !important; }
-	.header .header__title img {
-		filter: invert(1); } }
 
 @-moz-document url-prefix("https://www.nicovideo.jp/my"),
 url-prefix("https://www.nicovideo.jp/user"){
@@ -245,6 +243,10 @@ url-prefix("https://www.nicovideo.jp/user"){
 		}
 	}
 	
+	.FollowButton-icon{
+		fill Mycolorset
+	}
+	
 	.ProgressBar-inner,
 	.MainMenuContainer-activeBorder,
 	.RadioItem > input:checked + label::after{
@@ -276,7 +278,7 @@ url-prefix("https://www.nicovideo.jp/series/") {
 		
 		else if Ad == "Enable"{
 			.HeaderContainer_Re-ad,.RightSideContainer-adWrap,.FormationFrame.RightSideContainer-formationFrame,.Ads.UserPageFooterContainer-ad,.PremiumBanner,.RightSideContainer,.Ads,.VideoAdContainer-player{
-    display: none !important
+				display: none !important
 		}
 		}
 	}
@@ -289,11 +291,18 @@ url-prefix("https://www.nicovideo.jp/series/") {
 	.UserPage-header,
 	.UserPageHeader,
 	.UserDetailsHeader,
-	.OtherMypageLinks,
 	.ThreePointMenu,
 	.ShareModal-modal,
 	.MainMenuContainer-menu {
 		background-color: #555;
+	}
+	
+	.OtherMypageLinks{
+		background-color lighten(Nicobase, 10%)
+		a:hover{
+			background-color darken(Nicobase, 20%)
+			color FontBase
+		}
 	}
 
 	.NiconicoPoint {
@@ -441,6 +450,33 @@ url-prefix("https://www.nicovideo.jp/series/") {
 		background: #555;
 		border: 1px solid #aaa;
 	}
+	
+	/* 共有 */
+	.NC-ShareModal-modal{
+		background-color Nicobase
+		outline 1px solid lighten(Nicobase, 15%)
+		color FontBase
+	}
+	
+	.NC-CopyForm{
+		input{
+			background-color Nicobase
+			color FontBase
+			border 1px solid FontBase
+			border-radius 10px
+			padding-left 10px
+		}
+		
+		button{
+			color Mycolorset
+			margin-left 8px
+			&:hover{
+				background-color lighten(Nicobase, 8%)
+				outline 1px solid 
+			}
+		}
+	}
+
 
 	/* タグレポ */
 	.TagrepoItem {
@@ -488,6 +524,11 @@ url-prefix("https://www.nicovideo.jp/series/") {
 	.MylistMediaObject-linkArea {
 		background-color: #757575;
 		border: 1px solid #666;
+	}
+	
+	.SubMenuLink-link:hover .SubMenuLink-icon
+	.SubMenuLink-link_active .SubMenuLink-icon{
+		fill Mycolorset
 	}
 
 	/* 履歴 */
@@ -633,12 +674,17 @@ url-prefix("https://www.nicovideo.jp/series/") {
 
 
 	/* ホバー */
-	.Dropdown-button:hover,
-	.ShareButton:hover,
-	.ThreePointMenu-button:hover {
-		background-color: #444;
+	.Dropdown-button:hover{
+		background-color #505050
 	}
 
+	.ShareButton
+	.ThreePointMenu-button{
+		&:hover{
+			background-color #dadada
+			outline 1px solid #8c8c8c
+		}
+	}
 
 	/* SVG */
 
@@ -710,7 +756,7 @@ url-prefix("https://www.nicovideo.jp/series/") {
 	}
 	
 	
-			.UserPageHeader,.UserPage-header, .UserPageHeader, .UserDetailsHeader, .OtherMypageLinks, .ThreePointMenu, .ShareModal-modal, .MainMenuContainer-menu{background-color:#171717 !important;}
+			.UserPageHeader,.UserPage-header, .UserPageHeader, .UserDetailsHeader,.ThreePointMenu, .ShareModal-modal, .MainMenuContainer-menu{background-color:#171717 !important;}
 body,.NicorepoPage-content{background-color: #1e1e1e !important;}
 .NicorepoItem-item,.UserItem-content,.MylistMediaObject-linkArea{background-color:#282828 !important; border: 1px solid #333 !important;}
 .UserDetailsHeader-levelLabel, .UserDetailsHeader-account, .UserDetailsStatusItem-linkLabel, .Dropdown-button, .NiconicoPoint, .OtherMypageLinks-link, .ThreePointMenu > *, .ShareModal-modal, .UserDetailsHeader-nickname, .MainMenuItem, .SubMenuLink-label, .ModalActionButton, .NicorepoItem-senderName, .NicorepoItem-item, .NicorepoItem-contentDetailTitle, .NicorepoItem-activityCreatedAt, .NicorepoItem-senderName:visited, .FeedbackLink, .NicorepoMuteItem-detail, .NicorepoMuteSettingContainer-infoHelp, .LiveLink, .FolloweeContainer-header, .SubMenuHeader-title, .UserItem-description, .UserItem-nickname, .WatchLaterHeader-name, .WatchLaterHeader-metaValue, .WatchLaterHeader-advice, .Checkbox-label, .MylistItemAddition-addedAt, .VideoMediaObject-bodyTitle, .VideoMediaObject-bodyDescription, .VideoMetaData-videoRegisteredAt, .VideoMetaData-count > *, .MylistPageSubMenuHeader-counterValue, .SortMylistsListItem-name, .ModalContent-footerSubmitButton, .MylistMediaObject-bodyFollowerCount, .MylistMediaObject-bodyDescription, .MylistMediaObject-bodyTitle, .VideoWatchHistoryContainer-headerTotalCountValue, .VideoWatchHistoryContainer-headerAnnounce, .LikeItemAfter-thanksMessage > h1, .BlankState-title, .a-list__title, .StampCard-title, .StampContainer-stampRanking a, .ExpandBoxButton, h1, .MylistHeader-name, .MylistHeader-metaItemValue, .CommunityItem-name, .CommunityItem-description, .FollowingTagContainer-tagNameLink, .FollowingTagContainer-nicodicSummary, a, .ChannelItem-description, .ChannelItem-name, .TagrepoItem-contentTagsItem, .TagrepoContainer-headerTagName, .LikeItemAfter-ownerName, .BlankState-recommendTitle, .BlankState-body, .BlankState-linkInner, .MylistDescription .ExpandBox_is-expanded, .NicoruHistoryPassiveItem-date{color: #c3c3c3;}
@@ -1775,6 +1821,34 @@ background:#333 !important;
 		background-color: #333; }
 	.GiftButton:enabled:hover {
 		background-color: #252525; }
+		
+	.GiftTeaching{
+		background-color darken(Mycolorset, 10%)
+		&-arrow{
+			background-color darken(Mycolorset, 10%)
+		}
+		&-closeButton{
+			border none !important
+		}
+	}
+	
+	// かんたんコメント
+	
+	.EasyCommentContainer{
+		&-scrollButton{
+			background-color #4f4f4f
+		}
+	}
+	
+	.EasyCommentButton{
+		&-iconWrapper{
+			background-color #434343
+			svg{
+				fill Mycolorset
+			}
+		}
+		
+	}
 
 	/* あとで見る移動したよポップアップ */
 	.WatchLaterTeaching-arrowWrap {
@@ -1790,9 +1864,9 @@ background:#333 !important;
 	.VideoOwnerInfo .FollowButton {
 		border: none !important; }
 	.FollowButton.is-following .FollowButton-button {
-		background-color: #ca8e5a; }
+		background-color: darken(Mycolorset, 10%)}
 	.FollowButton svg {
-		fill: #00b1f7 }
+		fill: Mycolorset }
 	.FollowButton-button {
 		width: 28px;
 		height: 28px; }
@@ -2301,6 +2375,66 @@ background:#333 !important;
 	/* ここまで動画 */
 }
 
+@-moz-document url-prefix("https://www.nicovideo.jp/ranking_graph"){
+	/* ランキング推移 */
+
+	html{
+		background NicoBase
+		body{
+			color FontBase
+		}
+	}
+	
+	#nicodou img{
+		filter invert(0.95)
+	}
+	
+	// グラフ
+	
+	text[fill="#000"]{
+		fill FontBase
+	}
+	
+	line[stroke="#000"]{
+		stroke FontBase
+	}
+	
+	path.domain[stroke="#000"]{
+		stroke FontBase
+	}
+}
+
+@-moz-document url-prefix("https://www.nicovideo.jp/openlist"){
+	/* 公開マイリスト */
+
+	html{
+		background-color NicoBase
+		body{
+			color FontBase
+		}
+	}
+	
+	strong a:link{
+		color Mycolorset
+	}
+	
+	#PAGEBODY{
+		div{
+			h1 a{
+				&:link{
+					color Mycolorset
+				}
+				&:visited{
+					color darken(Mycolorset, 25%)
+				}
+			}
+		}
+	}
+
+	#nicodou img{
+		filter invert(0.95)
+	}
+}
 @-moz-document url-prefix("https://gift.nicovideo.jp/video/"), url-prefix("https://www.nicovideo.jp/watch/"){
 		/* 動画ギフト */
 	.main,.GiftPanelContainer{
@@ -5173,6 +5307,47 @@ url-prefix("https://news.nicovideo.jp/") {
 			border-top-color Bordercolorbase !important
 			background Basecolor !important
 		}
+		
+		// ログインページ
+		.header .header__title img{
+			filter invert(0.95)
+		}
+		
+		.main.login .login-form{
+			background-color #303030
+			background-image none
+			color FontBase
+			box-shadow none
+		}
+		
+		.main.login .login-form .button-primary{
+			background-image linear-gradient(Mycolorset, darken(Mycolorset, 25%))
+			text-shadow none
+			font-weight bold
+			border none
+			outline 1px solid Mycolorset
+			height 45px
+			margin-top 5px
+		}
+		
+		.main.login .login-form input{
+			&[type="text"]
+			&[type="password"]{
+				background-color Basecolor
+				color FontBase
+				&:focus{
+					color FontBase
+				}
+			}
+		}
+		
+		a.text-link[href="/password/reset"]{
+			color Mycolorset
+		}
+		
+		.main .sns-group .text-description{
+			color FontBase
+		}
 	}
 	
 	else if Force_DarkTheme == "False"{}
@@ -5218,8 +5393,60 @@ url-prefix("https://news.nicovideo.jp/") {
 		}
 	}
 	
-	else if Anti_Conflict == False{
+}
+
+@-moz-document domain("nicovideo.jp"){
+	
+	/* doodle */
+
+	if doodle{
 		
+		Bordercolor = #5c5c5c
+		
+		.OtherMypageLinks{
+			top 128px !important
+			height 146px // 162px
+			width auto
+			max-width 360px
+			display flex
+			flex-wrap wrap
+			border 1px solid Bordercolor
+			
+			padding 0
+			
+			&-link{
+				width 33.33%
+				justify-content center
+				padding 0 8px
+			}
+			
+			&-link:nth-child(n+7){
+				// border-bottom 1px solid Bordercolor
+			}
+			
+			&-link:nth-child(3n+2){
+				border-left 1px solid Bordercolor
+				border-right 1px solid Bordercolor
+			}
+			
+			&-link:nth-child(n+4){
+				border-top 1px solid Bordercolor
+			}
+		}
+	}
+}
+
+@-moz-document domain("nicovideo.jp"){
+	/* 一部バナー */
+	.WakutkoolNoticeContainer{
+		background-color #333
+		border-color Mycolorset
 	}
 	
+	if NoticebannerClosed{
+		.WakutkoolNoticeContainer{
+			display none
+		}
+	}
+
 }
