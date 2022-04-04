@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.7.12
+@version        1.7.16
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -125,9 +125,16 @@
 ==/UserStyle== */
 
 	FontColor = #ddd
+	Fontbase = FontBase
 	
 	NicoBase = #252525
 	Nicobase = NicoBase
+	
+	_invert = invert(0.95)
+	
+	Nicolivebase = #2f2f2f
+	
+	i = !important
 
 	if MypageColorTheme == "Original"{
 		Mycolorset = #fbbc00
@@ -253,6 +260,107 @@ url-prefix("https://www.nicovideo.jp/user"){
 		background-color darken(MyBasecolor, 10%) !important
 	}
 	
+}
+
+@-moz-document url-prefix("https://www.nicovideo.jp/video_top/genre/"){
+	
+	/* ジャンル */
+	
+	.GenreTopPageHeader{
+		background-color Nicobase
+		border-bottom 4px solid lighten(Nicobase, 20%)
+		border-top none
+		h1
+		div{
+			color FontBase
+		}
+	}
+	
+	.RepresentedTag{
+		background-color lighten(Nicobase, 10%)
+		&:hover{
+			border-color Mycolorset
+			color Mycolorset
+		}
+		&_active{
+			background-color darken(Mycolorset, 10%)
+			&:hover{
+				color #fff
+			}
+		}
+	}
+	
+	.TrendyTagsContainer-expands{
+		background none
+		span{
+			color FontBase
+			&:hover{
+				color Mycolorset
+			}
+		}
+	}
+	
+	.TrendyTagsContainer-expand{
+		background-image none
+		border-radius 9999px
+		outline 1px solid FontBase
+		&[data-type="open"]{
+			margin-top 36px
+		}
+	}
+	
+	.TrendyTagsContainer-list{
+		height auto !important
+	}
+	
+	.TrendyTagsWithVideosContainer-more{
+		background linear-gradient(90deg,hsla(0, 0%, 100%, 0),#5b5b5b 20px)
+		&:hover{
+			color Mycolorset
+		}
+	}
+	
+	.VideoTopGenreListContainer-item{
+		a:hover{
+			color Mycolorset
+		}
+	}
+	
+	.Card-link:hover{
+		.Card-title{
+			color Mycolorset
+		}
+	}
+	
+	.TagItem{
+		&-link{
+			&:hover{
+				color Mycolorset
+				border-color Mycolorset
+			}
+			&:visited{
+				color darken(FontBase, 30%)
+			}
+		}
+	}
+	
+	div.HeaderContainer-searchBox{
+		justify-content center !important
+		padding-right 500px
+	}
+	
+	div.SearchBoxContainer .SearchBox{
+		width 244px i
+	}
+	
+	.SearchBoxContainer ul.SearchBox-optionTab{
+		float none i
+		padding-top 0 i
+	}
+	
+	.SearchBoxContainer form.SearchBox-form{
+		margin-left 0px i
+	}
 }
 
 @-moz-document url-prefix("https://www.nicovideo.jp/my"),
@@ -1355,7 +1463,7 @@ height:280px;
 		float: none !important;
 		padding-top: 0 !important; }
 	.HeaderContainer-ads {
-		display: block !important;
+		display: none !important;
 		visibility: hidden !important; }
 	.HeaderContainer-searchBox {
 		justify-content: center !important; }
@@ -3002,6 +3110,18 @@ url-prefix("https://live.nicovideo.jp/") {
         }
     }
     
+	[class^="___load-button___"]{
+		color FontBase
+		&::after{
+			filter _invert
+		}
+		
+		&:hover{
+			background-color darken(Nicolivebase, 50%)
+			outline 1px solid lighten(Nicolivebase, 10%) i
+			border-radius 8px
+		}
+	}
     
  	// footer
 	
@@ -3009,7 +3129,7 @@ url-prefix("https://live.nicovideo.jp/") {
 		nav{
 			a{
 				&[class^="___page-top-anchor"]{
-					background-color transparent
+					background-color Nicolivebase
 					color FontBase
 					&::before
 					&::after{
@@ -3023,6 +3143,8 @@ url-prefix("https://live.nicovideo.jp/") {
 			}
 		}
 	}
+	
+	
     
 	
 	/* フォローしてるユーザー */
@@ -3560,27 +3682,39 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 	
 
 	// following
-	[class^="___follow-toggle-form"][data-follow-status="follow"]{
-        button{
-            background-color #505050
-            border 2px solid #5f5f5f !important
-            
-            &::after{
-                color FontBase !important
-            }
-            &:hover::after{
-                color FontBase !important
-                content "フォロー解除" !important
-            }
-            &:hover{
-                background-color #303030
-            }
-            
-            svg > polygon{
-                fill FontBase !important
-            }
-        }
-    }
+	div[class^="___social-group-menu-area"]{
+		form[class^="___follow-toggle-form"][data-follow-status="follow"]{
+			
+			button{
+				background-color #505050
+				border 2px solid #5f5f5f
+				
+				&:after{
+					color Fontbase
+				}
+				
+				&:hover::after{
+					content "フォロー解除"
+					color Fontbase !important
+				}
+				
+				svg polygon{
+					fill Fontbase i
+				}
+			}
+		}
+	}
+	
+	// 放送者の好きなものリスト
+	form[class^="___follow-toggle-form"][data-follow-status="follow"]{
+		button{
+			background-color #505050
+			border 1px solid #5f5f5f
+			svg polygon{
+				fill Fontbase i
+			}
+		}
+	}
     
     /* 放送リクエストボタン */
 
@@ -4018,199 +4152,214 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 	.container {
 		background: #303030; } }
 
-@-moz-document url-prefix("https://nicoad.nicovideo.jp/nage"){
+@-moz-document url-prefix("https://gift.nicovideo.jp"){
     /* たぶんギフトタブ */
     GiftBG = #464646
     GiftFC = #ddd
     GiftBorder = GiftFC
+	
 
-    html{
-        background GiftBG
-        
-        body{
-            .nage-page{
-                background GiftBG
-                div.rich-view-container{
-                    header.header-bar{
-                        background-color darken(GiftBG, 30%);
-                        border-color darken(GiftBG, 30%)
-                        
-                        div{
-                            color GiftFC
-                        }
-                    }
-                    
-                    div.top-fixed-injected-elements{
-                        section{
-                            background GiftBG
-                        }
-                    }
-                
-                    div.rich-view-drawer-transition{
-                        
-                        div.child-container{
-                            
-                            section.nage-item-detail{
-                                div.button-wrapper{
-                                    div.foot{
-                                        span.label{
-                                            span{
-                                                color GiftFC
-                                            }
-                                        }
-                                    }
-                                }
-                                
-                                div.item-info{
-                                    div.text{
-                                        color GiftFC
-                                    }
-                                }
-                            }
-                        }
-                        
-                        div.parent-container{
-                            div{
-                                section.nage-ranking{
-                                    ul{
-                                        li{
-                                            div{
-                                                color GiftFC
-                                            }
-                                        }
-                                    }
-                                }
-                                section.nage-history{
-                                    div.main{
-                                        div.history-list{
-                                            ul.flipping-effect-list{
-                                                li{
-                                                    div{
-                                                        div{
-                                                            span{
-                                                                color GiftFC
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        
-                                        ul.total-sold-count-list{
-                                            li{
-                                                color GiftFC
-                                            }
-                                        }
-                                        
-                                        div.total-point{
-                                            div.container{
-                                                div.point{
-                                                    color GiftFC
-                                                }
-                                                button.refresh-button{
-                                                    svg{
-                                                        fill GiftFC
-                                                    }
-                                                }
-                                                
-                                                background-color lighten(GiftBG, 30%);
-                                                &::after{
-                                                    border-top-color lighten(GiftBG, 30%);
-                                                }
-                                            }
-                                        }
-                                        
-                                        div.headline{
-                                            h2{
-                                                color GiftFC
-                                            }
-                                        }
-                                    }
-                                }
-                                div{                                   
-                                    div.item-groups{
-                                        section.item-group{
-                                            &:not(:first-child){
-                                                border-color lighten(GiftBG, 15%)
-                                            }
-                                            
-                                            ul{
-                                                li{
-                                                    button{
-                                                        background-color darken(GiftBG, 10%);
-                                                        border-color darken(GiftBorder, 30%)
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                    
-                                    div.conductor{
-                                        a.visual-conductor{
-                                            border-color darken(GiftBorder, 30%)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        
-                        div.parent-top-fixed-container{
-                            nav.rich-view-tab-bar.tab-bar{
-                                background-color GiftBG;
-                                ul{
-                                    border-color GiftBorder;
-                                     li{
-                                         button[aria-selected="false"]{
-                                             background-color lighten(GiftBG, 80%)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-        
-        
-    section{
-        header{
-            h1[class="item-group-name"]{
-                color:GiftFC;
-            }
-            
-            p[class="item-group-text"]{
-                color:GiftFC !important;
-            }
-        }
-        
-        ul[class="items"]{
-            li.item{
-                button.item-button.button{
-                    span.point{
-                        color:GiftFC;
-                    }
-                }
-            }
-        }
-    }
-    
-    section.nage-user-profile{
-        p.name{
-            color:GiftFC;
-        }
-    }
-    
-    a[class="visual-conductor"]{
-        p[class="text"]{
-            color:GiftFC;
-        }
-    }
+	body{
+		background GiftBG
+	}
+	
+	header{
+		background-color GiftBG i
+		border-bottom none i
+		h1{
+			color Fontbase
+		}
+	}
+	
+	section.wrapper{
+		background-color GiftBG i
+		p{
+			color Fontbase
+		}
+	}
+	
+	div.default-top-fixed-container{
+		div nav{
+			background-color GiftBG i
+			ul li{
+				button[aria-selected="true"]{
+					background-color darken(GiftBG, 30%) i
+				}
+				button[aria-selected="false"]{
+					background-color darken(GiftBG, 10%)
+					color Fontbase
+				}
+			}
+			ul{
+				border-color darken(Fontbase, 50%) i
+			}
+		}
+	}
+	
+	div.conductor-banner{
+		a.anchor{
+			border-color darken(Fontbase, 50%)
+			
+			&:hover{
+				border-color darken(Fontbase, 78%)
+			}
+			
+			p{
+				color Fontbase
+			}
+			svg path{
+				fill Fontbase
+			}
+		}
+	}
+	
+	div.item-group-list{
+		section{
+			h1{
+				color Fontbase
+			}
+			ul{
+				li{
+					button{
+						p.point{
+							color Fontbase
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	div.drawer-content{
+		div.wrapper{
+			div.text-block{
+				color Fontbase
+			}
+			
+			div.purchase-input{
+				a{
+					color Mycolorset
+					svg path{
+						fill Mycolorset
+					}
+				}
+			}
+		}
+	}
+	
+	div.main-content{
+		section{
+			&.user-history{
+				h1{
+					color Fontbase
+				}
+				a{
+					background-color darken(Mycolorset, 10%) i
+					svg path{
+						fill #fff
+					}
+				}
+			}
+			
+			&.content-history{
+				h1.title{
+					color Fontbase
+				}
+				a{
+					color Mycolorset
+					svg path{
+						fill Mycolorset
+					}
+				}
+				
+				div.total-point{
+					div.wrapper{
+						div.balloon{
+							border-radius 14px
+							background-color darken(GiftBG, 40%)
+							&::after{
+								border-top-color darken(GiftBG, 40%)
+							}
+							
+							div.point{
+								color Fontbase
+							}
+							button.reload-button{
+								svg path{
+									fill Fontbase
+								}
+							}
+						}
+					}
+				}
+				
+				div.total-dold-count-list{
+					ul li{
+						color Fontbase
+					}
+				}
+				
+				ul.gift-history-list{
+					li.item{
+						&:first-child{
+							border-top-color lighten(GiftBG, 20%)
+						}
+						border-bottom-color lighten(GiftBG, 20%) 
+						
+						p{
+							color Fontbase
+						}
+					}
+				}
+			}
+		}
+		
+		h1.title{
+			color Fontbase
+		}
+		a.anchor{
+			color Mycolorset
+			svg path{
+				fill Mycolorset
+			}
+		}
+		ul{
+			li{
+				border-bottom-color lighten(GiftBG, 20%) i
+				button{
+					p{
+						color Fontbase
+					}
+				}
+			}
+		}
+	}
+	
+	footer.footer{
+		button{
+			span.handle[aria-checked="true"]{
+				background-color Mycolorset
+			}
+			span.label{
+				color Fontbase
+			}
+		}
+		a.terms-anchor{
+			color Mycolorset
+			svg path{
+				fill Mycolorset
+			}
+		}
+	}
+	
+	button.back-button{
+		svg path{
+			fill Fontbase
+		}
+	}
     
     
 }
-        
 @-moz-document url-prefix("https://nicoad.nicovideo.jp/my"),
 url-prefix("https://nicoad.nicovideo.jp/nage") {
 	/*ニコニ広告部分*/
@@ -4675,7 +4824,30 @@ url-prefix("https://live2.nicovideo.jp/watch/") {
 		--color-koken-grey-0: #404040;
 		--color-koken-link: #d8952f;
 		--color-koken-grey-3: #404040;
-		--iconcolor: #ddd; }
+		--iconcolor: #ddd; 
+		--color-koken-supporter : darken(Mycolorset, 10%);
+		--color-grey-5 : FontBase
+	}
+		
+	
+	// top
+	.info{
+		background-color Nicobase
+		.info-container{
+			svg{
+				fill Fontbase
+			}
+		}
+	}
+	
+	.blank-icon{
+		fill Nicobase i
+	}
+	
+	.button[href="/creator"]{
+		background-color Nicobase
+		border-color lighten(Nicobase, 40%)
+	}
 
 	/* Supporter */
 	/* fix order むり
@@ -4686,6 +4858,22 @@ div[class="multi-column-c"] > article > div[class="content-area"] > div > div > 
 		background-color: var(--basecolor);
 		color: var(--font-color); }
 
+	.content-container-inner{
+		div{
+			section.wrapper{
+				background-color Nicobase
+				svg{
+					path{
+						&[d^="M210"]
+						&[d^="M34"]{
+							fill FontBase
+						}
+					}
+				}
+			}
+		}
+	}
+		
 	p.name > strong {
 		color: var(--font-color) }
 
@@ -4711,6 +4899,36 @@ div[class="multi-column-c"] > article > div[class="content-area"] > div > div > 
 		color: var(--font-color) }
 	h2[class="text"][data-color-type="supporter"] {
 		color: var(--font-color) }
+		
+	.label[data-type="gift"]{
+		color Nicobase
+	}
+	
+	// koken progress bar
+	div.progress .wrapper{
+		.rank-name[data-active]{
+			background-color Mycolorset
+			border-color Mycolorset
+			color #fff
+			&::after{
+				border-color Mycolorset
+			}
+		}
+		
+		.rank-name{
+			background-color lighten(Nicobase, 20%)
+			border-color lighten(Nicobase,20%)
+			color FontBase
+		}
+		
+		.progress-bar{
+			background-color lighten(Nicobase, 20%)
+			
+			.progress-bar-active{
+				background-color Mycolorset
+			}
+		}
+	}
 
 	/* disable animation */
 	.thumbnail[data-color-type="supporter"]::before {
@@ -5444,7 +5662,8 @@ url-prefix("https://news.nicovideo.jp/") {
 	}
 	
 	if NoticebannerClosed{
-		.WakutkoolNoticeContainer{
+		.WakutkoolNoticeContainer
+		.common-header-ii5yd9{
 			display none
 		}
 	}
