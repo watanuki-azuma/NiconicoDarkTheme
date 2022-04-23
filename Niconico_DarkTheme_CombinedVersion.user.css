@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.7.17
+@version        1.7.18
 @description    ニコニコダークテーマの統合版です。
 @author         Azuma
 @preprocessor	stylus
@@ -3420,6 +3420,45 @@ form[class^="___comment-post-form"]{
 }
 [class^="___emotion-button___"]:disabled:before{
 	background-color alpha(#505050, 0.8)
+}
+
+/* 最近の番組 */
+section[class^="___program-broadcast-history-section"]{
+	
+	border-color lighten(Nicobase, 30%)
+	
+	div[class^="___program-card"][id^="lv"]{
+		background-color Nicobase
+		
+		border-color lighten(Nicobase, 30%)
+		
+		&:hover{
+			background-color lighten(Nicobase, 10%)
+		}
+	}
+	
+	div[class^="___program-summary"]{
+		background-color transparent i
+		border none i
+		box-shadow none i
+		a{
+			color Fontbase
+		}
+	}
+	
+	a[class^="___more-anchor"]{
+		background-color Nicobase
+		
+		border-color lighten(Nicobase, 30%)
+		
+		&:hover{
+			background-color lighten(Nicobase, 10%)
+		}
+		
+		svg g path{
+			fill Fontbase
+		}
+	}
 }
 
 /* コミュユーザーフォロー改 */
