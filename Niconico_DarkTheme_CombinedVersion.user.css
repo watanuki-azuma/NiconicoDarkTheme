@@ -1,17 +1,8 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.7.18
-@description    ニコニコダークテーマの統合版です。
-@author         Azuma
-@preprocessor	stylus
-
-@var select Ad "[マイページ]広告除去"[
-    "Enable",
-    "Disable"
-]
-
-
+@version        1.7.24
+@preprocessor 	stylus
 
 @var select CombinedTsumerudake "[マイページ]詰めるだけCSSを統合(製作者Gonbuto様)"[
     "Deny",
@@ -129,6 +120,8 @@ Fontbase = FontBase
 
 NicoBase = #252525
 Nicobase = NicoBase
+
+_concolor = #3c3c3c
 
 _invert = invert(0.95)
 
@@ -882,6 +875,78 @@ body,.NicorepoPage-content{background-color: #1e1e1e !important;}
 
 @-moz-document url-prefix("https://www.nicovideo.jp/") {
 /* ニコニコトップ */
+
+/* 需要のないイベント対応 */
+.BreakingNewsContainer-{
+	&inner
+	&header{
+		background-color _concolor
+	}
+}
+
+// 謎の角欠け（無効化してもいいのかな？）
+.ContentThumbnail{
+	background none
+}
+
+.LiveWindowContainer{
+	background-color Nicobase
+	border none
+	
+	&-metaTitle
+	&-metaDescription{
+		color Fontbase
+	}
+}
+
+.TopPage .EventDecorationContainer{
+	margin-top 30px
+	background-color Nicobase // 多少のデザイン崩れは許容
+}
+
+.PublishedEventArticlesContainer{
+	background-color _concolor
+	
+	&-articleTitle
+	&-title{
+		color Fontbase
+	}
+}
+
+.SponsorsContainer{
+	background-color _concolor
+}
+
+.SponsorsBoard-title{
+	&Text{
+		background-color _concolor
+		color Fontbase
+	}
+	
+	&::before{
+		border-color Fontbase
+	}
+
+}
+
+.SponsorText{
+	color Fontbase
+}
+
+
+.StageBackground-custom, .StageBackground-custom > div{
+	opacity 0
+}
+
+.HeaderContainer_Re-decorationBackground[data-wktk-show]{
+	mix-blend-mode: saturation
+}
+
+.FixedFooterContainer{
+	background-color #757575
+	color #474747 !important
+}
+
 /* 背景 */
 .StageBackground {
 	filter: invert(0.95)
@@ -3301,6 +3366,13 @@ body {
 url-prefix("https://launch.spi.nicovideo.jp/amazon/"),
 url-prefix("https://live2.nicovideo.jp/watch/") {
 /* ニコ生視聴ページ */
+
+[class^="___player-area___"]{
+	background-image none !important
+}
+[class^="___planning-event-participation-program-list-section"]{
+	display none
+}
 	
 
 /*背景*/
@@ -3613,6 +3685,10 @@ div[class^="___social-group-menu-area"]{
 				color Fontbase !important
 			}
 			
+			&:hover span{
+				display none
+			}
+			
 			svg polygon{
 				fill Fontbase i
 			}
@@ -3629,6 +3705,10 @@ form[class^="___follow-toggle-form"][data-follow-status="follow"]{
 			fill Fontbase i
 		}
 	}
+}
+
+div[class^="___information___"][class*="___ga-ns-information___"] span{
+	z-index 1000
 }
 
 /* 放送リクエストボタン */
@@ -3898,6 +3978,11 @@ li[data-item-name="addNgUserId"] > *:hover {
 [class^="___description-area___"] > div[class^="___name-area"] > span{color: #ddd;}
 [class^="___description-area___"] > div[class^="___name-area"] > a[class^="___name-label"]:hover{
 	color: #ffcd34 !important;
+}
+
+[class^="___table-row___"][data-comment-type=gift] [class^="___comment-text___"]:before
+[class^="___table-row___"][data-comment-type=nicoad] [class^="___comment-text___"]:before{
+	filter invert(0.95)
 }
 
 /*ヘッダーまわり class名変更に耐えられる記述がよくわからないのできちんと書けるまで対応停止
@@ -4943,6 +5028,13 @@ div.progress .wrapper{
 	opacity: 0 !important }
 span[class="particle"] {
 	display: none !important }
+	
+// tickets icon
+p.content-types{
+	span.label{
+		background-color _concolor
+	}
+}
 
 /* koken result */
 .modal:not([data-full-screen]) [class^="modal-wrapper"] {
@@ -5671,6 +5763,7 @@ if doodle{
 
 if NoticebannerClosed{
 	.WakutkoolNoticeContainer
+	.WakutkoolHeaderContainer
 	.common-header-ii5yd9{
 		display none
 	}
