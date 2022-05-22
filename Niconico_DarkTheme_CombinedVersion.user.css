@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.7.24
+@version        1.7.25
 @preprocessor 	stylus
 
 @var select CombinedTsumerudake "[マイページ]詰めるだけCSSを統合(製作者Gonbuto様)"[
@@ -3494,6 +3494,18 @@ form[class^="___comment-post-form"]{
 	background-color alpha(#505050, 0.8)
 }
 
+/* タイムシフト */
+
+[class^="___timeshift-expired-time___"]{
+	background-color Nicobase
+}
+
+/* 放送詳細 */
+
+span[class^="___airtime"]{
+	color #bbb
+}
+
 /* 最近の番組 */
 section[class^="___program-broadcast-history-section"]{
 	
@@ -3681,7 +3693,11 @@ div[class^="___social-group-menu-area"]{
 			}
 			
 			&:hover::after{
-				content "フォロー解除"
+				content ""
+				color Fontbase !important
+			}
+			
+			span{
 				color Fontbase !important
 			}
 			
