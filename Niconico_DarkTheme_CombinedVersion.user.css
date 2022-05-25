@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.7.25
+@version        1.7.26
 @preprocessor 	stylus
 
 @var select CombinedTsumerudake "[マイページ]詰めるだけCSSを統合(製作者Gonbuto様)"[
@@ -15,6 +15,8 @@
 ]
 
 @var color MyCustomcolorset "[マイページ]カスタムカラー" #0080ff
+
+@var checkbox disablePersonalNoticeFrame "[マイページ]お知らせ枠を消す" 0
 
 @var text Setplayerpanel "[動画]コメントエリアの横幅を設定（単位px 307px未満に設定しないでください）" "384"
 
@@ -414,6 +416,35 @@ MypageBaseColor = var(--MypageBaseColor);
 	padding: 2px 0px 0px !important;
 	background-color: #757575;
 	transform: translateY(-2px) !important;
+}
+
+/* お知らせ */
+.PersonalFrame-{
+	&body{
+		background-color _concolor
+		border-color lighten(_concolor, 10%)
+	}
+	&text{
+		color Fontbase
+	}
+}
+
+.FormationFrame-{
+	&message{
+		background-color _concolor
+		border-color lighten(_concolor, 10%)
+		color Fontbase
+	}
+}
+
+.RightSideContainer{
+	left 51%
+}
+
+if disablePersonalNoticeFrame{
+	.RightSideContainer{
+		display none
+	}
 }
 
 
@@ -3693,7 +3724,7 @@ div[class^="___social-group-menu-area"]{
 			}
 			
 			&:hover::after{
-				content ""
+				content "フォロー解除"
 				color Fontbase !important
 			}
 			
@@ -5766,6 +5797,20 @@ if doodle{
 		&-link:nth-child(n+4){
 			border-top 1px solid Bordercolor
 		}
+	}
+	
+	
+	.RightSideContainer{
+		left 51%
+		display flex
+	}
+	
+	.RightSideContainer *{
+		max-height 110px !important
+	}
+	
+	.RightSideContainer-personalFrame{
+		margin-right 5px
 	}
 }
 }
