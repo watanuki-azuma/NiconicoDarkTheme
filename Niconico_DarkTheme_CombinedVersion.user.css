@@ -1,8 +1,10 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.7.27
+@version        1.8.0
 @preprocessor 	stylus
+
+@var checkbox moveGiftContainer "[実験的 動画]ギフトボタンを右上に移動" 0
 
 @var select CombinedTsumerudake "[マイページ]詰めるだけCSSを統合(製作者Gonbuto様)"[
     "Deny",
@@ -1944,6 +1946,12 @@ background:#333 !important;
 	.PlayerContainer{
 		background-color VideoBG;
 	}
+	
+	// 投稿者アイコン横 投稿動画ボタン
+	.VideoOwnerUploadedLink{
+		border 1px solid #ddd !important
+		padding 1px 4px
+	}
 
 	.title,
 	.VideoTitle {
@@ -2034,6 +2042,28 @@ background:#333 !important;
 		}
 		&-closeButton{
 			border none !important
+		}
+	}
+	
+	.GiftSubEffectContainer-balloon{
+		background-color _concolor
+		&::after{
+			border-right-color _concolor
+		}
+		button{
+			color Fontbase
+		}
+	}
+	
+	.GiftSubEffectDefault{
+		border none !important
+	}
+	
+	if moveGiftContainer{
+		.GiftSubEffectContainer{
+			top -102.5%
+			left 100%
+			position relative
 		}
 	}
 	
