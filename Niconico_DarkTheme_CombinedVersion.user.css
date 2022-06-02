@@ -2065,6 +2065,10 @@ background:#333 !important;
 			left 100%
 			position relative
 		}
+		
+		.GiftSubEffectContainer-balloon{
+			width 167px
+		}
 	}
 	
 	// かんたんコメント
