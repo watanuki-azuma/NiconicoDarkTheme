@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.8.0
+@version        1.8.1
 @preprocessor 	stylus
 
 @var checkbox moveGiftContainer "[実験的 動画]ギフトボタンを右上に移動" 0
@@ -2065,7 +2065,7 @@ background:#333 !important;
 			left 100%
 			position relative
 		}
-		
+
 		.GiftSubEffectContainer-balloon{
 			width 167px
 		}
