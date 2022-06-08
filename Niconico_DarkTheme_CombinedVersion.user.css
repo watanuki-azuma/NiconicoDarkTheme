@@ -1,10 +1,15 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.8.1
+@version        1.8.2
 @preprocessor 	stylus
 
-@var checkbox moveGiftContainer "[実験的 動画]ギフトボタンを右上に移動" 0
+@var select AdvancedMoveGiftContainer "[実験的 動画]ギフトボタンを右上に移動"[
+	"Unset",
+	"Standard",
+	"Advanced",
+	"AdvancedPlus"
+]
 
 @var select CombinedTsumerudake "[マイページ]詰めるだけCSSを統合(製作者Gonbuto様)"[
     "Deny",
@@ -2064,10 +2069,75 @@ background:#333 !important;
 			top -102.5%
 			left 100%
 			position relative
+			max-width 270px
 		}
 
 		.GiftSubEffectContainer-balloon{
 			width 167px
+		}
+		
+	}
+	
+	if moveGiftContainer2{
+		.GiftSubEffectContainer{
+			top -10%
+			left 100%
+			position absolute
+			max-width 270px
+		}
+
+		.GiftSubEffectContainer-balloon{
+			width 167px
+		}
+		.GiftSubEffectContainer-right > *{
+			position initial !important
+		}
+	}
+	
+	if AdvancedMoveGiftContainer == "Unset"{}
+	else if AdvancedMoveGiftContainer == "Standard"{
+		.GiftSubEffectContainer{
+			top -102.5%
+			left 100%
+			position relative
+			max-width 270px
+		}
+
+		.GiftSubEffectContainer-balloon{
+			width 167px
+		}
+	}
+	else if AdvancedMoveGiftContainer =="Advanced"{
+		.GiftSubEffectContainer{
+			top -10%
+			left 100%
+			position absolute
+			max-width 270px
+		}
+
+		.GiftSubEffectContainer-balloon{
+			width 167px
+		}
+		.GiftSubEffectContainer-right > *{
+			position initial !important
+		}
+	}
+	else if AdvancedMoveGiftContainer =="AdvancedPlus"{
+		.GiftSubEffectContainer{
+			top -10%
+			left 100%
+			position absolute
+			max-width 270px
+		}
+
+		.GiftSubEffectContainer-balloon{
+			width 167px
+		}
+		.GiftSubEffectContainer-right > *{
+			position initial !important
+		}
+		.GiftSubEffectContainer-right{
+			display none
 		}
 	}
 	
