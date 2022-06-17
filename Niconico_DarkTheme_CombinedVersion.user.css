@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.8.2.1
+@version        1.8.3
 @preprocessor 	stylus
 
 @var select AdvancedMoveGiftContainer "[実験的 動画]ギフトボタンを右上に移動"[
@@ -2062,6 +2062,10 @@ background:#333 !important;
 	
 	.GiftSubEffectDefault{
 		border none !important
+	}
+	
+	.GiftSubEffectDisallowed{
+		display none
 	}
 	
 	if AdvancedMoveGiftContainer == "Unset"{}
