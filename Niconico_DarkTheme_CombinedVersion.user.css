@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.8.3
+@version        1.8.4
 @preprocessor 	stylus
 
 @var select AdvancedMoveGiftContainer "[実験的 動画]ギフトボタンを右上に移動"[
@@ -1146,6 +1146,28 @@ body,.NicorepoPage-content{background-color: #1e1e1e !important;}
 			}
 		}
 		
+	}
+	
+	.list{
+		border-bottom 1px solid #4f4f4f
+		border-top 1px solid #4f4f4f
+	}
+	
+	section[width="756"]{
+		background-color #555
+		
+		p{
+			color Fontbase !important
+			.date{
+				time[datetime=""]{
+					color Fontbase !important
+				}
+			}
+		}
+		
+		a.linkified{
+			color Mycolorset
+		}
 	}
 	
 
