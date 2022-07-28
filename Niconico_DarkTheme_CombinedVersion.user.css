@@ -1,8 +1,23 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.8.4
+@version        1.8.5
 @preprocessor 	stylus
+
+@var select PositionMode "[実験的 ギフトボタン]配置モード"{
+	"unset(なにもしない)":"unset",
+	"absolute(絶対位置)":"absolute",
+	"relative(相対位置)":"relative"
+}
+
+@var number topRange "topの値（単位%)" [0, -500, 500, 0.5]
+@var number leftRange "leftの値（単位%）" [100, -500, 500, 0.5]
+
+@var select GiftBannerAds "ギフト横バナー"[
+	"unset*",
+	"Disable",
+	"Justify"
+]
 
 @var select AdvancedMoveGiftContainer "[実験的 動画]ギフトボタンを右上に移動"[
 	"Unset",
@@ -2134,6 +2149,35 @@ background:#333 !important;
 		}
 		.GiftSubEffectContainer-right{
 			display none
+		}
+	}
+	
+	
+	// 実験的 ギフトボタン移動モード
+	.GiftSubEffectContainer{
+		position: PositionMode
+		left: unit(leftRange, '%')
+		top: unit(topRange, '%')
+	}
+	if GiftBannerAds == "Disable"{
+		.GiftSubEffectContainer-right{
+			display none
+		}
+	}
+	
+	else if GiftBannerAds == "Justify"{
+		.GiftSubEffectContainer{
+			max-width 322px
+			&-right{
+				width 330px
+				padding-left 0
+				left -50px
+				top 60px
+			}
+		}
+		
+		.GiftSubEffectContainer-balloon::before{
+			border none
 		}
 	}
 	
