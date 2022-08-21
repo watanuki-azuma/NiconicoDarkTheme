@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ニコニコダークテーマ統合版
 @namespace      nicovideo.jp
-@version        1.8.5
+@version        1.8.6
 @preprocessor 	stylus
 
 @var select PositionMode "[実験的 ギフトボタン]配置モード"{
@@ -10,7 +10,7 @@
 	"relative(相対位置)":"relative"
 }
 
-@var number topRange "topの値（単位%)" [0, -500, 500, 0.5]
+@var number topRange "topの値（単位%)" [0, -500, 500, 0.1]
 @var number leftRange "leftの値（単位%）" [100, -500, 500, 0.5]
 
 @var select GiftBannerAds "ギフト横バナー"[
@@ -473,7 +473,7 @@ url-prefix("https://www.nicovideo.jp/series/") {
 
 	/* 検索バー */
 	
-	.CrossSearch_Re-{
+	.CrossSearch-{
 		&form{
 			background-color #515151
 			border 1px solid #646464
@@ -494,14 +494,18 @@ url-prefix("https://www.nicovideo.jp/series/") {
 			}
 		}
 		
-		&inputt,&::placeholder{
+		&input{
 			color #fff
+			&::placeholder{
+				color #fff !important
+			}
 		}
 		
 		&button{
 			filter invert(0.95)
 		}
 	}
+	
 
 	/*サブメニュー共通*/
 	.SubMenuLink-link_internal:hover {
@@ -858,12 +862,21 @@ url-prefix("https://www.nicovideo.jp/series/") {
 	.PageTopButton {
 		background-color: #2d2d2d;
 	}
+	
+	.NC-ThreePointMenu_dark .NC-ThreePointMenu-button{
+		filter invert(0.95)
+	}
 
 	/* スクロールバー only Firefox */
 	.Snap.Dropdown.OtherMypageLinks,
 	.ModalContent-body,
 	.Selectbox {
 		scrollbar-width: thin;
+	}
+	
+	// おすすめユーザー
+	.RecommendUserContainer-title{
+		color Fontbase
 	}
 
 	/*シリーズ*/
@@ -1049,33 +1062,33 @@ body,.NicorepoPage-content{background-color: #1e1e1e !important;}
 	}
 
 	/* 検索バー */
-	.CrossSearch_Re-rowSelector,
-	.CrossSearch_Re-form {
+	.CrossSearch_rowSelector,
+	.CrossSearch_form {
 		background-color: #515151;
 		border: 1px solid #646464;
 	}
 
-	.CrossSearch_Re-rowService.active,
-	.CrossSearch_Re-rowService:hover {
+	.CrossSearch_rowService.active,
+	.CrossSearch_rowService:hover {
 		background-color: #313131;
 		color: #ddd;
 	}
 
-	.CrossSearch_Re-rowService {
+	.CrossSearch_rowService {
 		color: #d7d7d7;
 	}
 
-	.CrossSearch_Re-form {
+	.CrossSearch_form {
 		background: #515151;
 		box-shadow: inset 0 0 0 1px #646464;
 	}
 
-	.CrossSearch_Re-inputt,
-	.CrossSearch_Re-input::placeholder {
+	.CrossSearch_inputt,
+	.CrossSearch_input::placeholder {
 		color: #fff;
 	}
 
-	.CrossSearch_Re-button {
+	.CrossSearch_button {
 		filter invert(0.95);
 	}
 
@@ -1563,7 +1576,7 @@ top: 15px !important;
 .SubMenuButton{width:90% !important;}
 .SideContainer {margin-right: auto !important; width: 185px !important;}
 .ExpandBoxButton{height: auto !important;}
-.UserPageHeader{margin-top: -20px !important;margin-bottom: -10px !important;}
+.UserPageHeader{margin-bottom: -10px !important;}
 .SubMenuLink{width: 95% !important;}
 .ExpandBoxButton_expanded{margin-top: -5px;}
 .HistoryPage{align-items : normal;}
@@ -2047,6 +2060,14 @@ background:#333 !important;
 		.VideoTitle{
 			margin-left:5px;
 		}
+	}
+	
+	// エラーページ
+	.ErrorMessage{
+		background-color Nicobase
+	}
+	.NC-Card .NC-CardTitle{
+		color Fontbase
 	}
 
 	/* だいあろぐ */
